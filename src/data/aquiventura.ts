@@ -503,7 +503,7 @@ export const opinionesIniciales: Opinion[] = [
   },
   {
     id: "o3",
-    nombre: "Familia醒 Pérez",
+    nombre: "Familia Pérez",
     estrellas: 4,
     comentario:
       "Fuimos con niños y disfrutaron mucho el día en el lago. Recomiendo llevar ropa abrigada porque en la tarde baja mucho la temperatura.",
