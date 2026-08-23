@@ -1,37 +1,47 @@
-import heroLago from "@/assets/hero-lago-tota.jpg";
-import playaBlanca from "@/assets/playa-blanca.jpg";
-import paramo from "@/assets/paramo.jpg";
-import fauna from "@/assets/fauna.jpg";
-import cultivos from "@/assets/cultivos-cebolla.jpg";
-import kayak from "@/assets/kayak.jpg";
-import pueblo from "@/assets/pueblo.jpg";
-import muisca from "@/assets/muisca.jpg";
-import colonial from "@/assets/colonial.jpg";
-import artesanias from "@/assets/artesanias.jpg";
-import cultura from "@/assets/cultura.jpg";
-import mirador from "@/assets/mirador.jpg";
-import gastroTaller from "@/assets/gastro-taller.jpg";
-import gastroRafaelo from "@/assets/gastro-rafaelo.jpg";
-import gastroLucho from "@/assets/gastro-lucho.jpg";
-import gastroBarbacoa from "@/assets/gastro-barbacoa.jpg";
+import mirador from "@/assets/fotos/mirador-lago.jpg";
+import lanchaAtardecer from "@/assets/fotos/lancha-atardecer.jpg";
+import orillaOlas from "@/assets/fotos/orilla-olas.jpg";
+import costaLago from "@/assets/fotos/costa-lago.jpg";
+import buceo from "@/assets/fotos/buceo.jpg";
+import lanchaNavegando from "@/assets/fotos/lancha-navegando.jpg";
+import islaOrilla from "@/assets/fotos/isla-orilla.jpg";
+import aereaIsla from "@/assets/fotos/aerea-isla.jpg";
+import chalecos from "@/assets/fotos/chalecos.jpg";
+import buzos from "@/assets/fotos/buzos.jpg";
+import panoramica from "@/assets/fotos/panoramica-lago.jpg";
+import experienciaGrupo from "@/assets/fotos/experiencia-grupo.jpg";
+import caminataParamo from "@/assets/fotos/caminata-paramo.jpg";
+import bosqueNiebla from "@/assets/fotos/bosque-niebla.jpg";
+import frailejones from "@/assets/fotos/frailejones.jpg";
+import paramoLaguna from "@/assets/fotos/paramo-laguna.jpg";
+import cultivos from "@/assets/fotos/cultivos.jpg";
+import tallerBocado from "@/assets/fotos/taller-bocado.jpg";
+import logoRafaelo from "@/assets/fotos/logo-rafaelo.jpg";
+import logoLucho from "@/assets/fotos/logo-lucho.jpg";
+import logoBarbacoa from "@/assets/fotos/logo-barbacoa.jpg";
 
 export const img = {
-  heroLago,
-  playaBlanca,
-  paramo,
-  fauna,
-  cultivos,
-  kayak,
-  pueblo,
-  muisca,
-  colonial,
-  artesanias,
-  cultura,
   mirador,
-  gastroTaller,
-  gastroRafaelo,
-  gastroLucho,
-  gastroBarbacoa,
+  lanchaAtardecer,
+  orillaOlas,
+  costaLago,
+  buceo,
+  lanchaNavegando,
+  islaOrilla,
+  aereaIsla,
+  chalecos,
+  buzos,
+  panoramica,
+  experienciaGrupo,
+  caminataParamo,
+  bosqueNiebla,
+  frailejones,
+  paramoLaguna,
+  cultivos,
+  tallerBocado,
+  logoRafaelo,
+  logoLucho,
+  logoBarbacoa,
 };
 
 export const navItems = [
@@ -45,6 +55,8 @@ export const navItems = [
   { to: "/mapa", label: "Mapa" },
   { to: "/contacto", label: "Contacto" },
 ] as const;
+
+/* ------------------------------- HISTORIA ------------------------------- */
 
 export type TimelineItem = {
   id: string;
@@ -62,8 +74,8 @@ export const timeline: TimelineItem[] = [
     title: "Guáquira y la época prehispánica",
     summary: "El territorio se conocía como Guáquira, tierra de aguas sagradas.",
     detail:
-      "Mucho antes de la llegada de los europeos, las tierras que hoy forman Aquitania se conocían como Guáquira. Las comunidades que habitaban las orillas del Lago de Tota vivían de la pesca, la caza y el cultivo en las laderas. El lago era considerado un lugar sagrado, morada de fuerzas naturales y escenario de rituales.",
-    image: muisca,
+      "Mucho antes de la llegada de los europeos, las tierras que hoy forman Aquitania se conocían como Guáquira. Las comunidades que habitaban las orillas del Lago de Tota vivían de la pesca, la caza y el cultivo en las laderas. El lago era considerado un lugar sagrado, escenario de rituales y de relatos que aún se transmiten de generación en generación.",
+    image: costaLago,
   },
   {
     id: "muisca",
@@ -71,8 +83,8 @@ export const timeline: TimelineItem[] = [
     title: "Cultura muisca",
     summary: "El pueblo muisca teje mitos y economía alrededor del lago.",
     detail:
-      "Los muiscas integraron el Lago de Tota a su cosmovisión. La leyenda del Monstruo Negro del lago, los relatos sobre Bachué y las ofrendas en las aguas hacen parte de una tradición oral que aún se conserva. Su organización social, el trabajo de la tierra y el intercambio de sal, mantas y alimentos marcaron la región.",
-    image: cultura,
+      "Los muiscas integraron el Lago de Tota a su cosmovisión. La Isla del Zaque —hoy Isla San Pedro— conserva el nombre de la autoridad muisca, y el origen mítico del lago hace parte de la interpretación del patrimonio que se realiza en los recorridos actuales. Su organización social, el trabajo de la tierra y el intercambio marcaron el territorio.",
+    image: islaOrilla,
   },
   {
     id: "espanoles",
@@ -80,8 +92,8 @@ export const timeline: TimelineItem[] = [
     title: "Llegada de los españoles",
     summary: "La conquista transforma el territorio y sus formas de vida.",
     detail:
-      "Con la llegada de los españoles al altiplano boyacense se imponen nuevas formas de propiedad, religión y organización del trabajo. Se levantan capillas, se reparten tierras y las comunidades indígenas son reorganizadas en encomiendas y resguardos alrededor del lago.",
-    image: colonial,
+      "Con la llegada de los españoles al altiplano boyacense se imponen nuevas formas de propiedad, religión y organización del trabajo. Se levantan capillas, se reparten tierras y las comunidades indígenas son reorganizadas alrededor del lago, en lo que hoy es la provincia de Sugamuxi.",
+    image: caminataParamo,
   },
   {
     id: "puebloviejo",
@@ -89,8 +101,8 @@ export const timeline: TimelineItem[] = [
     title: "Puebloviejo",
     summary: "El primer asentamiento formal del municipio.",
     detail:
-      "El poblado original recibió el nombre de Puebloviejo. Allí se concentraron las primeras casas, la iglesia y el mercado. Las condiciones del terreno y las crecientes del lago llevaron con el tiempo a reubicar y reorganizar el caserío hacia el lugar que hoy ocupa la cabecera municipal.",
-    image: pueblo,
+      "El poblado original recibió el nombre de Puebloviejo. Allí se concentraron las primeras casas, la iglesia y el mercado. Las condiciones del terreno y del lago llevaron con el tiempo a reorganizar el caserío hacia el lugar que hoy ocupa la cabecera municipal, a 32 km al sur de Sogamoso.",
+    image: panoramica,
   },
   {
     id: "avella",
@@ -99,127 +111,247 @@ export const timeline: TimelineItem[] = [
     summary: "Una figura clave en la consolidación del municipio.",
     detail:
       "Ramón Ignacio Avella es recordado por su papel en la organización y el impulso del municipio. Su gestión quedó ligada a la construcción de espacios comunitarios y al ordenamiento del pueblo, y su nombre hace parte de la memoria local de Aquitania.",
-    image: pueblo,
+    image: cultivos,
   },
   {
     id: "aquitania",
-    year: "1777 – siglo XIX",
+    year: "Siglo XIX",
     title: "Cambio de nombre a Aquitania",
     summary: "El municipio adopta el nombre que conserva hasta hoy.",
     detail:
-      "El antiguo Puebloviejo pasó a llamarse Aquitania, nombre de resonancia europea que reemplazó las denominaciones anteriores. Con el cambio de nombre se afianzó la identidad del municipio dentro de la provincia de Sugamuxi, en el departamento de Boyacá.",
-    image: colonial,
+      "El antiguo Puebloviejo pasó a llamarse Aquitania. Con el cambio de nombre se afianzó la identidad del municipio dentro de la provincia de Sugamuxi, en el departamento de Boyacá, y se consolidó su vocación agrícola alrededor del lago.",
+    image: orillaOlas,
   },
   {
     id: "hoy",
     year: "Actualidad",
     title: "Aquitania hoy",
-    summary: "Capital cebollera de Colombia y destino turístico del Lago de Tota.",
+    summary: "Turismo responsable alrededor del lago más grande de Colombia.",
     detail:
-      "Hoy Aquitania es reconocida como la capital cebollera de Colombia y como puerta de entrada al Lago de Tota, el lago natural más grande del país. Turismo, agricultura y conservación conviven en un municipio que recibe visitantes de todo el mundo en Playa Blanca, sus miradores y sus páramos.",
-    image: cultivos,
+      "Hoy Aquitania es la puerta de entrada al Lago de Tota, el lago más grande, alto e importante de Colombia. Operadores turísticos locales ofrecen recorridos náuticos, buceo, senderismo de alta montaña y experiencias gastronómicas, todos con permisos y guías capacitados que promueven la conservación del ecosistema.",
+    image: mirador,
   },
 ];
+
+/* ----------------------------- EXPERIENCIAS ----------------------------- */
+
+export type Categoria = "Naturaleza" | "Aventura" | "Cultura" | "Turismo ecológico" | "Familia";
 
 export type Experiencia = {
   id: string;
   nombre: string;
-  categoria: "Naturaleza" | "Aventura" | "Cultura" | "Turismo ecológico" | "Familia";
+  operador: string;
+  categoria: Categoria;
   corta: string;
   detalle: string;
+  ubicacion: string;
   duracion: string;
   dificultad: string;
+  participantes?: string;
+  incluye?: string;
+  costo: string;
+  telefono: string;
   image: string;
 };
 
 export const experiencias: Experiencia[] = [
   {
-    id: "playa-blanca",
-    nombre: "Día en Playa Blanca",
+    id: "isla-san-pedro-aqualago",
+    nombre: 'Descubre la "Isla San Pedro"',
+    operador: "AQUALAGO SAS BIC",
     categoria: "Familia",
-    corta: "Arena blanca y aguas turquesa a 3.015 metros sobre el nivel del mar.",
+    corta: "Recorrido náutico guiado hasta la isla más extensa del Lago de Tota.",
     detalle:
-      "Playa Blanca es la postal más conocida del Lago de Tota: una playa de arena blanca en pleno altiplano andino. Ideal para pasar el día en familia, caminar por la orilla, tomar fotografías y disfrutar de los kioscos de comida cercanos. Se recomienda llevar bloqueador solar, chaqueta para la tarde y calzado cómodo.",
-    duracion: "Medio día o día completo",
-    dificultad: "Baja",
-    image: playaBlanca,
-  },
-  {
-    id: "kayak",
-    nombre: "Kayak en el Lago de Tota",
-    categoria: "Aventura",
-    corta: "Rema sobre el lago natural más grande de Colombia.",
-    detalle:
-      "Recorridos guiados en kayak por las bahías del lago. La actividad incluye chaleco salvavidas, breve instrucción y acompañamiento. Las primeras horas de la mañana ofrecen aguas más tranquilas y mejores condiciones para la fotografía.",
-    duracion: "1 a 2 horas",
-    dificultad: "Media",
-    image: kayak,
-  },
-  {
-    id: "paramo",
-    nombre: "Caminata al páramo",
-    categoria: "Turismo ecológico",
-    corta: "Frailejones, neblina y nacimientos de agua.",
-    detalle:
-      "Una caminata guiada por los páramos que rodean Aquitania, ecosistemas estratégicos que regulan el agua de la región. Durante el recorrido se explican la función de los frailejones, la fauna de altura y las estrategias de conservación del territorio.",
-    duracion: "3 a 5 horas",
-    dificultad: "Media-alta",
-    image: paramo,
-  },
-  {
-    id: "cebolla",
-    nombre: "Ruta de la cebolla larga",
-    categoria: "Cultura",
-    corta: "Conoce el cultivo que define la identidad de Aquitania.",
-    detalle:
-      "Visita a cultivos familiares donde los campesinos explican el proceso de siembra, corte, lavado y empaque de la cebolla larga que abastece a buena parte del país. Una experiencia cercana a la vida cotidiana del municipio.",
-    duracion: "2 a 3 horas",
-    dificultad: "Baja",
-    image: cultivos,
-  },
-  {
-    id: "mirador",
-    nombre: "Miradores del lago",
-    categoria: "Naturaleza",
-    corta: "Atardeceres panorámicos sobre el Lago de Tota.",
-    detalle:
-      "Los miradores en la vía que bordea el lago ofrecen vistas completas del espejo de agua, las islas y las montañas. Es el mejor lugar para ver el atardecer y entender la dimensión real del Lago de Tota.",
+      "Navega las cristalinas aguas del manantial natural de agua dulce más grande de Colombia y el segundo más alto de Suramérica. Recorrido escénico con interpretación de mitos y leyendas, avistamiento de aves en zona AICA (Área Importante para la Conservación de las Aves) y contacto directo con el paisaje altoandino.",
+    ubicacion: "Muelle La Peña – Vereda El Cajón, km 3.5 vía Aquitania – Sogamoso",
     duracion: "1 hora",
     dificultad: "Baja",
+    participantes: "Desde 1 hasta 150 pasajeros, 1 guía por cada 30 personas",
+    incluye: "Recorrido náutico guiado, pólizas RC y RCE, chaleco salvavidas y dos tripulantes",
+    costo: "Desde $30.000 COP / 8 USD por persona en tarifa grupo",
+    telefono: "310 753 7535 – 311 268 9159",
+    image: lanchaNavegando,
+  },
+  {
+    id: "lancha-caminata-camaquitours",
+    nombre: "Paseo en lancha y caminata por la Isla San Pedro",
+    operador: "CAMAQUITOUR'S",
+    categoria: "Naturaleza",
+    corta: "Navegación y caminata de 45 minutos por la isla del Zaque.",
+    detalle:
+      "Navegamos por las cristalinas aguas del Lago de Tota y desembarcamos en la Isla San Pedro, donde haremos una caminata de aproximadamente 45 minutos. Conoceremos la importancia histórica y cultural de este sitio y aprenderemos sobre la cultura ancestral del territorio.",
+    ubicacion: "Muelle La Peña, 152427 – Aquitania, Boyacá",
+    duracion: "2 horas",
+    dificultad: "Baja",
+    participantes: "Mínimo 2 y máximo 10 pasajeros",
+    incluye: "Recorrido náutico, caminata, póliza y alquiler de chaleco salvavidas",
+    costo: "$200.000 COP / 50 USD (1 a 6 pasajeros) · $40.000 COP por pasajero adicional",
+    telefono: "313 833 7448",
+    image: islaOrilla,
+  },
+  {
+    id: "buceo",
+    nombre: "Buceo en el Lago de Tota",
+    operador: "DIVE AND TOURS",
+    categoria: "Aventura",
+    corta: "Explora el mundo subacuático del lago con RAID TRY DIVE.",
+    detalle:
+      "A partir de los 12 años y sin experiencia previa: solo necesitas toalla y vestido de baño. Incluye instrucción teórica en línea, práctica en aguas confinadas o piscina y la posibilidad de un buceo real en el Lago de Tota. Una aventura única para toda la familia.",
+    ubicacion: "Aquitania",
+    duracion: "3 horas",
+    dificultad: "Baja",
+    participantes: "Mínimo 1 y máximo 4 pasajeros · desde 12 años",
+    incluye:
+      "Instrucción teórica y práctica, equipo completo, refrigerio y bebidas calientes, seguro médico y reconocimiento RAID TRY DIVE",
+    costo: "$360.000 COP en piscina · $540.000 COP piscina + buceo en el lago",
+    telefono: "314 219 1762",
+    image: buceo,
+  },
+  {
+    id: "mamapacha-isla",
+    nombre: "Recorrido en lancha por la Isla del Zaque",
+    operador: "MAMAPACHA EXPERIENCE",
+    categoria: "Cultura",
+    corta: "El valor sagrado del lago para los primeros habitantes del territorio.",
+    detalle:
+      "Disfruta de un recorrido por la Isla San Pedro o Isla del Zaque, a través de la cual comprenderemos el valor del sagrado Lago de Tota para los primeros habitantes de estas tierras. Una experiencia de conexión con la naturaleza y con la memoria del territorio.",
+    ubicacion: "Aquitania – Lago de Tota",
+    duracion: "Recorrido náutico guiado",
+    dificultad: "Baja",
+    participantes: "Mínimo 1 y máximo 70 pasajeros",
+    incluye: "Recorrido náutico, póliza y alquiler de chaleco salvavidas",
+    costo: "$200.000 COP / 50 USD (1 a 6 personas) · $60.000 COP persona adicional",
+    telefono: "320 402 9551 – 311 563 2466",
+    image: aereaIsla,
+  },
+  {
+    id: "tota-lago-tours",
+    nombre: "Caminos ancestrales y cumbre panorámica",
+    operador: "TOTA LAGO TOURS",
+    categoria: "Turismo ecológico",
+    corta: "Caminos empedrados, frailejones y la mejor vista de la vereda La Puerta.",
+    detalle:
+      "Caminarás los ancestrales caminos empedrados, desentrañando las historias, el legado y las enseñanzas de nuestros abuelos. A cada paso la vegetación nativa y de páramo te envolverá, revelando la majestuosidad de los frailejones y la serenidad de sus yacimientos de agua. La recompensa final es la cima de una de las montañas más altas, un mirador privilegiado sobre el lago.",
+    ubicacion: "Vereda La Puerta – Aquitania",
+    duracion: "Jornada de montaña",
+    dificultad: "Media-alta",
+    costo: "Consultar con el operador",
+    telefono: "310 800 6459",
+    image: caminataParamo,
+  },
+  {
+    id: "isua-sentidos",
+    nombre: "Recárgate de energía a través de los sentidos",
+    operador: "ISUA",
+    categoria: "Turismo ecológico",
+    corta: "Baño de bosque e interpretación del patrimonio en la Isla del Zaque.",
+    detalle:
+      "Desde la Isla del Zaque disfrutarás de la interpretación del patrimonio natural y cultural, conocerás el origen mítico del Lago de Tota y recorrerás el sendero sintiendo el aroma de las plantas y el canto de las aves, contemplando el lago desde diferentes miradores.",
+    ubicacion: "Isla del Zaque – Aquitania",
+    duracion: "Día completo",
+    dificultad: "Baja",
+    participantes: "8 a 18 personas",
+    incluye:
+      "Guía de turismo, informador local, refrigerio, almuerzo, transporte fluvial, souvenir de la comunidad, tarjeta de asistencia médica y baño de bosque",
+    costo: "$136.000 COP / 34 USD por persona",
+    telefono: "311 578 3193",
+    image: experienciaGrupo,
+  },
+  {
+    id: "isua-santa-barbara",
+    nombre: "Páramo de Santa Bárbara",
+    operador: "ISUA",
+    categoria: "Naturaleza",
+    corta: "Caminata interpretativa con sentido por el páramo.",
+    detalle:
+      "Recorrido de seis horas por el Páramo de Santa Bárbara con guía especializado e informador local. Una caminata interpretativa que explica la función de los frailejones y los nacimientos de agua que alimentan el Lago de Tota.",
+    ubicacion: "Vereda El Tobal – Aquitania",
+    duracion: "6 horas",
+    dificultad: "Media",
+    participantes: "Desde 18 años",
+    incluye: "Almuerzo, refrigerio típico, caminata interpretativa, guía, póliza y souvenir",
+    costo: "$116.000 COP / 29 USD por persona (IVA incluido)",
+    telefono: "311 578 3193",
+    image: frailejones,
+  },
+  {
+    id: "sendero-magico",
+    nombre: "Sendero Mágico de Alta Montaña",
+    operador: "Operadores locales",
+    categoria: "Aventura",
+    corta: "Bosque de niebla, musgo y alta montaña en una jornada completa.",
+    detalle:
+      "Un recorrido exigente de ocho horas ida y regreso por bosques de niebla cubiertos de musgo y zonas de alta montaña. Recomendado para caminantes con buena condición física, desde los 14 años y con acompañamiento para menores y adultos mayores.",
+    ubicacion: "Vereda Hirba – Aquitania",
+    duracion: "8 horas ida y regreso",
+    dificultad: "Alta",
+    participantes: "Mínimo 1 y máximo 20 personas",
+    costo: "Consultar con el operador",
+    telefono: "311 578 3193",
+    image: bosqueNiebla,
+  },
+  {
+    id: "curies",
+    nombre: "Caminata al Páramo de los Curíes",
+    operador: "MAMAPACHA EXPERIENCE",
+    categoria: "Aventura",
+    corta: "Senderismo de alta montaña entre frailejones y afloramientos rocosos.",
+    detalle:
+      "Conoce las maravillas del páramo y disfruta de la vista del Lago de Tota. Senderismo de alta montaña entre diferentes especies de frailejones que, junto a los afloramientos rocosos, ofrecen una de las mejores panorámicas del lago desde la montaña.",
+    ubicacion: "Medio de Mesas – Aquitania",
+    duracion: "7 horas ida y regreso",
+    dificultad: "Alta",
+    costo: "Consultar con el operador",
+    telefono: "320 402 9551",
+    image: paramoLaguna,
+  },
+  {
+    id: "monte-tabor",
+    nombre: "Caminata ecológica al Mirador del Monte Tabor",
+    operador: "MAMAPACHA EXPERIENCE",
+    categoria: "Naturaleza",
+    corta: "La mejor vista panorámica del Lago de Tota.",
+    detalle:
+      "Disfruta de la mejor vista panorámica del Lago de Tota desde el mirador del Monte Tabor, por un sendero que te permitirá conectarte con la esencia campesina de Boyacá y descubrir, al llegar a la cima, la imponencia del majestuoso lago.",
+    ubicacion: "Vereda El Cajón – Aquitania",
+    duracion: "Media jornada",
+    dificultad: "Media",
+    incluye: "Seguro, hidratación y guía",
+    costo: "$220.000 COP / 55 USD (1 a 5 personas) · $44.000 COP persona adicional",
+    telefono: "320 402 9551 – 311 563 2466",
     image: mirador,
   },
   {
-    id: "pueblo",
-    nombre: "Recorrido por el casco urbano",
+    id: "circuito-lagunas",
+    nombre: "Circuito de Las Lagunas",
+    operador: "MAMAPACHA EXPERIENCE",
+    categoria: "Aventura",
+    corta: "Travesía entre lagunas escondidas, frailejones y paisajes altoandinos.",
+    detalle:
+      "Una travesía de alta montaña entre lagunas escondidas, frailejones y los paisajes más impresionantes del ecosistema altoandino, pensada para aventureros que quieren descubrir el páramo en su máxima expresión.",
+    ubicacion: "Medio de Mesas y El Tobal – Aquitania",
+    duracion: "8 horas ida y regreso",
+    dificultad: "Alta",
+    participantes: "1 a 15 personas · 15 a 70 años",
+    incluye: "Guianza, seguro, hidratación y transporte",
+    costo: "Consultar con el operador",
+    telefono: "320 402 9551",
+    image: panoramica,
+  },
+  {
+    id: "paramo-guane",
+    nombre: "Páramo de Guane y cultivos tradicionales",
+    operador: "Operadores locales",
     categoria: "Cultura",
-    corta: "Plaza principal, iglesia, mercado y memoria local.",
+    corta: "Papa, cebolla, haba y arveja en el camino hacia el páramo.",
     detalle:
-      "Un recorrido a pie por la cabecera municipal: la plaza principal, la iglesia, el mercado campesino y los talleres de artesanos. Un buen punto de partida para comprender la historia del municipio antes de salir al lago.",
-    duracion: "1 a 2 horas",
-    dificultad: "Baja",
-    image: pueblo,
-  },
-  {
-    id: "aves",
-    nombre: "Avistamiento de aves",
-    categoria: "Naturaleza",
-    corta: "Especies acuáticas y de páramo en su hábitat.",
-    detalle:
-      "Salidas tempranas a los humedales y orillas del lago para observar patos andinos, tinguas, garzas y aves de páramo. Se recomienda llevar binoculares y ropa de colores neutros.",
-    duracion: "2 a 3 horas",
-    dificultad: "Baja",
-    image: fauna,
-  },
-  {
-    id: "artesanias",
-    nombre: "Taller de artesanías",
-    categoria: "Familia",
-    corta: "Tejidos en lana y trabajo artesanal boyacense.",
-    detalle:
-      "Talleres donde artesanas locales enseñan técnicas de tejido en lana virgen: ruanas, mochilas y accesorios. Una actividad ideal para hacer en familia y llevarse un recuerdo hecho a mano.",
-    duracion: "2 horas",
-    dificultad: "Baja",
-    image: artesanias,
+      "En la caminata hacia este paraíso observaremos diversidad de cultivos tradicionales —papa, cebolla larga, haba, zanahoria y arveja—, visitaremos una reserva de plantas nativas con nacimientos de agua y tendremos la oportunidad de observar diversidad de aves.",
+    ubicacion: "Aquitania – Boyacá",
+    duracion: "Media jornada",
+    dificultad: "Media",
+    costo: "Consultar con el operador",
+    telefono: "310 800 6459",
+    image: cultivos,
   },
 ];
 
@@ -232,6 +364,77 @@ export const categoriasExperiencia = [
   "Familia",
 ] as const;
 
+/* ------------------------------ NATURALEZA ------------------------------ */
+
+export const islas = [
+  {
+    nombre: "Isla San Pedro o Isla del Zaque",
+    descripcion:
+      "La más extensa de las islas, hogar de una rica flora y fauna, perfecta para el senderismo y la observación de aves.",
+  },
+  {
+    nombre: "Isla Santa Helena",
+    descripcion:
+      "Un remanso de paz y tranquilidad, ideal para disfrutar de un picnic o contemplar la belleza del paisaje.",
+  },
+  {
+    nombre: "Isla Santo Domingo",
+    descripcion: "Un pequeño islote con formaciones rocosas únicas y vistas panorámicas.",
+  },
+  {
+    nombre: "Isla de Cerro Chico",
+    descripcion: "Ideal para los amantes del senderismo y la observación de aves.",
+  },
+  {
+    nombre: "Isla de La Custodia",
+    descripcion: "Una pequeña isla que ofrece contemplación y contacto directo con la naturaleza.",
+  },
+];
+
+export const naturalezaBloques = [
+  {
+    id: "paisajes",
+    boton: "Explorar paisajes",
+    titulo: "Paisajes del altiplano",
+    image: panoramica,
+    texto:
+      "El azul intenso de las aguas se fusiona con el verde de las montañas y de los cultivos en ladera. Con temperaturas entre 10 °C y 24 °C y a 32 km al sur de Sogamoso, el Lago de Tota ofrece un clima fresco ideal para escapar del bullicio de la ciudad. Miradores, penínsulas y playas componen un paisaje altoandino incomparable.",
+    puntos: [
+      "Lago más grande, alto e importante de Colombia",
+      "Segundo manantial de agua dulce más alto de Suramérica",
+      "Miradores como el Monte Tabor y la vereda La Puerta",
+    ],
+  },
+  {
+    id: "fauna",
+    boton: "Conocer la fauna",
+    titulo: "Fauna del lago y del páramo",
+    image: chalecos,
+    texto:
+      "Durante los recorridos náuticos es posible avistar más de cien especies de aves, entre ellas el pato pico de oro y el cucarachero de pantano. En el agua habitan especies emblemáticas como la trucha arco iris y el pez capitán. La Isla San Pedro es zona AICA, Área Importante para la Conservación de las Aves, donde los visitantes pueden hacer ciencia ciudadana.",
+    puntos: [
+      "Más de 100 especies de aves registradas",
+      "Pato pico de oro y cucarachero de pantano",
+      "Trucha arco iris y pez capitán",
+    ],
+  },
+  {
+    id: "ecosistemas",
+    boton: "Descubrir ecosistemas",
+    titulo: "Páramos, bosques de niebla y humedales",
+    image: frailejones,
+    texto:
+      "Los páramos de Santa Bárbara, los Curíes y Guane rodean el municipio con frailejones, afloramientos rocosos, lagunas escondidas y nacimientos de agua que alimentan el lago. Los bosques de niebla cubiertos de musgo y las reservas de plantas nativas completan un mosaico de ecosistemas estratégicos que se recorren siempre con guías locales.",
+    puntos: [
+      "Páramo de Santa Bárbara, los Curíes y Guane",
+      "Bosques de niebla y reservas de plantas nativas",
+      "Nacimientos de agua que abastecen el Lago de Tota",
+    ],
+  },
+];
+
+/* ------------------------------ GASTRONOMÍA ----------------------------- */
+
 export type Restaurante = {
   id: string;
   nombre: string;
@@ -242,6 +445,7 @@ export type Restaurante = {
   precio: string;
   telefono: string;
   image: string;
+  extra?: string[];
 };
 
 export const restaurantes: Restaurante[] = [
@@ -249,49 +453,56 @@ export const restaurantes: Restaurante[] = [
     id: "bocado",
     nombre: "Taller De Bocado en Bocado",
     tipo: "Experiencia cultural",
-    descripcion: "Un taller gastronómico donde cocinar hace parte del recorrido turístico.",
+    descripcion:
+      "Cocina boyacense, bailes y juegos tradicionales con vista al Lago de Tota.",
     detalle:
-      "Más que un restaurante, es una experiencia: los visitantes participan en la preparación de platos con ingredientes de la región, aprenden sobre la trucha del Lago de Tota y la cebolla larga, y comparten la mesa con los anfitriones. Espacio ideal para grupos y visitantes que quieren entender la cocina boyacense desde adentro.",
-    ubicacion: "Casco urbano de Aquitania, cerca de la plaza principal",
-    precio: "$35.000 – $60.000 por persona",
-    telefono: "+57 320 000 0001",
-    image: gastroTaller,
+      "Una experiencia culinaria excepcional con impresionantes vistas al Lago de Tota. Los visitantes se deleitan con auténtica comida boyacense mientras participan en bailes, juegos tradicionales y actividades culturales. Un cocinero local comparte técnicas ancestrales que preservan la tradición culinaria de la región y transforman cada plato en una muestra de sabor y autenticidad.",
+    ubicacion: "Km 5 vía Aquitania – Sogamoso",
+    precio: "$320.000 COP (4 personas) · persona adicional $80.000 COP",
+    telefono: "316 577 0326",
+    image: tallerBocado,
+    extra: [
+      "Duración: 2 horas · Dificultad baja",
+      "De 4 a 25 personas · Desde 4 años",
+      "Incluye 10 muestras de gastronomía boyacense, bebidas, bailes y educación",
+      "No incluye transporte",
+    ],
   },
   {
     id: "rafaelo",
     nombre: "Rafaelo – Cocina de Autor",
     tipo: "Cocina de autor",
-    descripcion: "Propuesta contemporánea con productos locales y montaje cuidado.",
+    descripcion: "Platos de autor que resaltan productos de origen regional.",
     detalle:
-      "Cocina de autor que reinterpreta los sabores de Boyacá con técnicas contemporáneas. Su carta cambia según los productos disponibles y destaca la trucha, los tubérculos andinos y las hierbas locales. Ambiente tranquilo, ideal para una cena especial.",
-    ubicacion: "Vía al Lago de Tota, Aquitania",
-    precio: "$45.000 – $85.000 por persona",
-    telefono: "+57 320 000 0002",
-    image: gastroRafaelo,
+      "Este restaurante conceptualiza la cocina elaborando platos de autor con productos de origen regional. Su objetivo es que los comensales conozcan las historias y tradiciones que dan vida a cada plato. Una invitación a disfrutar los sabores con atención plena: comer como un acto de nutrición y apreciación, un viaje sensorial que celebra los ingredientes locales.",
+    ubicacion: "Península Pozo Azul, Vereda Susacá, Aquitania",
+    precio: "Desde $20.000 COP (5 USD) hasta $160.000 COP (40 USD)",
+    telefono: "310 425 8505",
+    image: logoRafaelo,
   },
   {
     id: "lucho",
     nombre: "Restaurante Lucho",
     tipo: "Tradicional",
-    descripcion: "Comida casera boyacense, generosa y de sabor familiar.",
+    descripcion: "Más de 43 años sirviendo trucha arco iris en el corazón del pueblo.",
     detalle:
-      "Un clásico de Aquitania. Trucha en distintas preparaciones, cuchuco, caldos, papa criolla y platos abundantes servidos con la calidez de la cocina de casa. Es la opción preferida por quienes buscan sabor tradicional a buen precio.",
-    ubicacion: "Centro de Aquitania",
-    precio: "$20.000 – $40.000 por persona",
-    telefono: "+57 320 000 0003",
-    image: gastroLucho,
+      "Desde el 1 de julio de 1980 este restaurante ofrece servicios de calidad, con precios justos en alimentos, bebidas y alojamiento, personal capacitado y un ambiente acogedor. La especialidad de la casa es la trucha arco iris en diversas preparaciones, como la trucha marinera y la crema de cebolla larga. Atiende de 8:00 a. m. a 6:00 p. m.",
+    ubicacion: "Plaza Principal, Calle 6 #6-11, Aquitania",
+    precio: "Desde $32.000 COP (8 USD) hasta $40.000 COP (10 USD)",
+    telefono: "310 310 1931 – 311 513 0569",
+    image: logoLucho,
   },
   {
     id: "barbacoa",
     nombre: "Barbacoa Boyacense",
     tipo: "Parrilla",
-    descripcion: "Carnes a la brasa y parrilla al estilo boyacense.",
+    descripcion: "Parrillada boyacense frente al paisaje de la Laguna de Tota.",
     detalle:
-      "Especialistas en carnes a la brasa, longaniza, costilla y acompañamientos típicos de la región. Un lugar pensado para compartir en grupo después de un día de caminata o de lago.",
-    ubicacion: "Salida hacia el lago, Aquitania",
-    precio: "$30.000 – $55.000 por persona",
-    telefono: "+57 320 000 0004",
-    image: gastroBarbacoa,
+      "Una exquisita variedad de carnes de res, cerdo y pescado, además de platos a la carta y opciones típicas de la región. Entre sus especialidades se destaca la Parrillada Boyacense, disponible en presentación personal, familiar y extra grande, ideal para compartir. Todo acompañado del hermoso paisaje de la Laguna de Tota.",
+    ubicacion: "Cra. 10 #5-91, Aquitania",
+    precio: "Desde $28.000 COP (7 USD) hasta $44.000 COP (11 USD)",
+    telefono: "320 340 0821",
+    image: logoBarbacoa,
   },
 ];
 
@@ -303,98 +514,142 @@ export const filtrosGastro = [
   "Experiencia cultural",
 ] as const;
 
+/* -------------------------------- GALERÍA ------------------------------- */
+
 export type Foto = {
   id: string;
   src: string;
   titulo: string;
   descripcion: string;
-  categoria: "Paisajes" | "Lago de Tota" | "Cultura" | "Gastronomía" | "Artesanías" | "Naturaleza";
+  categoria: "Paisajes" | "Lago de Tota" | "Cultura" | "Gastronomía" | "Naturaleza" | "Aventura";
 };
 
 export const galeria: Foto[] = [
   {
     id: "g1",
-    src: heroLago,
-    titulo: "Lago de Tota desde el aire",
-    descripcion: "El lago natural más grande de Colombia, a más de 3.000 metros de altura.",
-    categoria: "Lago de Tota",
+    src: mirador,
+    titulo: "Mirador sobre el lago",
+    descripcion: "Vista panorámica del Lago de Tota desde la alta montaña.",
+    categoria: "Paisajes",
   },
   {
     id: "g2",
-    src: playaBlanca,
-    titulo: "Playa Blanca",
-    descripcion: "Arena blanca y agua turquesa en pleno altiplano andino.",
+    src: lanchaAtardecer,
+    titulo: "Navegación al atardecer",
+    descripcion: "Embarcación recorriendo el lago en las últimas horas del día.",
     categoria: "Lago de Tota",
   },
   {
     id: "g3",
-    src: paramo,
-    titulo: "Páramo y frailejones",
-    descripcion: "Los ecosistemas de altura que regulan el agua de la región.",
-    categoria: "Naturaleza",
+    src: orillaOlas,
+    titulo: "Orillas del lago",
+    descripcion: "Olas y arena en las playas del Lago de Tota.",
+    categoria: "Lago de Tota",
   },
   {
     id: "g4",
-    src: fauna,
-    titulo: "Aves del lago",
-    descripcion: "Especies acuáticas que habitan las orillas y humedales.",
-    categoria: "Naturaleza",
+    src: costaLago,
+    titulo: "Costa verde",
+    descripcion: "Península y aguas profundas bajo un cielo de altiplano.",
+    categoria: "Paisajes",
   },
   {
     id: "g5",
-    src: cultivos,
-    titulo: "Cultivos de cebolla larga",
-    descripcion: "El paisaje agrícola que hizo de Aquitania la capital cebollera.",
-    categoria: "Paisajes",
+    src: buceo,
+    titulo: "Buceo en el lago",
+    descripcion: "El mundo subacuático del lago más alto de Colombia.",
+    categoria: "Aventura",
   },
   {
     id: "g6",
-    src: mirador,
-    titulo: "Atardecer desde el mirador",
-    descripcion: "La vista panorámica más buscada por los visitantes.",
-    categoria: "Paisajes",
+    src: lanchaNavegando,
+    titulo: "Recorrido náutico",
+    descripcion: "Embarcaciones autorizadas para navegar con seguridad.",
+    categoria: "Aventura",
   },
   {
     id: "g7",
-    src: pueblo,
-    titulo: "Plaza principal",
-    descripcion: "El corazón urbano de Aquitania y su iglesia.",
-    categoria: "Cultura",
+    src: islaOrilla,
+    titulo: "Isla San Pedro",
+    descripcion: "Desembarco en la Isla del Zaque, la más extensa del lago.",
+    categoria: "Lago de Tota",
   },
   {
     id: "g8",
-    src: cultura,
-    titulo: "Fiestas y tradición",
-    descripcion: "Danzas y trajes típicos que mantienen viva la identidad boyacense.",
-    categoria: "Cultura",
+    src: aereaIsla,
+    titulo: "Vista aérea de la isla",
+    descripcion: "El muelle de la isla visto desde el aire.",
+    categoria: "Paisajes",
   },
   {
     id: "g9",
-    src: artesanias,
-    titulo: "Tejidos en lana",
-    descripcion: "Ruanas y mochilas elaboradas por artesanas del municipio.",
-    categoria: "Artesanías",
+    src: chalecos,
+    titulo: "Visitantes en el muelle",
+    descripcion: "Chalecos salvavidas y recorridos guiados por personal capacitado.",
+    categoria: "Cultura",
   },
   {
     id: "g10",
-    src: gastroTaller,
-    titulo: "Trucha del lago",
-    descripcion: "El producto estrella de la cocina local.",
-    categoria: "Gastronomía",
+    src: buzos,
+    titulo: "Equipo de buceo",
+    descripcion: "Inmersiones guiadas con certificación RAID.",
+    categoria: "Aventura",
   },
   {
     id: "g11",
-    src: gastroLucho,
-    titulo: "Mesa boyacense",
-    descripcion: "Platos tradicionales servidos al estilo de casa.",
-    categoria: "Gastronomía",
+    src: frailejones,
+    titulo: "Frailejones del páramo",
+    descripcion: "Vegetación de altura que regula el agua de la región.",
+    categoria: "Naturaleza",
   },
   {
     id: "g12",
-    src: muisca,
-    titulo: "Herencia muisca",
-    descripcion: "Piezas y memoria de los pueblos originarios del territorio.",
+    src: paramoLaguna,
+    titulo: "Lagunas escondidas",
+    descripcion: "El circuito de lagunas del ecosistema altoandino.",
+    categoria: "Naturaleza",
+  },
+  {
+    id: "g13",
+    src: bosqueNiebla,
+    titulo: "Bosque de niebla",
+    descripcion: "Musgo y humedad en el sendero mágico de alta montaña.",
+    categoria: "Naturaleza",
+  },
+  {
+    id: "g14",
+    src: caminataParamo,
+    titulo: "Caminata de páramo",
+    descripcion: "Senderos ancestrales entre vegetación nativa.",
+    categoria: "Naturaleza",
+  },
+  {
+    id: "g15",
+    src: cultivos,
+    titulo: "Cultivos tradicionales",
+    descripcion: "Papa, cebolla larga, haba y arveja en las laderas del municipio.",
+    categoria: "Paisajes",
+  },
+  {
+    id: "g16",
+    src: experienciaGrupo,
+    titulo: "Experiencia comunitaria",
+    descripcion: "Visitantes compartiendo con informadores locales en la isla.",
     categoria: "Cultura",
+  },
+  {
+    id: "g17",
+    src: tallerBocado,
+    titulo: "Taller De Bocado en Bocado",
+    descripcion: "Cocina tradicional boyacense preparada frente a los visitantes.",
+    categoria: "Gastronomía",
+  },
+  {
+    id: "g18",
+    src: panoramica,
+    titulo: "Panorámica del municipio",
+    descripcion: "El lago, los cultivos y las montañas de Aquitania.",
+    categoria: "Paisajes",
   },
 ];
 
@@ -402,11 +657,13 @@ export const categoriasGaleria = [
   "Todas",
   "Paisajes",
   "Lago de Tota",
+  "Naturaleza",
+  "Aventura",
   "Cultura",
   "Gastronomía",
-  "Artesanías",
-  "Naturaleza",
 ] as const;
+
+/* --------------------------------- MAPA --------------------------------- */
 
 export type Lugar = {
   id: string;
@@ -414,6 +671,7 @@ export type Lugar = {
   descripcion: string;
   ubicacion: string;
   image: string;
+  maps: string;
   /** posición porcentual sobre el mapa ilustrado */
   x: number;
   y: number;
@@ -421,60 +679,81 @@ export type Lugar = {
 
 export const lugares: Lugar[] = [
   {
-    id: "playa",
-    nombre: "Playa Blanca",
-    descripcion: "Playa de arena blanca sobre el Lago de Tota, el punto turístico más visitado.",
-    ubicacion: "Vereda Playa Blanca, 12 km del casco urbano",
-    image: playaBlanca,
-    x: 32,
-    y: 58,
+    id: "muelle-la-pena",
+    nombre: "Muelle La Peña",
+    descripcion:
+      "Punto de partida de los recorridos náuticos hacia la Isla San Pedro y las demás islas del lago.",
+    ubicacion: "Vereda El Cajón, km 3.5 vía Aquitania – Sogamoso",
+    image: lanchaNavegando,
+    maps: "https://maps.app.goo.gl/J3145ScVZoUesF8Q8",
+    x: 30,
+    y: 40,
   },
   {
-    id: "casco",
-    nombre: "Casco urbano de Aquitania",
-    descripcion: "Plaza principal, iglesia, mercado campesino y talleres artesanales.",
-    ubicacion: "Centro del municipio",
-    image: pueblo,
-    x: 62,
-    y: 34,
+    id: "isla-san-pedro",
+    nombre: "Isla San Pedro (Isla del Zaque)",
+    descripcion:
+      "La isla más extensa del lago: senderos, avistamiento de aves y el origen mítico del territorio.",
+    ubicacion: "Centro del Lago de Tota",
+    image: islaOrilla,
+    maps: "https://maps.app.goo.gl/DcPBPXAoopLjAtrKA",
+    x: 48,
+    y: 55,
   },
   {
-    id: "mirador",
-    nombre: "Mirador del Lago",
-    descripcion: "Vista panorámica del lago y sus islas, ideal al atardecer.",
-    ubicacion: "Vía Sogamoso – Aquitania",
+    id: "monte-tabor",
+    nombre: "Mirador del Monte Tabor",
+    descripcion: "La mejor vista panorámica del Lago de Tota, en la vereda El Cajón.",
+    ubicacion: "Vereda El Cajón – Aquitania",
     image: mirador,
-    x: 74,
-    y: 62,
-  },
-  {
-    id: "paramo",
-    nombre: "Páramo de Tota",
-    descripcion: "Ecosistema de frailejones y nacimientos de agua que alimentan el lago.",
-    ubicacion: "Zona alta del municipio",
-    image: paramo,
-    x: 46,
-    y: 18,
-  },
-  {
-    id: "cultivos",
-    nombre: "Cultivos de cebolla",
-    descripcion: "Laderas sembradas de cebolla larga, símbolo económico de Aquitania.",
-    ubicacion: "Veredas del costado oriental del lago",
-    image: cultivos,
-    x: 20,
+    maps: "https://maps.app.goo.gl/DcPBPXAoopLjAtrKA",
+    x: 70,
     y: 30,
   },
   {
-    id: "humedal",
-    nombre: "Humedales y avistamiento",
-    descripcion: "Orillas con juncos donde se observan aves acuáticas de altura.",
-    ubicacion: "Bahías del norte del lago",
-    image: fauna,
-    x: 52,
-    y: 76,
+    id: "santa-barbara",
+    nombre: "Páramo de Santa Bárbara",
+    descripcion: "Frailejones, nacimientos de agua y caminatas interpretativas con guía local.",
+    ubicacion: "Vereda El Tobal – Aquitania",
+    image: frailejones,
+    maps: "https://maps.app.goo.gl/c92Dz85W2KmTpWAX8",
+    x: 22,
+    y: 72,
+  },
+  {
+    id: "curies",
+    nombre: "Páramo de los Curíes",
+    descripcion: "Senderismo de alta montaña entre afloramientos rocosos y lagunas escondidas.",
+    ubicacion: "Medio de Mesas – Aquitania",
+    image: paramoLaguna,
+    maps: "https://maps.app.goo.gl/DcPBPXAoopLjAtrKA",
+    x: 58,
+    y: 80,
+  },
+  {
+    id: "casco-urbano",
+    nombre: "Plaza principal de Aquitania",
+    descripcion:
+      "Corazón del municipio: iglesia, comercio y restaurantes tradicionales como Lucho y Barbacoa Boyacense.",
+    ubicacion: "Calle 6 #6-11 y Cra. 10 #5-91, Aquitania",
+    image: experienciaGrupo,
+    maps: "https://maps.app.goo.gl/yKCwzHzacAeP4nZ66",
+    x: 78,
+    y: 62,
+  },
+  {
+    id: "pozo-azul",
+    nombre: "Península Pozo Azul",
+    descripcion: "Vereda Susacá, sede de la cocina de autor de Rafaelo frente al lago.",
+    ubicacion: "Vereda Susacá – Aquitania",
+    image: costaLago,
+    maps: "https://maps.app.goo.gl/DnrzmXpDsJQvdYH19",
+    x: 40,
+    y: 18,
   },
 ];
+
+/* ------------------------------- OPINIONES ------------------------------ */
 
 export type Opinion = {
   id: string;
@@ -490,7 +769,7 @@ export const opinionesIniciales: Opinion[] = [
     nombre: "Camila R.",
     estrellas: 5,
     comentario:
-      "Playa Blanca es impresionante. No imaginaba encontrar una playa así en pleno páramo. El agua está helada pero vale totalmente la pena.",
+      "El recorrido a la Isla San Pedro fue lo mejor del viaje. El guía explicó los mitos del lago y alcanzamos a ver varias aves. Totalmente recomendado.",
     fecha: "hace 2 semanas",
   },
   {
@@ -498,7 +777,7 @@ export const opinionesIniciales: Opinion[] = [
     nombre: "Jorge A.",
     estrellas: 5,
     comentario:
-      "La trucha de Aquitania es la mejor que he probado. Comimos en un restaurante del centro y la atención fue excelente.",
+      "La trucha arco iris del Restaurante Lucho es espectacular y el precio muy justo. Volveríamos solo por eso.",
     fecha: "hace 1 mes",
   },
   {
@@ -506,7 +785,7 @@ export const opinionesIniciales: Opinion[] = [
     nombre: "Familia Pérez",
     estrellas: 4,
     comentario:
-      "Fuimos con niños y disfrutaron mucho el día en el lago. Recomiendo llevar ropa abrigada porque en la tarde baja mucho la temperatura.",
+      "Hicimos el taller De Bocado en Bocado con los niños: bailes, comida típica y muy buena atención. Lleven ropa abrigada porque en la tarde refresca.",
     fecha: "hace 1 mes",
   },
   {
@@ -514,7 +793,7 @@ export const opinionesIniciales: Opinion[] = [
     nombre: "Laura M.",
     estrellas: 5,
     comentario:
-      "La caminata al páramo fue una experiencia distinta. Los guías explican muy bien la importancia de los frailejones.",
+      "La caminata al Páramo de Santa Bárbara fue exigente pero valió la pena. Los frailejones y los nacimientos de agua son impresionantes.",
     fecha: "hace 2 meses",
   },
 ];
