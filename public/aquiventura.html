@@ -1993,7 +1993,7 @@ bt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'}
     document.body.classList.toggle('pagina-interna',!esHome);
     var nb=document.getElementById('mainNav');
     if(nb) nb.classList.toggle('scrolled',!esHome);
-    document.querySelectorAll('.nav-link').forEach(function(a){
+    document.querySelectorAll('.nav-link, .btn-nav-reserve').forEach(function(a){
       a.classList.toggle('active',!esHome&&a.getAttribute('href')==='#'+id);
     });
     document.querySelectorAll('.reveal,.reveal-l,.reveal-r,.reveal-up').forEach(function(r){r.classList.add('visible');});
@@ -2022,7 +2022,7 @@ bt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'}
 
   /* scrollspy en el menú */
   var secs=Array.prototype.slice.call(document.querySelectorAll('body > section[id]'));
-  var links=Array.prototype.slice.call(document.querySelectorAll('.navbar-nav .nav-link'));
+  var links=Array.prototype.slice.call(document.querySelectorAll('.navbar-nav .nav-link, .navbar-nav .btn-nav-reserve'));
   function spy(){
     if(document.body.classList.contains('pagina-interna'))return;
     var y=window.scrollY+140,act=null;
