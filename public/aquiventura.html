@@ -1,0 +1,2095 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AQUIAVENTURA — Lago de Tota · Aquitania</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:wght@400;600;700;900&family=Lato:wght@300;400;700;900&family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════
+   VARIABLES & RESET
+═══════════════════════════════════════ */
+:root{
+  --azul-prof: #0A2540;
+  --azul-lago: #1565C0;
+  --azul-cielo:#2196F3;
+  --verde-p:   #1B5E20;
+  --verde-c:   #388E3C;
+  --verde-s:   #A5D6A7;
+  --beige:     #F5F0E8;
+  --tierra:    #8D6E63;
+  --blanco:    #FFFFFF;
+  --gris-s:    #F8F9FA;
+  --gris-t:    #6C757D;
+  --sombra:    rgba(10,37,64,.15);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{font-family:'Inter',sans-serif;background:var(--blanco);overflow-x:hidden;color:#2c2c2c;}
+
+/* ═══════════════════════════════════════
+   SCROLLBAR
+═══════════════════════════════════════ */
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:#f1f1f1;}
+::-webkit-scrollbar-thumb{background:var(--azul-lago);border-radius:3px;}
+
+/* ═══════════════════════════════════════
+   NAV
+═══════════════════════════════════════ */
+#mainNav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:.9rem 0;
+  transition:all .4s ease;
+  background:transparent;
+}
+#mainNav.scrolled{
+  background:rgba(10,37,64,.95);
+  backdrop-filter:blur(20px);
+  box-shadow:0 2px 30px rgba(0,0,0,.3);
+  padding:.6rem 0;
+}
+.nav-brand{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.8rem;letter-spacing:.08em;
+  color:var(--blanco)!important;
+  text-decoration:none;
+}
+.nav-brand span{color:#64B5F6;}
+.navbar-nav .nav-link{
+  font-family:'Outfit',sans-serif;
+  font-size:.82rem;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.85)!important;
+  padding:.4rem .9rem!important;
+  transition:color .2s;
+}
+.navbar-nav .nav-link:hover{color:#64B5F6!important;}
+.btn-nav-reserve{
+  font-family:'Outfit',sans-serif;
+  font-size:.82rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;
+  background:var(--azul-cielo);color:#fff!important;
+  border-radius:50px;padding:.45rem 1.4rem;
+  border:none;transition:all .25s;text-decoration:none;
+}
+.btn-nav-reserve:hover{background:#1976D2;transform:translateY(-1px);}
+.navbar-toggler{border:1px solid rgba(255,255,255,.3);}
+.navbar-toggler-icon{
+  background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,0.85%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+#hero{
+  min-height:100vh;
+  background-image:url('images/lago/hero.jpg') !important;
+  background-position:center center !important;
+  background-size:cover !important;
+  background-repeat:no-repeat !important;
+  background-attachment:scroll !important;
+  position:relative;
+  display:flex;
+  align-items:center;
+}
+#hero{background:linear-gradient(rgba(10,37,64,.55),rgba(10,37,64,.72)),url('images/lago/hero.jpg') center/cover no-repeat fixed!important;}
+.hero-inner{position:relative;z-index:1;padding-top:5rem;}
+.hero-eyebrow{
+  font-family:'Outfit',sans-serif;
+  font-size:.75rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;
+  color:#64B5F6;margin-bottom:1rem;
+  display:flex;align-items:center;gap:.6rem;
+}
+.hero-eyebrow::before{content:"";width:30px;height:1px;background:#64B5F6;}
+.hero-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(4rem,12vw,9rem);
+  letter-spacing:.04em;line-height:.9;
+  color:var(--blanco);margin-bottom:1.2rem;
+}
+.hero-title .alt{color:#64B5F6;}
+.hero-sub{
+  font-family:'Outfit',sans-serif;
+  font-size:clamp(1rem,2.2vw,1.25rem);
+  font-weight:300;color:rgba(255,255,255,.85);
+  line-height:1.65;max-width:540px;margin-bottom:2.5rem;
+}
+.btn-primary-hero{
+  font-family:'Outfit',sans-serif;font-weight:600;
+  font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;
+  background:var(--azul-cielo);color:#fff;
+  border-radius:50px;padding:.85rem 2.2rem;
+  text-decoration:none;display:inline-block;
+  transition:all .25s;border:2px solid var(--azul-cielo);
+}
+.btn-primary-hero:hover{background:transparent;color:#fff;transform:translateY(-3px);box-shadow:0 10px 30px rgba(33,150,243,.4);}
+.btn-outline-hero{
+  font-family:'Outfit',sans-serif;font-weight:500;
+  font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;
+  background:transparent;color:#fff;
+  border:2px solid rgba(255,255,255,.5);
+  border-radius:50px;padding:.82rem 2.2rem;
+  text-decoration:none;display:inline-block;
+  transition:all .25s;
+}
+.btn-outline-hero:hover{border-color:#fff;background:rgba(255,255,255,.1);color:#fff;transform:translateY(-2px);}
+
+/* Hero stats bar */
+.hero-stats{
+  position:absolute;bottom:0;left:0;right:0;
+  background:rgba(10,37,64,.7);backdrop-filter:blur(16px);
+  border-top:1px solid rgba(255,255,255,.1);
+  padding:1.2rem 0;z-index:1;
+}
+.stat-item{text-align:center;padding:0 1.5rem;}
+.stat-num{
+  font-family:'Bebas Neue',sans-serif;font-size:2rem;
+  color:#64B5F6;line-height:1;
+}
+.stat-lbl{font-family:'Outfit',sans-serif;font-size:.7rem;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:.2rem;}
+.stat-divider{width:1px;background:rgba(255,255,255,.15);margin:0 .5rem;}
+
+/* scroll indicator */
+.scroll-ind{
+  position:absolute;bottom:5rem;left:50%;transform:translateX(-50%);
+  z-index:2;display:flex;flex-direction:column;align-items:center;gap:.5rem;
+  color:rgba(255,255,255,.5);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;
+  font-family:'Outfit',sans-serif;animation:scrollBounce 2.5s infinite;
+}
+.scroll-ind i{font-size:1.2rem;}
+@keyframes scrollBounce{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(8px);}}
+
+/* ═══════════════════════════════════════
+   SHARED SECTION STYLES
+═══════════════════════════════════════ */
+.sec-eyebrow{
+  font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:600;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--azul-cielo);display:inline-flex;align-items:center;gap:.5rem;
+}
+.sec-eyebrow::before{content:"";width:24px;height:2px;background:var(--azul-cielo);}
+.sec-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2.2rem,5vw,3.8rem);
+  letter-spacing:.04em;line-height:1;
+  color:var(--azul-prof);
+}
+.sec-title.light{color:#fff;}
+.sec-lead{
+  font-family:'Outfit',sans-serif;font-size:1rem;
+  line-height:1.75;color:#555;
+}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .8s,transform .8s;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-l{opacity:0;transform:translateX(-32px);transition:opacity .8s,transform .8s;}
+.reveal-l.visible{opacity:1;transform:translateX(0);}
+.reveal-r{opacity:0;transform:translateX(32px);transition:opacity .8s,transform .8s;}
+.reveal-r.visible{opacity:1;transform:translateX(0);}
+
+
+/* ═══════════════════════════════════════
+   HISTORIA (STORYTELLING)
+═══════════════════════════════════════ */
+#historia{background:var(--blanco);padding:7rem 0;}
+.hist-timeline{display:flex;flex-direction:column;gap:0;}
+.hist-item{display:flex;gap:2rem;padding:2rem 0;border-left:2px solid rgba(33,150,243,.2);margin-left:1rem;padding-left:2.5rem;position:relative;}
+.hist-item::before{content:"";position:absolute;left:-7px;top:2.3rem;width:12px;height:12px;border-radius:50%;background:var(--azul-cielo);border:2px solid #fff;box-shadow:0 0 0 3px rgba(33,150,243,.25);}
+.hist-year{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--azul-cielo);line-height:1;white-space:nowrap;min-width:80px;}
+.hist-text h5{font-family:'Outfit',sans-serif;font-size:1rem;font-weight:600;color:var(--azul-prof);margin-bottom:.3rem;}
+.hist-text p{font-size:.88rem;line-height:1.7;color:#555;margin:0;}
+
+.hist-feature{
+  background:linear-gradient(135deg,var(--azul-prof),var(--azul-lago));
+  border-radius:24px;padding:3rem;color:#fff;position:relative;overflow:hidden;
+}
+.hist-feature::before{
+  content:"";position:absolute;top:-60px;right:-60px;
+  width:220px;height:220px;border-radius:50%;
+  background:rgba(255,255,255,.05);
+}
+.hist-feature::after{
+  content:"";position:absolute;bottom:-40px;left:-40px;
+  width:150px;height:150px;border-radius:50%;
+  background:rgba(255,255,255,.04);
+}
+.hist-feature h3{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:.05em;margin-bottom:1rem;}
+.hist-feature p{font-family:'Outfit',sans-serif;font-size:.92rem;line-height:1.75;opacity:.88;}
+.hist-feature .big-num{font-family:'Bebas Neue',sans-serif;font-size:5rem;line-height:1;color:rgba(255,255,255,.12);margin-bottom:.5rem;}
+
+/* ═══════════════════════════════════════
+   EXPERIENCIAS
+═══════════════════════════════════════ */
+#experiencias{background:var(--beige);padding:7rem 0;}
+.exp-card{
+  border-radius:20px;overflow:hidden;position:relative;
+  background:#000;cursor:pointer;
+  transition:transform .4s,box-shadow .4s;
+  height:420px;
+}
+.exp-card:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(0,0,0,.25);}
+.exp-card-bg{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:5rem;
+  transition:transform .5s;
+}
+.exp-card:hover .exp-card-bg{transform:scale(1.06);}
+.exp-card-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(5,20,45,.9) 0%,rgba(5,20,45,.4) 50%,transparent 100%);
+  transition:background .4s;
+}
+.exp-card:hover .exp-card-overlay{background:linear-gradient(to top,rgba(5,20,45,.95) 0%,rgba(5,20,45,.6) 60%,rgba(5,20,45,.15) 100%);}
+.exp-card-body{position:absolute;bottom:0;left:0;right:0;padding:1.8rem;}
+.exp-badge{
+  font-family:'Outfit',sans-serif;font-size:.65rem;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;
+  background:var(--azul-cielo);color:#fff;
+  display:inline-block;padding:.2rem .7rem;border-radius:50px;margin-bottom:.7rem;
+}
+.exp-card-title{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:.04em;color:#fff;margin-bottom:.4rem;line-height:1;}
+.exp-card-desc{font-family:'Outfit',sans-serif;font-size:.83rem;color:rgba(255,255,255,.75);line-height:1.6;margin-bottom:1rem;}
+.exp-meta{display:flex;gap:1rem;margin-bottom:1rem;}
+.exp-meta-item{font-family:'Outfit',sans-serif;font-size:.72rem;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:.3rem;}
+.exp-price{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:#64B5F6;margin-bottom:.8rem;}
+.btn-reservar{
+  font-family:'Outfit',sans-serif;font-size:.78rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;
+  background:var(--azul-cielo);color:#fff;
+  border:none;border-radius:50px;padding:.5rem 1.3rem;
+  cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block;
+}
+.btn-reservar:hover{background:#1976D2;color:#fff;transform:translateY(-1px);}
+.exp-extra{
+  max-height:0;overflow:hidden;transition:max-height .5s ease;
+}
+.exp-card:hover .exp-extra{max-height:100px;}
+
+/* BGs de experiencias */
+.bg-e1{background:linear-gradient(135deg,#0C4A6E,#0284C7,#38BDF8);}
+.bg-e2{background:linear-gradient(135deg,#14532D,#16A34A,#4ADE80);}
+.bg-e3{background:linear-gradient(135deg,#064E3B,#059669,#6EE7B7);}
+.bg-e4{background:linear-gradient(135deg,#1E3A5F,#1565C0,#64B5F6);}
+.bg-e5{background:linear-gradient(135deg,#0F766E,#0D9488,#5EEAD4);}
+.bg-e6{background:linear-gradient(135deg,#166534,#22C55E,#86EFAC);}
+.bg-e7{background:linear-gradient(135deg,#0E7490,#0284C7,#7DD3FC);}
+.bg-e8{background:linear-gradient(135deg,#713F12,#D97706,#FCD34D);}
+.bg-e9{background:linear-gradient(135deg,#4C1D95,#7C3AED,#C4B5FD);}
+.bg-e10{background:linear-gradient(135deg,#0C4A6E,#0891B2,#67E8F9);}
+
+/* ═══════════════════════════════════════
+   NATURALEZA
+═══════════════════════════════════════ */
+#naturaleza{
+  background:linear-gradient(170deg,var(--verde-p) 0%,var(--verde-c) 100%);
+  padding:7rem 0;position:relative;overflow:hidden;
+}
+#naturaleza::before{
+  content:"";position:absolute;top:-100px;right:-100px;
+  width:500px;height:500px;border-radius:50%;
+  background:rgba(255,255,255,.04);
+}
+.nat-card{
+  background:rgba(255,255,255,.1);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:20px;padding:2rem;
+  transition:transform .3s,background .3s;
+  height:100%;
+}
+.nat-card:hover{transform:translateY(-5px);background:rgba(255,255,255,.15);}
+.nat-icon{font-size:2.2rem;margin-bottom:1rem;}
+.nat-card h5{font-family:'Outfit',sans-serif;font-weight:700;color:#fff;font-size:1rem;margin-bottom:.6rem;}
+.nat-card p{font-family:'Inter',sans-serif;font-size:.85rem;color:rgba(255,255,255,.78);line-height:1.7;}
+.nat-stat{text-align:center;}
+.nat-stat-num{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:#A5D6A7;line-height:1;}
+.nat-stat-lbl{font-family:'Outfit',sans-serif;font-size:.75rem;font-weight:500;color:rgba(255,255,255,.65);letter-spacing:.1em;text-transform:uppercase;}
+
+/* ═══════════════════════════════════════
+   GALERÍA
+═══════════════════════════════════════ */
+#galeria{background:var(--azul-prof);padding:7rem 0;}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:240px 240px;gap:12px;}
+.gal-item{border-radius:14px;overflow:hidden;position:relative;cursor:pointer;}
+.gal-item:nth-child(1){grid-column:1/3;grid-row:1/2;}
+.gal-item:nth-child(3){grid-column:1/2;grid-row:2/3;}
+.gal-item:nth-child(6){grid-column:3/5;grid-row:2/3;}
+.gal-bg{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;transition:transform .5s;}
+.gal-item:hover .gal-bg{transform:scale(1.08);}
+.gal-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,20,45,.85) 0%,transparent 55%);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:1.2rem;}
+.gal-item:hover .gal-ov{opacity:1;}
+.gal-lbl{font-family:'Outfit',sans-serif;font-size:.82rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#f1efef;}
+
+.gg1{background:linear-gradient(135deg,#0C4A6E,#0284C7,#38BDF8);}
+.gg2{background:linear-gradient(135deg,#064E3B,#059669,#34D399);}
+.gg3{background:linear-gradient(135deg,#451A03,#92400E,#D97706);}
+.gg4{background:linear-gradient(135deg,#1E3A5F,#2563EB,#60A5FA);}
+.gg5{background:linear-gradient(135deg,#14532D,#15803D,#4ADE80);}
+.gg6{background:linear-gradient(135deg,#4C0519,#BE123C,#FB7185);}
+.gg7{background:linear-gradient(135deg,#0E7490,#0284C7,#7DD3FC);}
+
+/* ═══════════════════════════════════════
+   OPINIONES
+═══════════════════════════════════════ */
+#opiniones{background:var(--beige);padding:7rem 0;}
+.review-card{
+  background:#fff;border-radius:20px;
+  border:1px solid rgba(10,37,64,.08);
+  padding:2rem;height:100%;
+  transition:transform .3s,box-shadow .3s;
+}
+.review-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(10,37,64,.1);}
+.review-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--azul-lago),var(--azul-cielo));display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Bebas Neue',sans-serif;font-size:1.2rem;flex-shrink:0;}
+.review-name{font-family:'Outfit',sans-serif;font-weight:600;font-size:.9rem;color:var(--azul-prof);}
+.review-loc{font-size:.75rem;color:#999;}
+.review-stars{color:#FDD835;font-size:.9rem;}
+.review-text{font-family:'Outfit',sans-serif;font-size:.9rem;line-height:1.7;color:#444;font-style:italic;}
+.review-text::before{content:'"';font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--azul-cielo);line-height:0;vertical-align:-.5rem;margin-right:.2rem;}
+
+/* rating global */
+.global-rating .big{font-family:'Bebas Neue',sans-serif;font-size:5rem;color:var(--azul-prof);line-height:1;}
+.global-rating .stars-big{font-size:1.5rem;color:#FDD835;}
+
+/* form opinión */
+.opinion-box{background:#fff;border-radius:24px;border:1px solid rgba(10,37,64,.08);padding:2.5rem;}
+
+/* ═══════════════════════════════════════
+   MAPA PLACEHOLDER
+═══════════════════════════════════════ */
+#mapa{background:var(--azul-prof);padding:7rem 0;}
+.mapa-frame{
+  height:400px;border-radius:20px;overflow:hidden;
+  background:linear-gradient(135deg,#0A2540,#1565C0);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;border:1px solid rgba(255,255,255,.1);
+}
+.mapa-label{text-align:center;color:#1c19a1be;font-family:'Outfit',sans-serif;}
+.mapa-label i{font-size:3rem;color:#64B5F6;margin-bottom:1rem;display:block;}
+.mapa-label h4{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.05em;margin-bottom:.5rem;}
+.mapa-label p{font-size:.85rem;color:rgba(255,255,255,.6);}
+.mapa-pins{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem;justify-content:center;}
+.mapa-pin
+.mapa-pin{
+  background:rgba(184,235,221,.10);
+  border:1px solid rgba(184,235,221,.30);
+  color:#E1EFEA;
+  border-radius:50px;
+  font-family:'Lato',sans-serif;
+  font-size:.75rem;
+  font-weight:600;
+  padding:.4rem 1rem;
+  display:flex;
+  align-items:center;
+  gap:.4rem;
+}
+.btn-mapa{
+  display:inline-block;
+  background:var(--verde)!important;
+  color:#fff!important;
+  border-radius:2px;
+  padding:.7rem 1.5rem;
+  text-decoration:none;
+  font-family:'Lato',sans-serif;
+  font-weight:700;
+  letter-spacing:.08em;
+  transition:.25s;
+}
+
+.btn-mapa:hover{
+  background:var(--terra)!important;
+  color:#fff!important;
+  transform:translateY(-2px);
+}
+/* ═══════════════════════════════════════
+   QR SECTION
+═══════════════════════════════════════ */
+#qr{background:var(--crema);padding:7rem 0;}
+.qr-box{
+  background:linear-gradient(135deg,var(--azul-prof),var(--azul-lago));
+  border-radius:28px;padding:3rem;color:#ffffff00;
+  position:relative;overflow:hidden;text-align:center;
+}
+.qr-box::before{content:"";position:absolute;top:-80px;left:-80px;width:250px;height:250px;border-radius:50%;background:rgba(255,255,255,.04);}
+.qr-visual{
+  width:180px;height:180px;margin:0 auto 1.5rem;
+  background:#fff;border-radius:16px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:5rem;position:relative;
+}
+.qr-inner{
+  position:absolute;inset:12px;
+  display:grid;grid-template-columns:repeat(7,1fr);grid-template-rows:repeat(7,1fr);
+  gap:2px;
+}
+.qr-c{border-radius:2px;background:var(--azul-prof);}
+.qr-box h3{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:.05em;margin-bottom:.6rem;}
+.qr-box p{font-family:'Outfit',sans-serif;font-size:.9rem;opacity:.8;line-height:1.65;max-width:420px;margin:0 auto 1.5rem;}
+.qr-box h3{
+  color:#000000!important;
+  font-family:'Playfair Display',serif!important;
+  font-size:2rem;
+  margin-bottom:.8rem;
+}
+
+.qr-box p{
+  color:#000000!important;
+  opacity:1!important;
+  font-family:'Lato',sans-serif!important;
+  font-size:.95rem;
+  line-height:1.7;
+  max-width:520px;
+  margin:0 auto 1.5rem;
+}
+/* ═══════════════════════════════════════
+   CONTACTO
+═══════════════════════════════════════ */
+#contacto{
+  background:linear-gradient(160deg,var(--azul-prof),var(--azul-lago));
+  padding:7rem 0;position:relative;overflow:hidden;
+}
+#contacto::before{content:"";position:absolute;top:-120px;right:-120px;width:400px;height:400px;border-radius:50%;background:rgba(255,255,255,.04);}
+.contact-info h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3.2rem);letter-spacing:.04em;color:#000000;margin-bottom:1rem;}
+.contact-info p{font-family:'Outfit',sans-serif;font-size:.95rem;color:rgba(10, 4, 4, 0.75);line-height:1.75;margin-bottom:2rem;}
+.c-row{display:flex;align-items:center;gap:1rem;color:rgba(0, 0, 0, 0.8);font-family:'Outfit',sans-serif;font-size:.9rem;}
+.c-icon{width:42px;height:42px;border-radius:11px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.soc-btn{width:42px;height:42px;border-radius:11px;background:rgba(255,255,255,.1);color:#000000;display:flex;align-items:center;justify-content:center;font-size:1.1rem;text-decoration:none;border:1px solid rgba(255,255,255,.18);transition:all .2s;}
+.soc-btn:hover{background:rgba(255,255,255,.2);color:#000000;transform:translateY(-2px);}
+.contact-form-box{background:rgba(255,255,255,.1);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.18);border-radius:24px;padding:2.5rem;}
+.form-control{background:rgba(255,255,255,.1)!important;border:2px solid rgba(255,255,255,.18)!important;border-radius:12px!important;color:#000000!important;font-family:'Outfit',sans-serif;}
+.form-control::placeholder{color:rgba(255,255,255,.4)!important;}
+.form-control:focus{border-color:rgba(255,255,255,.45)!important;box-shadow:none!important;}
+.form-label{font-family:'Outfit',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(0, 0, 0, 0.8);}
+.btn-send{background:var(--azul-cielo);color:#000000;border:none;border-radius:12px;font-family:'Outfit',sans-serif;font-weight:600;font-size:.9rem;letter-spacing:.05em;padding:.9rem 2rem;width:100%;transition:all .2s;}
+.btn-send:hover{background:#1976D2;transform:translateY(-2px);color:#000000;}
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+footer{background:#050D1A;padding:3.5rem 0;text-align:center;}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:.08em;color:#fff;}
+.footer-logo span{color:#64B5F6;}
+.footer-phrase{font-family:'Outfit',sans-serif;font-style:italic;font-size:1rem;color:rgba(255,255,255,.4);margin-bottom:2rem;}
+.footer-copy{font-size:.75rem;color:rgba(255,255,255,.25);}
+
+/* ═══════════════════════════════════════
+   WHATSAPP FLOAT
+═══════════════════════════════════════ */
+.wa-float{
+  position:fixed;bottom:2rem;right:2rem;z-index:999;
+  width:56px;height:56px;border-radius:50%;
+  background:#25D366;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.6rem;text-decoration:none;
+  box-shadow:0 4px 20px rgba(37,211,102,.4);
+  transition:transform .2s,box-shadow .2s;
+}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.5);color:#fff;}
+
+/* NOTIF */
+.notif{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(100px);background:var(--verde-c);color:#fff;padding:1rem 2rem;border-radius:14px;font-family:'Outfit',sans-serif;font-size:.9rem;font-weight:500;box-shadow:0 8px 30px rgba(0,0,0,.2);opacity:0;transition:all .4s;z-index:9999;}
+.notif.show{transform:translateX(-50%) translateY(0);opacity:1;}
+
+/* forms en secciones blancas */
+.form-control-light{background:var(--beige)!important;border:2px solid rgba(10,37,64,.12)!important;border-radius:12px!important;color:#2c2c2c!important;font-family:'Outfit',sans-serif;}
+.form-control-light:focus{border-color:var(--azul-lago)!important;box-shadow:none!important;}
+.form-label-dark{font-family:'Outfit',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--azul-prof);}
+
+/* star input */
+.star-inp span{font-size:2rem;cursor:pointer;color:#DDD;transition:transform .15s;}
+.star-inp span.on{color:#FDD835;}
+.star-inp span:hover{transform:scale(1.2);}
+
+@media(max-width:768px){
+  .gal-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto;}
+  .gal-item:nth-child(1),.gal-item:nth-child(3),.gal-item:nth-child(6){grid-column:auto;grid-row:auto;}
+  #mainNav{background:rgba(10,37,64,.95)!important;}
+}
+
+/* ═══════════════════════════════════════
+   REAL IMAGES — Lago de Tota
+═══════════════════════════════════════ */
+#hero{background:linear-gradient(rgba(10,37,64,.55),rgba(10,37,64,.72)),url('images/lago/hero.jpg') center/cover no-repeat fixed!important;}
+.exp-card-bg{font-size:0!important;background-size:cover!important;background-position:center!important;}
+.bg-e1{background-image:url('/images/lago/isla-sanpedro.jpg')!important;}
+.bg-e2{background-image:url('/images/lago/paramo-santabarbara.jpg')!important;}
+.bg-e4{background-image:url('/images/lago/buceo.jpg')!important;}
+.bg-e6{background-image:url('/images/lago/lancha.jpg')!important;}
+.bg-e7{background-image:url('/images/lago/circuito-lagunas.jpg')!important;}
+.bg-e8{background-image:url('/images/lago/monte-tabor.jpg')!important;}
+.gal-bg{font-size:0!important;background-size:cover!important;background-position:center!important;}
+.gg1{background-image:url('/images/lago/panoramica.jpg')!important;}
+.gg2{background-image:url('/images/lago/bosque-musgo.jpg')!important;}
+.gg3{background-image:url('/images/lago/comunidad.jpg')!important;}
+.gg4{background-image:url('/images/lago/estela-lancha.jpg')!important;}
+.gg5{background-image:url('/images/lago/buzos-equipo.jpg')!important;}
+.gg7{background-image:url('/images/lago/paramo-curies.jpg')!important;}
+.hist-feature{background:linear-gradient(135deg,rgba(10,37,64,.82),rgba(21,101,192,.82)),url('/images/lago/lago-orillas.jpg')!important;background-size:cover!important;background-position:center!important;}
+/* ISLAS */
+#islas{padding:6rem 0;background:var(--beige);}
+#islas .sec-title{color:var(--azul-prof);}
+.isla-card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 6px 25px rgba(10,37,64,.08);transition:transform .3s,box-shadow .3s;height:100%;border:1px solid rgba(10,37,64,.05);padding:1.8rem 1.6rem;}
+.isla-card:hover{transform:translateY(-6px);box-shadow:0 14px 35px rgba(10,37,64,.15);}
+.isla-num{font-family:'Bebas Neue',sans-serif;font-size:2.6rem;color:var(--azul-cielo);line-height:1;letter-spacing:.04em;}
+.isla-card h5{font-family:'Bebas Neue',sans-serif;letter-spacing:.04em;color:var(--azul-prof);font-size:1.3rem;margin:.4rem 0 .7rem;}
+.isla-card p{font-family:'Outfit',sans-serif;font-size:.87rem;color:#555;line-height:1.65;margin:0;}
+.exp-contact{font-family:'Outfit',sans-serif;font-size:.78rem;color:#666;margin-top:.4rem;display:flex;align-items:center;gap:.4rem;}
+.exp-contact i{color:var(--azul-cielo);}
+
+
+/* ══════ GASTRONOMÍA ══════ */
+#gastronomia{padding:110px 0 120px;background:linear-gradient(180deg,#fff 0%,#f4f8fb 100%);position:relative}
+.gastro-hero{position:relative;border-radius:26px;overflow:hidden;min-height:380px;display:flex;align-items:center;
+  background:url('images/gastronomia/r1.jpg') center/cover no-repeat;box-shadow:0 26px 60px rgba(10,40,70,.22)}
+.gastro-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,26,44,.86) 0%,rgba(6,26,44,.55) 55%,rgba(6,26,44,.18) 100%)}
+.gastro-hero-in{position:relative;z-index:2;padding:56px 44px;max-width:640px;color:#fff}
+.gastro-hero-in h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.6rem,6vw,4.2rem);line-height:1;letter-spacing:1px;margin:.4rem 0 1rem}
+.gastro-hero-in p{color:rgba(255,255,255,.85);font-size:1.02rem;line-height:1.7}
+.btn-gastro{display:inline-flex;align-items:center;gap:.55rem;margin-top:1.4rem;padding:.85rem 1.9rem;border-radius:50px;
+  background:linear-gradient(135deg,var(--azul-cielo,#42A5F5),var(--verde-s,#2E7D32));color:#fff;text-decoration:none;
+  font-weight:600;letter-spacing:.4px;transition:transform .3s,box-shadow .3s}
+.btn-gastro:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(33,120,180,.4);color:#fff}
+.gastro-search{position:relative;max-width:460px;margin:0 auto}
+.gastro-search input{width:100%;border:1px solid rgba(10,50,80,.15);border-radius:50px;padding:.9rem 1.2rem .9rem 3rem;
+  background:#fff;font-size:.95rem;outline:none;transition:border-color .3s,box-shadow .3s}
+.gastro-search input:focus{border-color:var(--azul-cielo,#42A5F5);box-shadow:0 0 0 4px rgba(66,165,245,.15)}
+.gastro-search i{position:absolute;left:1.15rem;top:50%;transform:translateY(-50%);color:#7d94a8}
+.resto-card{background:#fff;border-radius:22px;overflow:hidden;height:100%;display:flex;flex-direction:column;
+  box-shadow:0 10px 30px rgba(10,40,70,.09);transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s}
+.resto-card:hover{transform:translateY(-12px);box-shadow:0 28px 55px rgba(10,40,70,.2)}
+.resto-img{height:210px;background-size:cover;background-position:center;position:relative}
+.resto-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(6,26,44,.55))}
+.resto-tags{position:absolute;z-index:2;left:14px;bottom:14px;display:flex;gap:.4rem;flex-wrap:wrap}
+.resto-tag{background:rgba(255,255,255,.92);color:#0d3b5c;font-size:.7rem;font-weight:700;letter-spacing:.6px;
+  text-transform:uppercase;padding:.3rem .7rem;border-radius:50px}
+.resto-body{padding:1.5rem 1.5rem 1.6rem;display:flex;flex-direction:column;flex:1}
+.resto-name{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.8px;color:#0d3b5c;line-height:1.1}
+.resto-desc{font-size:.92rem;color:#546a7b;line-height:1.65;margin:.7rem 0 1rem}
+.resto-meta{font-size:.85rem;color:#37596f;display:flex;flex-direction:column;gap:.35rem;margin-bottom:1rem}
+.resto-meta i{color:var(--azul-cielo,#42A5F5);margin-right:.5rem}
+.resto-more{border-top:1px dashed rgba(10,50,80,.15);margin-top:.2rem;padding-top:.9rem;font-size:.87rem;color:#546a7b;
+  display:none;animation:fadeIn .4s ease}
+.resto-more.open{display:block}
+.resto-more ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.4rem}
+.resto-more li i{color:var(--verde-s,#2E7D32);margin-right:.5rem}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.btn-vermas{margin-top:auto;align-self:flex-start;background:none;border:1.5px solid var(--azul-cielo,#42A5F5);
+  color:#0d3b5c;border-radius:50px;padding:.6rem 1.4rem;font-weight:600;font-size:.88rem;cursor:pointer;transition:.3s}
+.btn-vermas:hover{background:var(--azul-cielo,#42A5F5);color:#fff}
+.gastro-empty{text-align:center;color:#7d94a8;padding:2rem 0;display:none}
+#backTop{position:fixed;right:22px;bottom:22px;z-index:999;width:48px;height:48px;border-radius:50%;border:none;
+  background:linear-gradient(135deg,var(--azul-cielo,#42A5F5),var(--verde-s,#2E7D32));color:#fff;font-size:1.2rem;
+  box-shadow:0 12px 26px rgba(10,60,100,.32);opacity:0;pointer-events:none;transform:translateY(14px);transition:.35s;cursor:pointer}
+#backTop.show{opacity:1;pointer-events:auto;transform:none}
+@media(max-width:767px){.gastro-hero-in{padding:40px 24px}.gastro-hero{min-height:320px}}
+
+
+#gastronomia.activa{display:block;animation:gastroIn .5s ease}
+@keyframes gastroIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.resto-img.logo{background-size:contain;background-repeat:no-repeat;background-color:#eef4f8;height:180px}
+.resto-img.logo::after{display:none}
+.resto-img.logo .resto-tags{background:transparent}
+.btn-volver-inicio{display:inline-flex;align-items:center;gap:.5rem;margin-top:2.5rem;padding:.75rem 1.6rem;border-radius:50px;
+  border:1.5px solid rgba(10,50,80,.2);background:#fff;color:#0d3b5c;text-decoration:none;font-weight:600;transition:.3s}
+.btn-volver-inicio:hover{background:#0d3b5c;color:#fff;border-color:#0d3b5c}
+
+/* ══════ AVICULTURA ══════ */
+#avicultura{padding:110px 0 120px;background:linear-gradient(180deg,#fff 0%,#f4f8fb 100%);position:relative}
+.avi-hero{position:relative;border-radius:26px;overflow:hidden;min-height:380px;display:flex;align-items:center;
+  background:linear-gradient(120deg,#0A2540 0%,#0d4a7a 45%,#2196F3 100%);box-shadow:0 26px 60px rgba(10,40,70,.22)}
+.avi-hero::after{content:'';position:absolute;inset:0;background:radial-gradient(70% 120% at 85% 15%,rgba(142,209,255,.28) 0%,rgba(142,209,255,0) 60%),linear-gradient(90deg,rgba(6,26,44,.35) 0%,rgba(6,26,44,.12) 60%,rgba(6,26,44,0) 100%)}
+.avi-img{aspect-ratio:16/10;height:auto;background:#eef4f8;position:relative;overflow:hidden;cursor:zoom-in}
+.avi-img img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .35s ease}
+.avi-img:hover img{transform:scale(1.025)}
+.avi-img .resto-tags{z-index:3;pointer-events:none}
+.avi-lightbox{position:fixed;inset:0;z-index:10000;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(3,15,25,.92);backdrop-filter:blur(8px)}
+.avi-lightbox.open{display:flex}
+.avi-lightbox img{display:block;max-width:min(94vw,1400px);max-height:88vh;width:auto;height:auto;object-fit:contain;border-radius:10px;box-shadow:0 24px 80px rgba(0,0,0,.48)}
+.avi-lightbox-close{position:absolute;top:18px;right:20px;width:46px;height:46px;border:1px solid rgba(255,255,255,.35);border-radius:50%;background:rgba(0,0,0,.35);color:#fff;font-size:1.8rem;line-height:1;display:grid;place-items:center;cursor:pointer;transition:.2s}
+.avi-lightbox-close:hover,.avi-lightbox-close:focus-visible{background:#fff;color:#0d3b5c;outline:none}
+.avi-lightbox-caption{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);margin:0;padding:.45rem .85rem;border-radius:999px;background:rgba(0,0,0,.58);color:#fff;font-size:.9rem;text-align:center;white-space:nowrap}
+body.avi-lightbox-open{overflow:hidden}
+.avi-copy{white-space:normal}
+.avi-copy p{margin-bottom:.8rem}
+.avi-copy p:last-child{margin-bottom:0}
+#avicultura.activa{display:block;animation:gastroIn .5s ease}
+@media(max-width:767px){.avi-hero{min-height:320px}.avi-img{aspect-ratio:4/3}.avi-lightbox{padding:14px}.avi-lightbox img{max-width:96vw;max-height:82vh}.avi-lightbox-caption{bottom:12px;max-width:90vw;white-space:normal}.avi-lightbox-close{top:10px;right:10px}}
+
+
+/* ═══════════════════════════════════════
+   REDISEÑO DINÁMICO 2026
+═══════════════════════════════════════ */
+:root{
+  --grad-lago: linear-gradient(120deg,#0A2540 0%,#0d4a7a 45%,#2196F3 100%);
+  --grad-acento: linear-gradient(90deg,#2196F3,#4FC3F7,#26A69A);
+  --glass: rgba(255,255,255,.72);
+}
+#scrollProgress{
+  position:fixed;top:0;left:0;height:3px;width:0%;
+  background:var(--grad-acento);z-index:2000;
+  box-shadow:0 0 14px rgba(33,150,243,.7);transition:width .1s linear;
+}
+#auraCursor{
+  position:fixed;top:0;left:0;width:340px;height:340px;border-radius:50%;
+  pointer-events:none;z-index:1;opacity:0;transition:opacity .5s;
+  background:radial-gradient(circle,rgba(33,150,243,.16),transparent 65%);
+  transform:translate(-50%,-50%);
+}
+@media (hover:hover){#auraCursor{opacity:1;}}
+@media (max-width:991px){#auraCursor{display:none;}}
+
+/* NAV vidrio + indicador activo */
+#mainNav.scrolled{
+  background:rgba(8,30,52,.82);
+  backdrop-filter:blur(22px) saturate(160%);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.navbar-nav .nav-link{position:relative;}
+.navbar-nav .nav-link::after{
+  content:'';position:absolute;left:.9rem;right:.9rem;bottom:.1rem;height:2px;
+  background:var(--grad-acento);transform:scaleX(0);transform-origin:left;
+  transition:transform .35s cubic-bezier(.2,.8,.2,1);border-radius:2px;
+}
+.navbar-nav .nav-link:hover::after,.navbar-nav .nav-link.active::after{transform:scaleX(1);}
+.navbar-nav .nav-link.active{color:#8ED1FF!important;}
+.btn-nav-reserve{background:var(--grad-acento);background-size:200% 100%;transition:background-position .6s,transform .25s,box-shadow .25s;}
+.btn-nav-reserve:hover{background-position:100% 0;box-shadow:0 10px 24px rgba(33,150,243,.4);transform:translateY(-2px);}
+
+/* HERO más vivo */
+#hero .hero-overlay{background:linear-gradient(180deg,rgba(6,22,40,.78),rgba(6,22,40,.45) 40%,rgba(6,22,40,.9));}
+#hero{background-attachment:fixed;}
+@media (max-width:991px){#hero{background-attachment:scroll;}}
+.hero-title{background:linear-gradient(92deg,#fff 20%,#9FDBFF 50%,#fff 80%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  background-size:220% 100%;animation:shine 7s linear infinite;}
+@keyframes shine{to{background-position:-220% 0;}}
+.hero-eyebrow{position:relative;display:inline-block;padding-left:2.6rem;}
+.hero-eyebrow::before{content:'';position:absolute;left:0;top:50%;width:2rem;height:2px;background:#4FC3F7;
+  animation:lineGrow 2.4s ease-in-out infinite;}
+@keyframes lineGrow{0%,100%{width:1rem;opacity:.5}50%{width:2.2rem;opacity:1}}
+.btn-primary-hero,.btn-outline-hero{position:relative;overflow:hidden;}
+.btn-primary-hero::after,.btn-outline-hero::after{
+  content:'';position:absolute;inset:0;transform:translateX(-120%) skewX(-18deg);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);transition:transform .7s;}
+.btn-primary-hero:hover::after,.btn-outline-hero:hover::after{transform:translateX(120%) skewX(-18deg);}
+.hero-stats{backdrop-filter:blur(12px);background:rgba(6,22,40,.45)!important;border-top:1px solid rgba(255,255,255,.12);}
+.stat-item{transition:transform .35s;}
+.stat-item:hover{transform:translateY(-6px);}
+.stat-num{background:var(--grad-acento);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+
+/* Títulos de sección animados */
+.sec-title{position:relative;}
+.sec-eyebrow{background:var(--grad-acento);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-weight:700;}
+
+/* Tarjetas 3D / elevación */
+.exp-card,.resto-card,.hist-feature,.op-card,.gal-item{
+  transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s;
+  transform-style:preserve-3d;will-change:transform;
+}
+.exp-card:hover,.resto-card:hover,.op-card:hover{
+  box-shadow:0 28px 60px -22px rgba(10,37,64,.45);
+}
+.tilt:hover{box-shadow:0 30px 70px -24px rgba(10,37,64,.5);}
+
+/* Galería con zoom y máscara */
+.gal-item{overflow:hidden;border-radius:16px;}
+.gal-item img,.gal-item .gal-bg{transition:transform 1s cubic-bezier(.2,.8,.2,1),filter .6s;}
+.gal-item:hover img,.gal-item:hover .gal-bg{transform:scale(1.09);filter:saturate(1.2);}
+
+/* Reveals más ricos */
+.reveal,.reveal-l,.reveal-r{transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1);}
+.reveal-up{opacity:0;transform:translateY(46px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1);}
+.reveal-up.visible{opacity:1;transform:none;}
+
+/* Separadores de sección con onda sutil */
+section{position:relative;z-index:2;}
+
+/* backTop mejorado */
+#backTop{background:var(--grad-acento)!important;border:none;box-shadow:0 12px 30px rgba(33,150,243,.4);}
+
+
+/* ═══════════════════════════════════════════════
+   TEMA EDITORIAL "VILLA DE LEYVA" — rediseño total
+═══════════════════════════════════════════════ */
+:root{
+  --terra:#12708C;
+  --terra-d:#0C5568;
+  --verde:#2E8B6F;
+  --crema:#F2F8F6;
+  --crema-2:#E1EFEA;
+  --tinta:#12302E;
+  --gris-e:#5A7671;
+  --linea:#CCE2DB;
+  --grad-acento:linear-gradient(90deg,#12708C,#2E8B6F);
+}
+body{background:var(--crema);color:var(--tinta);font-family:'Lato','Inter',sans-serif;font-size:1.02rem;line-height:1.75;}
+h1,h2,h3,h4,h5,h6,.sec-title,.hero-title,.exp-card-title,.resto-name,.nat-card h5,.review-name,.footer-logo,.nav-brand,.hist-text h5,.big-num,.stat-num,.nat-stat-num{
+  font-family:'Playfair Display',serif!important;letter-spacing:0!important;
+}
+::-webkit-scrollbar-thumb{background:var(--terra);}
+#scrollProgress{background:var(--terra);box-shadow:none;}
+#auraCursor{display:none;}
+
+/* ── NAV: barra flotante terracota ── */
+#mainNav{padding:1.4rem 0;background:transparent;}
+#mainNav .container{
+  background:var(--terra);
+  padding:.55rem 1.6rem;border-radius:2px;
+  box-shadow:0 10px 30px rgba(46,42,38,.18);
+  display:flex;flex-wrap:nowrap;align-items:center;
+  transition:background .3s,box-shadow .3s;
+}
+#mainNav.scrolled{background:transparent;backdrop-filter:none;border:none;padding:.7rem 0;box-shadow:none;}
+#mainNav.scrolled .container{background:var(--terra-d);}
+@media (min-width:992px){#mainNav .container{max-width:1180px;}#mainNav #nm{flex:1 1 auto;}}
+@media (max-width:991px){#mainNav .container{flex-wrap:wrap;}}
+.vl-circles{bottom:11.5rem;}
+.exp-card{height:100%;display:flex;flex-direction:column;}
+.exp-card-bg{flex:0 0 auto;}
+.exp-card-body{flex:1 1 auto;display:flex;flex-direction:column;}
+.exp-card-body .btn-reservar{margin-top:auto;}
+.nav-brand{font-size:1.25rem!important;font-weight:700;text-transform:uppercase;letter-spacing:.12em!important;color:#fff!important;}
+.nav-brand span{color:#B8EBDD;}
+.navbar-nav .nav-link{
+  font-family:'Playfair Display',serif;font-weight:700;
+  font-size:.78rem;letter-spacing:.14em;color:#fff!important;
+}
+.navbar-nav .nav-link:hover,.navbar-nav .nav-link.active{color:#C9F0E4!important;}
+.navbar-nav .nav-link::after{background:#C9F0E4;height:1px;}
+.btn-nav-reserve{background:#fff!important;color:var(--terra)!important;border-radius:2px;font-family:'Playfair Display',serif;font-weight:700;letter-spacing:.12em;}
+.btn-nav-reserve:hover{background:#C9F0E4!important;box-shadow:none;transform:none;}
+.navbar-toggler{border-color:rgba(255,255,255,.6);}
+
+/* ── HERO: foto a sangre + círculos de acceso ── */
+#hero{min-height:100vh;background-attachment:scroll;}
+.hero-overlay{background:linear-gradient(180deg,rgba(30,20,15,.45),rgba(30,20,15,.15) 45%,rgba(30,20,15,.65))!important;}
+.hero-eyebrow{font-family:'Lato',sans-serif;letter-spacing:.28em;text-transform:uppercase;font-size:.72rem;color:#C9F0E4;}
+.hero-title{
+  font-size:clamp(3rem,8vw,6.2rem)!important;font-weight:700;
+  background:none!important;-webkit-text-fill-color:#fff!important;color:#fff!important;
+  animation:none!important;text-shadow:0 6px 30px rgba(0,0,0,.45);text-transform:none;
+}
+.hero-title .alt{color:#8FE3CB!important;-webkit-text-fill-color:#8FE3CB!important;}
+.hero-sub{font-size:1.05rem;max-width:600px;color:rgba(255,255,255,.92);}
+.btn-primary-hero{background:var(--terra)!important;border:1px solid var(--terra)!important;border-radius:2px!important;font-family:'Playfair Display',serif;font-weight:700;letter-spacing:.1em;}
+.btn-primary-hero:hover{background:var(--terra-d)!important;border-color:var(--terra-d)!important;}
+.btn-outline-hero{border-radius:2px!important;border-color:rgba(255,255,255,.8)!important;font-family:'Playfair Display',serif;font-weight:700;letter-spacing:.1em;}
+
+/* círculos tipo Villa de Leyva */
+.vl-circles{
+  position:absolute;left:0;right:0;bottom:9.5rem;z-index:5;
+  display:flex;justify-content:center;flex-wrap:wrap;gap:1.6rem;padding:0 1rem;
+}
+.vl-circle{
+  width:170px;height:170px;border-radius:50%;overflow:hidden;position:relative;
+  border:5px solid #fff;box-shadow:0 14px 34px rgba(0,0,0,.35);
+  display:flex;align-items:center;justify-content:center;text-decoration:none;
+  transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s;
+  background-size:cover;background-position:center;
+}
+.vl-circle::before{content:'';position:absolute;inset:0;background:rgba(30,20,15,.38);transition:background .4s;}
+.vl-circle span{
+  position:relative;z-index:2;color:#fff;text-align:center;font-family:'Playfair Display',serif;
+  font-weight:700;font-size:.95rem;line-height:1.25;padding:0 .8rem;text-shadow:0 2px 10px rgba(0,0,0,.5);
+}
+.vl-circle:hover{transform:translateY(-10px) scale(1.04);box-shadow:0 22px 44px rgba(0,0,0,.42);}
+.vl-circle:hover::before{background:rgba(18,112,140,.55);}
+@media (max-width:991px){.vl-circles{position:static;margin-top:2.5rem;gap:1rem;}.vl-circle{width:130px;height:130px;}.vl-circle span{font-size:.8rem;}}
+
+.scroll-ind{color:rgba(255,255,255,.85);}
+.hero-stats{background:var(--terra)!important;backdrop-filter:none;border:none;}
+.stat-num{-webkit-text-fill-color:#fff!important;background:none!important;color:#fff!important;font-weight:700;}
+.stat-lbl{color:rgba(255,255,255,.8)!important;letter-spacing:.2em;font-size:.68rem;}
+.stat-divider{background:rgba(255,255,255,.35)!important;}
+
+/* ── SECCIONES editoriales ── */
+section{background:var(--crema);}
+#historia,#experiencias,#galeria,#opiniones,#mapa,#gastronomia,#avicultura{background:var(--crema);}
+.sec-eyebrow{
+  font-family:'Lato',sans-serif!important;text-transform:uppercase;letter-spacing:.26em;font-size:.72rem;
+  color:var(--terra)!important;-webkit-text-fill-color:var(--terra)!important;background:none!important;font-weight:700;
+}
+.sec-title{font-size:clamp(2.1rem,4.2vw,3.2rem)!important;font-weight:700;color:var(--tinta)!important;line-height:1.15;}
+.sec-title span{color:var(--terra)!important;}
+.sec-lead{color:var(--gris-e);font-size:1.02rem;}
+
+/* Historia */
+.hist-timeline{border-left:1px solid var(--linea);}
+.hist-year{color:var(--terra)!important;font-family:'Playfair Display',serif;}
+.hist-item::before,.hist-item .dot{background:var(--terra)!important;}
+.hist-feature{border-radius:2px!important;}
+.hist-feature::after{content:'';position:absolute;inset:0;background:rgba(46,32,25,.55);z-index:0;}
+.hist-feature>*{position:relative;z-index:1;}
+.big-num{color:rgba(255,255,255,.35)!important;}
+
+/* Tarjetas de experiencia: estilo ficha editorial */
+.exp-card{
+  border-radius:2px!important;border:1px solid var(--linea)!important;background:#fff!important;
+  box-shadow:0 1px 0 rgba(46,42,38,.04);overflow:hidden;
+}
+.exp-card:hover,.tilt:hover{box-shadow:0 22px 44px -22px rgba(46,42,38,.38);}
+.exp-card-bg{height:230px;position:relative;border-radius:0!important;}
+.exp-card-overlay{background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.35))!important;}
+.exp-card-body{background:#fff;color:var(--tinta);padding:1.5rem!important;}
+.exp-badge{
+  background:var(--terra)!important;color:#fff!important;border-radius:2px!important;
+  font-family:'Lato',sans-serif;letter-spacing:.16em;text-transform:uppercase;font-size:.62rem;font-weight:700;
+}
+.exp-card-title{color:var(--tinta)!important;font-size:1.3rem!important;}
+.exp-card-desc,.exp-meta,.exp-contact{color:var(--gris-e)!important;}
+.exp-price{color:var(--terra)!important;font-family:'Playfair Display',serif;}
+.btn-reservar,.btn-send,.btn-gastro,.btn-volver-inicio,.btn-vermas{
+  border-radius:2px!important;font-family:'Playfair Display',serif;font-weight:700;letter-spacing:.1em;
+}
+.btn-reservar,.btn-send,.btn-gastro{background:var(--terra)!important;border-color:var(--terra)!important;color:#fff!important;}
+.btn-reservar:hover,.btn-send:hover,.btn-gastro:hover{background:var(--terra-d)!important;}
+
+/* Chips de categoría */
+.vl-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin:2.5rem 0 0;}
+.vl-chip{
+  border:1px solid var(--linea);background:#fff;color:var(--tinta);text-decoration:none;
+  padding:.45rem 1.15rem;border-radius:2px;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;
+  transition:.25s;
+}
+.vl-chip:hover{background:var(--terra);color:#fff;border-color:var(--terra);}
+
+/* Naturaleza */
+#naturaleza{
+  background:var(--crema)!important;
+}
+#naturaleza .sec-title,
+#naturaleza h5{
+  color:var(--tinta)!important;
+}
+#naturaleza .sec-title span{
+  color:var(--verde)!important;
+}
+#naturaleza .sec-eyebrow{
+  color:var(--terra)!important;
+  -webkit-text-fill-color:var(--terra)!important;
+}
+#naturaleza .sec-lead{
+  color:var(--gris-e)!important;
+}
+.nat-card{
+  background:#fff!important;
+  border:1px solid var(--linea)!important;
+  border-radius:2px!important;
+  color:var(--tinta)!important;
+}
+.nat-card p{
+  color:var(--gris-e)!important;
+}
+.nat-stat-num{
+  color:var(--terra)!important;
+}
+
+
+/* Galería */
+.gal-item{border-radius:2px!important;}
+.gal-ov{background:linear-gradient(180deg,transparent,rgba(46,42,38,.75))!important;}
+.gal-lbl{font-family:'Playfair Display',serif;}
+
+/* Opiniones y formularios */
+.review-card,.opinion-box,.contact-form-box,.contact-info,.qr-box,.resto-card,.mapa-frame{
+  border-radius:2px!important;border:1px solid var(--linea)!important;background:#fff!important;
+}
+.review-stars,.stars-big,.star-inp span.on{color:var(--terra)!important;}
+.review-avatar{background:var(--terra)!important;color:#fff!important;border-radius:50%!important;}
+.form-control,.form-select{border-radius:2px!important;border-color:var(--linea)!important;}
+.form-control:focus{border-color:var(--terra)!important;box-shadow:0 0 0 .15rem rgba(18,112,140,.15)!important;}
+.c-icon{background:var(--terra)!important;color:#fff!important;}
+
+/* Gastronomía */
+.gastro-hero,.avi-hero{border-radius:2px!important;}
+.resto-tag{background:var(--crema-2)!important;color:var(--verde)!important;border-radius:2px!important;letter-spacing:.12em;text-transform:uppercase;font-size:.66rem;font-weight:700;}
+.gastro-search .form-control{border-radius:2px!important;}
+.resto-img{background-color:var(--crema-2)!important;}
+
+/* Footer */
+/* Footer */
+footer{
+  background:var(--terra-d)!important;
+}
+
+.footer-logo{
+  color:#fff;
+}
+
+.footer-logo span{
+  color:#B8EBDD;
+}
+
+.soc-btn{
+  border-radius:50%!important;
+  background:rgba(255,255,255,.08)!important;
+}
+
+.soc-btn:hover{
+  background:var(--verde)!important;
+}
+
+/* Botones flotantes */
+#backTop{background:var(--terra)!important;border-radius:2px!important;box-shadow:0 10px 24px rgba(18,112,140,.35);}
+.wa-float{background:var(--terra)!important;}
+.notif{border-radius:2px!important;background:var(--tinta)!important;}
+
+
+/* ── Navegación por páginas ── */
+body.pagina-interna #mainNav{padding:.9rem 0;}
+body.pagina-interna section{min-height:calc(100vh - 120px);}
+section[id]{scroll-margin-top:110px;}
+body.pagina-interna #historia,body.pagina-interna #experiencias,body.pagina-interna #naturaleza,
+body.pagina-interna #galeria,body.pagina-interna #opiniones,body.pagina-interna #mapa,
+body.pagina-interna #contacto{padding-top:150px!important;}
+@keyframes pageIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
+.sec-title span,.exp-price,.hist-year{color:var(--verde)!important;}
+.vl-chip:hover{background:var(--verde)!important;border-color:var(--verde)!important;}
+
+/* Fix: tarjetas de experiencia con imágenes reales */
+.exp-card{min-height:100%;height:auto;display:flex!important;flex-direction:column!important;}
+.exp-card-bg{position:relative!important;inset:auto!important;height:230px!important;flex:0 0 auto!important;}
+.exp-card-overlay{display:none!important;}
+.exp-card-body{position:relative!important;bottom:auto!important;left:auto!important;right:auto!important;flex:1 1 auto!important;display:flex!important;flex-direction:column!important;}
+.exp-card-body .btn-reservar{margin-top:auto!important;}
+</style>
+</head>
+<body>
+<div id="scrollProgress"></div>
+<div id="auraCursor"></div>
+
+<div class="notif" id="notif">¡Enviado!</div>
+<a href="https://wa.me/573100000000" class="wa-float" target="_blank"><i class="bi bi-whatsapp"></i></a>
+
+<!-- ══════════════════ NAVBAR ══════════════════ -->
+<nav id="mainNav" class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="nav-brand" href="#">AQUI<span>AVENTURA</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nm">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nm">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-0 gap-2 py-3 py-lg-0">
+      
+        <li><a class="nav-link" href="#experiencias">Experiencias</a></li>
+        <li><a class="nav-link" href="#gastronomia">Gastronomía</a></li>
+        <li><a class="nav-link" href="#avicultura">Avicultura</a></li>
+       
+        <li><a class="nav-link" href="#galeria">Galería</a></li>
+        <li><a class="nav-link" href="#opiniones">Opiniones</a></li>
+        <li><a class="nav-link" href="#contacto">Contacto</a></li>
+        <li class="ms-lg-3"><a class="btn-nav-reserve" href="#experiencias">Reservar</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<section id="hero">
+  <div class="hero-overlay"></div>
+  <div class="container hero-inner">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="hero-eyebrow reveal">Lago de Tota · Boyacá · Colombia</div>
+        <h1 class="hero-title reveal">AQUI<span class="alt">AVENTURA</span></h1>
+        <p class="hero-sub reveal"> </p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="vl-circles">
+    <a class="vl-circle" href="#experiencias" style="background-image:url('images/lago/lancha.jpg')"><span>Experiencias<br>en el lago</span></a>
+    <a class="vl-circle" href="#gastronomia" style="background-image:url('images/lago/ti.jpg')"><span>Gastronomía<br>de Aquitania</span></a>
+    <a class="vl-circle" href="#avicultura" style="background-image:url('images/avicultura/dendrocygna-autumnalis.png')"><span>Avicultura<br>del Lago de Tota</span></a>
+    <a class="vl-circle" href="#galeria" style="background-image:url('images/lago/panoramica.jpg')"><span>Galería<br>de Tota</span></a>
+  </div>
+
+  <div class="scroll-ind"><i class="bi bi-chevron-down"></i>Scroll</div>
+
+  <div class="hero-stats">
+    <div class="container">
+      <div class="d-flex justify-content-center align-items-center flex-wrap gap-0">
+        <div class="stat-item"><div class="stat-num">3.015</div><div class="stat-lbl">m.s.n.m.</div></div>
+        <div class="stat-divider d-none d-md-block" style="height:40px;"></div>
+        <div class="stat-item"><div class="stat-num">55</div><div class="stat-lbl">km² Lago</div></div>
+        <div class="stat-divider d-none d-md-block" style="height:40px;"></div>
+        <div class="stat-item"><div class="stat-num">+200</div><div class="stat-lbl">Especies</div></div>
+        <div class="stat-divider d-none d-md-block" style="height:40px;"></div>
+        <div class="stat-item"><div class="stat-num">800</div><div class="stat-lbl">Años Historia</div></div>
+        <div class="stat-divider d-none d-md-block" style="height:40px;"></div>
+        <div class="stat-item"><div class="stat-num">10+</div><div class="stat-lbl">Experiencias</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ HISTORIA ══════════════════ -->
+<section id="historia">
+  <div class="container">
+    <div class="row align-items-start g-5">
+      <div class="col-lg-5 reveal-l">
+        <span class="sec-eyebrow">Raíces &amp; Legado</span>
+        <h2 class="sec-title mt-2 mb-4">Historia de <br>Aquitania</h2>
+        <p class="sec-lead mb-4">Desde las orillas del Lago de Tota, los muiscas construyeron una civilización espiritual profunda. Cada ola del lago susurra siglos de historia, tradición y conexión con la tierra.</p>
+
+        <div class="hist-timeline">
+          <div class="hist-item">
+            <div class="hist-year">800</div>
+            <div class="hist-text"><h5>Era Prehispánica — Guaquira</h5><p>Territorio muisca de gran riqueza espiritual. El Lago de Tota, considerado sagrado, era centro de rituales y ofrecimientos.</p></div>
+          </div>
+          <div class="hist-item">
+            <div class="hist-year">1537</div>
+            <div class="hist-text"><h5>La Conquista Española</h5><p>Juan de San Martín llega y bautiza el territorio como "Puebloviejo". Comienza el período colonial que fusionará dos mundos.</p></div>
+          </div>
+          <div class="hist-item">
+            <div class="hist-year">1934</div>
+            <div class="hist-text"><h5>Nace Aquitania</h5><p>Ramón Ignacio Avella, inspirado en la Aquitania francesa surcada de ríos, propone el nombre definitivo ante la Asamblea de Boyacá.</p></div>
+          </div>
+          <div class="hist-item">
+            <div class="hist-year">Hoy</div>
+            <div class="hist-text"><h5>Destino Eco-Turístico</h5><p>Aquitania y el Lago de Tota se consolidan como uno de los destinos naturales más importantes de Colombia.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7 reveal-r">
+        <div class="hist-feature mb-4">
+          <div class="big-num">Tota</div>
+          <h3>El Lago Sagrado de los Muiscas</h3>
+          <p>El manantial natural de agua dulce más grande de Colombia y el segundo más alto de Sudamérica. A 32 km al sur de Sogamoso, con temperaturas de 10°C a 24°C, el Lago de Tota fusiona el azul intenso de sus aguas con el verde de las montañas. Sus profundidades albergan trucha arcoíris y pez capitán, mientras que en sus orillas habitan más de 100 especies de aves, entre ellas el pato pico de oro y el cucarachero de pantano.</p>
+        </div>
+        <div class="row g-3">
+          <div class="col-6">
+            <div class="p-3 rounded-3" style="background:var(--beige);border:1px solid rgba(10,37,64,.08);">
+              <div style="font-size:1.8rem;margin-bottom:.5rem;">🏔️</div>
+              <h6 style="font-family:'Outfit',sans-serif;font-weight:700;color:var(--azul-prof);font-size:.9rem;">Páramo Andino</h6>
+              <p style="font-size:.82rem;color:#666;margin:0;line-height:1.6;">Ecosistema único en el mundo con frailejones milenarios y lagunas de alta montaña.</p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="p-3 rounded-3" style="background:var(--beige);border:1px solid rgba(10,37,64,.08);">
+              <div style="font-size:1.8rem;margin-bottom:.5rem;">🐟</div>
+              <h6 style="font-family:'Outfit',sans-serif;font-weight:700;color:var(--azul-prof);font-size:.9rem;">Trucha de Tota</h6>
+              <p style="font-size:.82rem;color:#666;margin:0;line-height:1.6;">Las aguas frías y cristalinas producen la trucha más apreciada de Colombia.</p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="p-3 rounded-3" style="background:var(--beige);border:1px solid rgba(10,37,64,.08);">
+              <div style="font-size:1.8rem;margin-bottom:.5rem;">🦅</div>
+              <h6 style="font-family:'Outfit',sans-serif;font-weight:700;color:var(--azul-prof);font-size:.9rem;">Avifauna Única</h6>
+              <p style="font-size:.82rem;color:#666;margin:0;line-height:1.6;">Más de 200 especies de aves, incluyendo patos andinos y cóndores en las cimas.</p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="p-3 rounded-3" style="background:var(--beige);border:1px solid rgba(10,37,64,.08);">
+              <div style="font-size:1.8rem;margin-bottom:.5rem;">🌿</div>
+              <h6 style="font-family:'Outfit',sans-serif;font-weight:700;color:var(--azul-prof);font-size:.9rem;">Flora Endémica</h6>
+              <p style="font-size:.82rem;color:#666;margin:0;line-height:1.6;">Frailejones, musgos y plantas medicinales en uno de los páramos más ricos del mundo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ══════════════════ NATURALEZA ══════════════════ -->
+<section id="naturaleza">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="sec-eyebrow" style="color:var(--verde-s);">Ecosistema &amp; Biodiversidad</span>
+      <h2 class="sec-title light mt-2">Naturaleza y <span style="color:var(--verde-s)">Biodiversidad</span></h2>
+      <p class="sec-lead mx-auto mt-3" style="max-width:540px;color:rgba(255,255,255,.7);">El Lago de Tota y el páramo de Aquitania albergan uno de los ecosistemas más frágiles y biodiversos del planeta.</p>
+    </div>
+
+    <!-- stats row -->
+    <div class="row g-4 mb-5">
+      <div class="col-6 col-md-3 reveal">
+        <div class="nat-stat"><div class="nat-stat-num" id="cnt1">0</div><div class="nat-stat-lbl">Especies de Aves</div></div>
+      </div>
+      <div class="col-6 col-md-3 reveal">
+        <div class="nat-stat"><div class="nat-stat-num" id="cnt2">0</div><div class="nat-stat-lbl">Hectáreas de Páramo</div></div>
+      </div>
+      <div class="col-6 col-md-3 reveal">
+        <div class="nat-stat"><div class="nat-stat-num" id="cnt3">0</div><div class="nat-stat-lbl">Especies Endémicas</div></div>
+      </div>
+      <div class="col-6 col-md-3 reveal">
+        <div class="nat-stat"><div class="nat-stat-num" id="cnt4">0</div><div class="nat-stat-lbl">m² Lago</div></div>
+      </div>
+    </div>
+
+    <!-- cards -->
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="nat-card">
+          <div class="nat-icon">🌿</div>
+          <h5>Frailejones</h5>
+          <p>Plantas milenarias del páramo, únicas en los Andes. Pueden vivir más de 100 años y son vitales para la captación de agua.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="nat-card">
+          <div class="nat-icon">🦆</div>
+          <h5>Pato Andino</h5>
+          <p>El pato colorado andino y otras especies acuáticas hacen del Lago de Tota un paraíso para el avistamiento de aves.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="nat-card">
+          <div class="nat-icon">💧</div>
+          <h5>Fuente de Vida</h5>
+          <p>El Lago de Tota abastece de agua a más de 500,000 personas en Boyacá. Su conservación es vital para las generaciones futuras.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="nat-card">
+          <div class="nat-icon">🏔️</div>
+          <h5>Páramo Vivo</h5>
+          <p>El páramo de Aquitania es una esponja natural que regula el clima regional y es hogar de cientos de especies únicas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ MAPA ══════════════════ -->
+<section id="mapa">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="sec-eyebrow">Localización</span>
+      <h2 class="sec-title light mt-2">Mapa <span style="color:#64B5F6">Interactivo</span></h2>
+      <p class="sec-lead mt-2" style="color:rgba(255,255,255,.6);max-width:480px;margin:0 auto">Explora los puntos turísticos del Lago de Tota y Aquitania.</p>
+    </div>
+    <div class="mapa-frame reveal" style="position:relative;">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15939.8421234!2d-72.893!3d5.518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e6a5777d48531ab%3A0x3f83fb155a4ea98c!2sAquitania%2C%20Boyac%C3%A1!5e0!3m2!1ses!2sco!4v1750000000000!5m2!1ses!2sco"
+        width="100%" height="100%" style="border:0;position:absolute;top:0;left:0;"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        title="Mapa de Aquitania, Boyacá">
+      </iframe>
+    </div>
+    <div class="text-center mt-4 reveal">
+      <a href="https://www.google.com/maps/place/Aquitania,+Boyac%C3%A1/@5.5197134,-72.884198,16z/data=!3m1!4b1!4m6!3m5!1s0x8e6a5777d48531ab:0x3f83fb155a4ea98c!8m2!3d5.5181208!4d-72.8833412!16zL20vMDlkbjJs?entry=ttu&g_ep=EgoyMDI2MDYyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-mapa" style="display:inline-block;">
+        <i class="bi bi-geo-alt-fill me-2"></i>Ver Aquitania en Google Maps
+      </a>
+      <div class="mapa-pins" style="margin-top:1.5rem;">
+        <span class="mapa-pin"><i class="bi bi-anchor"></i>Muelle Principal</span>
+        <span class="mapa-pin"><i class="bi bi-tree"></i>Isla San Pedro</span>
+        <span class="mapa-pin"><i class="bi bi-mountain"></i>Monte Tabor</span>
+        <span class="mapa-pin"><i class="bi bi-water"></i>Playa Potrero</span>
+        <span class="mapa-pin"><i class="bi bi-cloud-snow"></i>Páramo Santa Bárbara</span>
+        <span class="mapa-pin"><i class="bi bi-droplet"></i>Laguna Los Patos</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ QR ══════════════════ -->
+<section id="qr" style="padding:5rem 0;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="qr-box reveal">
+          <div class="qr-visual">
+            <svg width="156" height="156" viewBox="0 0 156 156" xmlns="http://www.w3.org/2000/svg">
+              <!-- QR corners -->
+              <rect x="8" y="8" width="42" height="42" fill="none" stroke="#0A2540" stroke-width="6" rx="4"/>
+              <rect x="16" y="16" width="26" height="26" fill="#0A2540" rx="2"/>
+              <rect x="106" y="8" width="42" height="42" fill="none" stroke="#0A2540" stroke-width="6" rx="4"/>
+              <rect x="114" y="16" width="26" height="26" fill="#0A2540" rx="2"/>
+              <rect x="8" y="106" width="42" height="42" fill="none" stroke="#0A2540" stroke-width="6" rx="4"/>
+              <rect x="16" y="114" width="26" height="26" fill="#0A2540" rx="2"/>
+              <!-- QR dots pattern -->
+              <rect x="58" y="8" width="8" height="8" fill="#0A2540" rx="1"/>
+              <rect x="70" y="8" width="8" height="8" fill="#0A2540" rx="1"/>
+              <rect x="82" y="8" width="8" height="8" fill="#0A2540" rx="1"/>
+              <rect x="58" y="20" width="8" height="8" fill="#0A2540" rx="1"/>
+              <rect x="82" y="20" width="8" height="8" fill="#0A2540" rx="1"/>
+              <rect x="58" y="32" width="8" height="8" fill="#0A2540" rx="1"/>
+              <rect x="70" y="32" width="8" height="8" fill="#0A2540" rx="1"/>
+              <rect x="82" y="32" width="8" height="8" fill="#0A2540" rx="1"/>
+              <rect x="8" y="58" width="8" height="8" fill="#0A2540" rx="1"/>
+              <rect x="20" y="58" width="8" height="8" fill="#0A2540" rx="1"/>
+              <rect x="32" y="58" width="8" height="8" fill="#0A2540" rx="1"/>
+              <rect x="8" y="70" width="8" height="8" fill="#0A2540" rx="1"/>
+              <rect x="32" y="70" width="8" height="8" fill="#0A2540" rx="1"/>
+              <rect x="8" y="82" width="8" height="8" fill="#0A2540" rx="1"/>
+              <rect x="20" y="82" width="8" height="8" fill="#0A2540" rx="1"/>
+              <rect x="32" y="82" width="8" height="8" fill="#0A2540" rx="1"/>
+              <!-- center dots -->
+              <rect x="58" y="58" width="40" height="40" fill="#1565C0" rx="4" opacity=".9"/>
+              <rect x="66" y="66" width="24" height="24" fill="#fff" rx="2"/>
+              <rect x="72" y="72" width="12" height="12" fill="#0A2540" rx="1"/>
+              <!-- random dots -->
+              <rect x="106" y="58" width="8" height="8" fill="#0A2540" rx="1"/>
+              <rect x="118" y="58" width="8" height="8" fill="#0A2540" rx="1"/>
+              <rect x="130" y="58" width="8" height="8" fill="#0A2540" rx="1"/>
+              <rect x="142" y="58" width="8" height="8" fill="#0A2540" rx="1"/>
+              <rect x="106" y="70" width="8" height="8" fill="#0A2540" rx="1"/>
+              <rect x="130" y="70" width="8" height="8" fill="#0A2540" rx="1"/>
+              <rect x="118" y="82" width="8" height="8" fill="#0A2540" rx="1"/>
+              <rect x="142" y="82" width="8" height="8" fill="#0A2540" rx="1"/>
+              <rect x="58" y="106" width="8" height="8" fill="#0A2540" rx="1"/>
+              <rect x="70" y="106" width="8" height="8" fill="#0A2540" rx="1"/>
+              <rect x="82" y="106" width="8" height="8" fill="#0A2540" rx="1"/>
+              <rect x="106" y="106" width="8" height="8" fill="#0A2540" rx="1"/>
+              <rect x="58" y="118" width="8" height="8" fill="#0A2540" rx="1"/>
+              <rect x="82" y="118" width="8" height="8" fill="#0A2540" rx="1"/>
+              <rect x="118" y="118" width="8" height="8" fill="#0A2540" rx="1"/>
+              <rect x="130" y="118" width="8" height="8" fill="#0A2540" rx="1"/>
+              <rect x="58" y="130" width="8" height="8" fill="#0A2540" rx="1"/>
+              <rect x="70" y="130" width="8" height="8" fill="#0A2540" rx="1"/>
+              <rect x="106" y="130" width="8" height="8" fill="#0A2540" rx="1"/>
+              <rect x="142" y="130" width="8" height="8" fill="#0A2540" rx="1"/>
+            </svg>
+          </div>
+          <h3>Código QR AQUIAVENTURA</h3>
+          <p>Escanea este código QR con tu smartphone para acceder directamente a la plataforma AQUIAVENTURA y explorar todas las experiencias turísticas del Lago de Tota y Aquitania, Boyacá.</p>
+          <a href="#" class="btn-reservar" style="font-size:.85rem;padding:.6rem 1.6rem;">Escanear y Explorar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ EXPERIENCIAS ══════════════════ -->
+<section id="experiencias">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="sec-eyebrow">Aventura &amp; Turismo</span>
+      <h2 class="sec-title mt-2">Experiencias <span style="color:var(--azul-cielo)">AQUIAVENTURA</span></h2>
+      <p class="sec-lead mx-auto mt-3" style="max-width:560px">Desde las aguas del Lago de Tota hasta las cimas del páramo — cada experiencia es un encuentro con la naturaleza en su estado más puro.</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- 1 AQUALAGO — Isla San Pedro -->
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="exp-card">
+          <div class="exp-card-bg" style="background-image:url('images/lago/isla-sanpedro.jpg')"></div>
+          <div class="exp-card-overlay"></div>
+          <div class="exp-card-body">
+            <span class="exp-badge">Náutico · AQUALAGO</span>
+            <div class="exp-card-title">Isla San Pedro</div>
+            <div class="exp-card-desc">Recorrido náutico guiado por la isla más grande del Lago de Tota (Isla del Zaque). Avistamiento de aves, mitos y leyendas ancestrales. Muelle La Peña, Aquitania.</div>
+            <div class="exp-meta">
+              <span class="exp-meta-item"><i class="bi bi-clock"></i>1 hora</span>
+              <span class="exp-meta-item"><i class="bi bi-activity"></i>Baja</span>
+              <span class="exp-meta-item"><i class="bi bi-people"></i>1–150 pax</span>
+            </div>
+            <div class="exp-price">Desde $30.000 COP / 8 USD</div>
+            <div class="exp-contact"><i class="bi bi-telephone"></i>310 753 7535 · 311 268 9159</div>
+            <a href="https://www.instagram.com/aqualagosasbic/" target="_blank" class="btn-reservar">Reservar experiencia</a>
+          </div>
+        </div>
+      </div>
+      <!-- 2 CAMAQUITOUR'S — Lancha + caminata Isla San Pedro -->
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="exp-card">
+          <div class="exp-card-bg" style="background-image:url('images/lago/lancha.jpg')"></div>
+          <div class="exp-card-overlay"></div>
+          <div class="exp-card-body">
+            <span class="exp-badge">Náutico · CAMAQUITOUR'S</span>
+            <div class="exp-card-title">Lancha + Caminata Isla San Pedro</div>
+            <div class="exp-card-desc">Navegamos las aguas cristalinas y desembarcamos en la Isla San Pedro para una caminata de 45 min descubriendo su importancia histórica y cultura ancestral.</div>
+            <div class="exp-meta">
+              <span class="exp-meta-item"><i class="bi bi-clock"></i>2 horas</span>
+              <span class="exp-meta-item"><i class="bi bi-activity"></i>Baja</span>
+              <span class="exp-meta-item"><i class="bi bi-people"></i>2–10 pax</span>
+            </div>
+            <div class="exp-price">$200.000 COP / 50 USD (1–6 pax)</div>
+            <div class="exp-contact"><i class="bi bi-telephone"></i>313 833 7448</div>
+            <a href="https://goo.gl/maps/fJjDFdvsNz3ox65s9" target="_blank" class="btn-reservar">Reservar experiencia</a>
+          </div>
+        </div>
+      </div>
+      <!-- 3 DIVE AND TOURS — Buceo -->
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="exp-card">
+          <div class="exp-card-bg" style="background-image:url('images/lago/buzos-equipo.jpg')"></div>
+          <div class="exp-card-overlay"></div>
+          <div class="exp-card-body">
+            <span class="exp-badge">Buceo · DIVE AND TOURS</span>
+            <div class="exp-card-title">Buceo RAID Try Dive</div>
+            <div class="exp-card-desc">Explora el mundo subacuático del Lago de Tota — sin experiencia previa, desde 12 años. Instrucción teórica e-learning, práctica en piscina y buceo en el lago.</div>
+            <div class="exp-meta">
+              <span class="exp-meta-item"><i class="bi bi-clock"></i>3 horas</span>
+              <span class="exp-meta-item"><i class="bi bi-activity"></i>Baja</span>
+              <span class="exp-meta-item"><i class="bi bi-people"></i>+12 años</span>
+            </div>
+            <div class="exp-price">Desde $360.000 COP / 90 USD</div>
+            <div class="exp-contact"><i class="bi bi-telephone"></i>314 219 1762</div>
+            <a href="http://www.diveandtours.com/" target="_blank" class="btn-reservar">Reservar experiencia</a>
+          </div>
+        </div>
+      </div>
+      <!-- 4 ISUA — Baño de Bosque Isla del Zaque -->
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="exp-card">
+          <div class="exp-card-bg" style="background-image:url('images/lago/comunidad.jpg')"></div>
+          <div class="exp-card-overlay"></div>
+          <div class="exp-card-body">
+            <span class="exp-badge">Naturaleza · ISUA</span>
+            <div class="exp-card-title">Recárgate de Energía — Isla del Zaque</div>
+            <div class="exp-card-desc">Baño de bosque y patrimonio natural y cultural en la Isla San Pedro. Sendero, mitos, avistamiento de aves y ejercicios sensoriales con la Vitamina N.</div>
+            <div class="exp-meta">
+              <span class="exp-meta-item"><i class="bi bi-clock"></i>8 horas</span>
+              <span class="exp-meta-item"><i class="bi bi-activity"></i>Baja</span>
+              <span class="exp-meta-item"><i class="bi bi-people"></i>8–18 pax · +18</span>
+            </div>
+            <div class="exp-price">$136.000 COP / 34 USD por persona</div>
+            <div class="exp-contact"><i class="bi bi-telephone"></i>311 578 3193</div>
+            <a href="https://www.facebook.com/isuanaturaleza" target="_blank" class="btn-reservar">Reservar experiencia</a>
+          </div>
+        </div>
+      </div>
+      <!-- 5 ISUA — Páramo Santa Bárbara -->
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="exp-card">
+          <div class="exp-card-bg" style="background-image:url('images/lago/paramo-santabarbara.jpg')"></div>
+          <div class="exp-card-overlay"></div>
+          <div class="exp-card-body">
+            <span class="exp-badge">Senderismo · ISUA</span>
+            <div class="exp-card-title">Páramo de Santa Bárbara</div>
+            <div class="exp-card-desc">Páramo a 3.800 m.s.n.m. con lagunas y vistas espectaculares del Lago de Tota. Vereda El Tobal, Aquitania. Caminata interpretativa, almuerzo y guianza especializada.</div>
+            <div class="exp-meta">
+              <span class="exp-meta-item"><i class="bi bi-clock"></i>6 horas</span>
+              <span class="exp-meta-item"><i class="bi bi-activity"></i>Media-Alta</span>
+              <span class="exp-meta-item"><i class="bi bi-people"></i>+18 años</span>
+            </div>
+            <div class="exp-price">$116.000 COP / 29 USD</div>
+            <div class="exp-contact"><i class="bi bi-telephone"></i>311 578 3193</div>
+            <a href="https://maps.app.goo.gl/c92Dz85W2KmTpWAX8" target="_blank" class="btn-reservar">Reservar experiencia</a>
+          </div>
+        </div>
+      </div>
+      <!-- 6 MAMAPACHA — Monte Tabor -->
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="exp-card">
+          <div class="exp-card-bg" style="background-image:url('images/lago/monte-tabor.jpg')"></div>
+          <div class="exp-card-overlay"></div>
+          <div class="exp-card-body">
+            <span class="exp-badge">Mirador · MAMAPACHA</span>
+            <div class="exp-card-title">Caminata al Monte Tabor</div>
+            <div class="exp-card-desc">La mejor vista panorámica del Lago de Tota desde el mirador del Monte Tabor. Sendero que conecta con la esencia campesina de Boyacá. Vereda El Cajón.</div>
+            <div class="exp-meta">
+              <span class="exp-meta-item"><i class="bi bi-clock"></i>4 horas</span>
+              <span class="exp-meta-item"><i class="bi bi-activity"></i>Media</span>
+              <span class="exp-meta-item"><i class="bi bi-people"></i>7–60 años</span>
+            </div>
+            <div class="exp-price">$220.000 COP / 55 USD (1–5 pax)</div>
+            <div class="exp-contact"><i class="bi bi-telephone"></i>320 402 9551 · 311 563 2466</div>
+            <a href="https://www.instagram.com/mamapachaexperience" target="_blank" class="btn-reservar">Reservar experiencia</a>
+          </div>
+        </div>
+      </div>
+      <!-- 7 MAMAPACHA — Sendero Mágico Alta Montaña -->
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="exp-card">
+          <div class="exp-card-bg" style="background-image:url('images/lago/bosque-musgo.jpg')"></div>
+          <div class="exp-card-overlay"></div>
+          <div class="exp-card-body">
+            <span class="exp-badge">Bosque · MAMAPACHA</span>
+            <div class="exp-card-title">Sendero Mágico de Alta Montaña</div>
+            <div class="exp-card-desc">Santuario de niebla, musgos y silencio. Senderos ancestrales cubiertos de verdes intensos, árboles centenarios y el susurro del viento. Vereda Hirba.</div>
+            <div class="exp-meta">
+              <span class="exp-meta-item"><i class="bi bi-clock"></i>8 horas</span>
+              <span class="exp-meta-item"><i class="bi bi-activity"></i>Alta</span>
+              <span class="exp-meta-item"><i class="bi bi-people"></i>+14 años</span>
+            </div>
+            <div class="exp-price">$352.000 COP / 88 USD (1–5 pax)</div>
+            <div class="exp-contact"><i class="bi bi-telephone"></i>320 402 9551</div>
+            <a href="https://www.instagram.com/mamapachaexperience" target="_blank" class="btn-reservar">Reservar experiencia</a>
+          </div>
+        </div>
+      </div>
+      <!-- 8 MAMAPACHA — Circuito Lagunas -->
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="exp-card">
+          <div class="exp-card-bg" style="background-image:url('images/lago/circuito-lagunas.jpg')"></div>
+          <div class="exp-card-overlay"></div>
+          <div class="exp-card-body">
+            <span class="exp-badge">Circuito · MAMAPACHA</span>
+            <div class="exp-card-title">Circuito de Las Lagunas</div>
+            <div class="exp-card-desc">Travesía de alta montaña entre lagunas escondidas, frailejones y los paisajes más sorprendentes del páramo altoandino. Medio de Mesas y Tobal.</div>
+            <div class="exp-meta">
+              <span class="exp-meta-item"><i class="bi bi-clock"></i>8 horas</span>
+              <span class="exp-meta-item"><i class="bi bi-activity"></i>Alta</span>
+              <span class="exp-meta-item"><i class="bi bi-people"></i>15–70 años</span>
+            </div>
+            <div class="exp-price">$329.000 COP / 80 USD (1–5 pax)</div>
+            <div class="exp-contact"><i class="bi bi-telephone"></i>311 563 2466 · 320 402 9551</div>
+            <a href="https://www.instagram.com/mamapachaexperience" target="_blank" class="btn-reservar">Reservar experiencia</a>
+          </div>
+        </div>
+      </div>
+      <!-- 9 CAMAQUITOUR'S — Páramo de Guane -->
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="exp-card">
+          <div class="exp-card-bg" style="background-image:url('images/lago/paramo-guane.jpg')"></div>
+          <div class="exp-card-overlay"></div>
+          <div class="exp-card-body">
+            <span class="exp-badge">Senderismo · CAMAQUITOUR'S</span>
+            <div class="exp-card-title">Páramo de Guane — Laguna de los Patos</div>
+            <div class="exp-card-desc">Caminata desde los 3.040 m.s.n.m. hasta los 3.310 m.s.n.m. con 5 estaciones interpretativas, tramo con cuerda y panorámica creciente del Lago. Vereda Daitó.</div>
+            <div class="exp-meta">
+              <span class="exp-meta-item"><i class="bi bi-clock"></i>3 horas</span>
+              <span class="exp-meta-item"><i class="bi bi-activity"></i>Media</span>
+              <span class="exp-meta-item"><i class="bi bi-people"></i>2–15 pax · +7 años</span>
+            </div>
+            <div class="exp-price">$52.000 COP / 13 USD por persona</div>
+            <div class="exp-contact"><i class="bi bi-telephone"></i>313 833 7448</div>
+            <a href="https://goo.gl/maps/fJjDFdvsNz3ox65s9" target="_blank" class="btn-reservar">Reservar experiencia</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="vl-chips reveal">
+      <a class="vl-chip" href="#experiencias">Tours</a>
+      <a class="vl-chip" href="#experiencias">Buceo</a>
+      <a class="vl-chip" href="#experiencias">Senderismo</a>
+      <a class="vl-chip" href="#naturaleza">Páramo</a>
+      <a class="vl-chip" href="#gastronomia">Gastronomía</a>
+      <a class="vl-chip" href="#avicultura">Avicultura</a>
+      <a class="vl-chip" href="#galeria">Galería</a>
+    </div>
+    <div class="text-center mt-5 reveal">
+      <a href="#contacto" class="btn-primary-hero" style="background:var(--azul-prof);border-color:var(--azul-prof);">Ver todas las experiencias <i class="bi bi-arrow-right ms-2"></i></a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════ GASTRONOMÍA ══════════════════ -->
+<section id="gastronomia">
+  <div class="container">
+    <div class="gastro-hero reveal">
+      <div class="gastro-hero-in">
+        <span class="sec-eyebrow" style="color:#8ED1FF">Gastronomía · Aquitania</span>
+        <h2>Sabores de Aquitania</h2>
+        <p>Descubre la riqueza gastronómica de Aquitania a través de restaurantes que combinan tradición, innovación y paisajes únicos. Cada establecimiento ofrece una experiencia diferente que refleja la identidad cultural y culinaria del municipio.</p>
+        <a class="btn-gastro" href="#restaurantes"><i class="bi bi-arrow-down-circle"></i>Explorar restaurantes</a>
+      </div>
+    </div>
+
+    <div id="restaurantes" class="mt-5 pt-4">
+      <div class="text-center mb-4 reveal">
+        <h3 class="sec-title mt-2" style="font-size:clamp(1.9rem,4vw,2.8rem)">Restaurantes <span style="color:var(--azul-cielo,#42A5F5)">recomendados</span></h3>
+      </div>
+      <div class="gastro-search mb-5 reveal">
+        <i class="bi bi-search"></i>
+        <input type="search" id="restoSearch" placeholder="Buscar restaurante por nombre..." aria-label="Buscar restaurante">
+      </div>
+      <div class="row g-4" id="restoGrid">
+      <div class="col-md-6 col-lg-6 reveal resto-item" data-name="taller de bocado en bocado comida típica experiencia cultural">
+        <div class="resto-card">
+          <div class="resto-img" style="background-image:url('images/gastronomia/r1.jpg')"><div class="resto-tags"><span class="resto-tag">Comida típica</span><span class="resto-tag">Experiencia cultural</span></div></div>
+          <div class="resto-body">
+            <div class="resto-name">Taller De Bocado en Bocado</div>
+            <div class="resto-desc">Experiencia gastronómica donde los visitantes degustan comida típica boyacense mientras participan en bailes, juegos tradicionales y actividades culturales. Un cocinero comparte técnicas ancestrales para preservar la tradición culinaria de la región.</div>
+            <div class="resto-meta"><span><i class="bi bi-geo-alt"></i>Km 5 vía Aquitania – Sogamoso</span><span><i class="bi bi-cash-coin"></i>Desde $320.000 COP (4 personas)</span><span><i class="bi bi-telephone"></i>316 577 0326</span></div>
+            <div class="resto-more"><ul><li><i class="bi bi-clock"></i>Duración: 2 horas</li><li><i class="bi bi-activity"></i>Dificultad: Baja</li><li><i class="bi bi-people"></i>Participantes: 4 a 25 personas</li><li><i class="bi bi-person-badge"></i>Edad mínima: 4 años</li><li><i class="bi bi-check2-circle"></i>Incluye: muestras gastronómicas, bebidas, bailes y actividades culturales</li><li><i class="bi bi-x-circle"></i>No incluye transporte</li><li><i class="bi bi-plus-circle"></i>Persona adicional: $80.000 COP</li></ul></div>
+            <button class="btn-vermas" type="button">Ver más</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-6 reveal resto-item" data-name="rafaelo – cocina de autor cocina de autor">
+        <div class="resto-card">
+          <div class="resto-img logo" style="background-image:url('images/gastronomia/r2.jpg')"><div class="resto-tags"><span class="resto-tag">Cocina de autor</span></div></div>
+          <div class="resto-body">
+            <div class="resto-name">Rafaelo – Cocina de Autor</div>
+            <div class="resto-desc">Restaurante especializado en cocina de autor elaborada con ingredientes regionales. Cada plato busca contar la historia y las tradiciones gastronómicas de Aquitania mediante una experiencia culinaria única.</div>
+            <div class="resto-meta"><span><i class="bi bi-geo-alt"></i>Península Pozo Azul, Vereda Susacá</span><span><i class="bi bi-cash-coin"></i>$20.000 – $160.000 COP</span><span><i class="bi bi-telephone"></i>310 425 8505</span></div>
+            <div class="resto-more"><ul><li><i class="bi bi-egg-fried"></i>Cocina de autor con ingredientes regionales</li><li><i class="bi bi-geo"></i>Península Pozo Azul, Vereda Susacá</li><li><i class="bi bi-cash-coin"></i>Precio: desde $20.000 COP hasta $160.000 COP</li><li><i class="bi bi-telephone"></i>Teléfono: 310 425 8505</li></ul></div>
+            <button class="btn-vermas" type="button">Ver más</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-6 reveal resto-item" data-name="restaurante lucho comida típica">
+        <div class="resto-card">
+          <div class="resto-img logo" style="background-image:url('images/gastronomia/r3.jpg')"><div class="resto-tags"><span class="resto-tag">Comida típica</span></div></div>
+          <div class="resto-body">
+            <div class="resto-name">Restaurante Lucho</div>
+            <div class="resto-desc">Reconocido por más de cuatro décadas de trayectoria, ofrece platos tradicionales con especial énfasis en la Trucha Arco Iris preparada en diferentes estilos, además de un ambiente familiar y acogedor.</div>
+            <div class="resto-meta"><span><i class="bi bi-geo-alt"></i>Plaza Principal, Calle 6 #6-11</span><span><i class="bi bi-cash-coin"></i>$32.000 – $40.000 COP</span><span><i class="bi bi-telephone"></i>310 310 1931</span></div>
+            <div class="resto-more"><ul><li><i class="bi bi-star"></i>Especialidad: Trucha Arco Iris en varios estilos</li><li><i class="bi bi-clock"></i>Horario: 8:00 a. m. – 6:00 p. m.</li><li><i class="bi bi-cash-coin"></i>Precio: desde $32.000 COP hasta $40.000 COP</li><li><i class="bi bi-telephone"></i>Teléfonos: 310 310 1931 / 311 513 0569</li></ul></div>
+            <button class="btn-vermas" type="button">Ver más</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-6 reveal resto-item" data-name="barbacoa boyacense parrilla comida típica">
+        <div class="resto-card">
+          <div class="resto-img logo" style="background-image:url('images/gastronomia/r4.jpg')"><div class="resto-tags"><span class="resto-tag">Parrilla</span><span class="resto-tag">Comida típica</span></div></div>
+          <div class="resto-body">
+            <div class="resto-name">Barbacoa Boyacense</div>
+            <div class="resto-desc">Especializado en carnes, pescados y platos típicos boyacenses. Su especialidad es la Parrillada Boyacense y ofrece una vista privilegiada hacia el Lago de Tota.</div>
+            <div class="resto-meta"><span><i class="bi bi-geo-alt"></i>Carrera 10 #5-91</span><span><i class="bi bi-cash-coin"></i>$28.000 – $44.000 COP</span><span><i class="bi bi-telephone"></i>320 340 0821</span></div>
+            <div class="resto-more"><ul><li><i class="bi bi-fire"></i>Especialidad: Parrillada Boyacense</li><li><i class="bi bi-binoculars"></i>Vista privilegiada hacia el Lago de Tota</li><li><i class="bi bi-cash-coin"></i>Precio: desde $28.000 COP hasta $44.000 COP</li><li><i class="bi bi-telephone"></i>Teléfono: 320 340 0821</li></ul></div>
+            <button class="btn-vermas" type="button">Ver más</button>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="text-center"><a class="btn-volver-inicio" href="#hero"><i class="bi bi-arrow-left"></i>Volver al inicio</a></div>
+      <div class="gastro-empty" id="restoEmpty">No encontramos restaurantes con ese nombre.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ AVICULTURA ══════════════════ -->
+<section id="avicultura">
+  <div class="container">
+    <div class="avi-hero reveal">
+      <div class="gastro-hero-in">
+        <span class="sec-eyebrow" style="color:#8ED1FF">Avicultura · Lago de Tota</span>
+        <h2>Primeras aves</h2>
+        <a class="btn-gastro" href="#aves"><i class="bi bi-arrow-down-circle"></i>Explorar aves</a>
+      </div>
+    </div>
+
+    <div id="aves" class="mt-5 pt-4">
+      <div class="text-center mb-4 reveal">
+        <h3 class="sec-title mt-2" style="font-size:clamp(1.9rem,4vw,2.8rem)">Aves del <span style="color:var(--azul-cielo,#42A5F5)">Lago de Tota</span></h3>
+      </div>
+      <div class="gastro-search mb-5 reveal">
+        <i class="bi bi-search"></i>
+        <input type="search" id="birdSearch" placeholder="Buscar ave por nombre..." aria-label="Buscar ave">
+      </div>
+      <div class="row g-4" id="birdGrid">
+        <div class="col-md-6 reveal bird-item" data-name="dendrocygna autumnalis linnaeus cisne de los árboles otoñal residente">
+          <article class="resto-card">
+            <div class="avi-img"><img src="images/avicultura/dendrocygna-autumnalis.png" alt="Dendrocygna autumnalis"><div class="resto-tags"><span class="resto-tag">Migración: residente</span></div></div>
+            <div class="resto-body">
+              <div class="resto-name"><i>Dendrocygna autumnalis</i> (Linnaeus, 1758)</div>
+              <div class="resto-desc"><strong>Dendrocygna</strong>: cisne de los árboles. Epíteto específico <i>autumnalis</i>: otoñal.</div>
+              <div class="resto-more avi-copy">
+                <p><strong>Identificación</strong></p>
+                <p>Es un pato de aproximadamente 50 cm. Cabeza gris parda y marrón en la coronilla, ojos cafés rodeados de un anillo de plumas blanco, pico rosado brillante con la punta gris y patas rosa claro. El cuello es principalmente marrón rufo, más grisáceo en la parte pectoral, vientre negruzco, dorso y alas cafés con tonalidades blancas hacia el borde. En vuelo se ven las alas con borde negro, blanco hacia la parte media y café en la base.</p>
+                <p><strong>Historia natural</strong></p>
+                <p>Es rara en el Lago de Tota, llegando desde zonas más bajas y usando este sistema solo transitoriamente. En Colombia se tienen indicios de reproducción entre abril-agosto y diciembre-febrero, anidando principalmente en cavidades de árboles y en ocasiones en el suelo en coberturas de pastizales o debajo de arbustos, presentando nidadas de 12 a 16 huevos color crema que ambos padres incuban entre 26 a 31 días (22). Se alimenta principalmente de pastos y semillas, ocasionalmente de algunos invertebrados (22).</p>
+                <p>Fuente: Arias, Luis, et al. (2020). Guía de Aves del Lago de Tota. UPTC</p>
+                <p>Foto: Luis Fdo. Agudelo / Extraída de Guía de Aves del Lago de Tota.</p>
+              </div>
+              <button class="btn-vermas" type="button">Ver más</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6 reveal bird-item" data-name="cairina moschata linnaeus del cairo almizclado residente">
+          <article class="resto-card">
+            <div class="avi-img landscape"><img src="images/avicultura/cairina-moschata.png" alt="Cairina moschata"><div class="resto-tags"><span class="resto-tag">Migracion: residente</span></div></div>
+            <div class="resto-body">
+              <div class="resto-name"><i>Cairina moschata</i> (Linnaeus, 1758)</div>
+              <div class="resto-desc"><strong>Cairina</strong>: del Cairo. Epíteto específico <i>moschata</i>: almizclado.</div>
+              <div class="resto-more avi-copy">
+                <p><strong>Identificación</strong></p>
+                <p>Es un pato grande de aproximadamente 80 cm, de cabeza negra, pico rosado con algunas manchas oscuras y ojos amarillos a naranja rodeados de manchas rojas. Macho: con protuberancias carnosas rojas alrededor de los ojos y el pico. El cuerpo es negro con contrastes verdes a azulados metálicos y un parche blanco en las plumas coberteras. Hembra: mas pequeña y con protuberancias menos marcadas</p>
+                <p><strong>Historia natural</strong></p>
+                <p>Es un pato que se distribuye principalmente en zonas bajas, pero se han observado individuos silvestres de manera esporádica en las orillas del lago. Anida en cavidades de árboles, en la parte superior de palmas y en ocasiones a nivel del suelo, donde pone de 8 a 15 huevos blanco verdoso, que incuba la hembra por 30 días aproximadamente (23). Su dieta es muy variada, incluyendo diferente material vegetales, invertebrados y pequeños vertebrados (23).</p>
+                <p>Fuente: Arias, Luis, et al. (2020). Guía de Aves del Lago de Tota. UPTC</p>
+                <p>Foto: Luis Fdo. Agudelo / Extraída de Guía de Aves del Lago de Tota</p>
+              </div>
+              <button class="btn-vermas" type="button">Ver más</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6 reveal bird-item" data-name="anas andium sclater salvin pato andes residente">
+          <article class="resto-card">
+            <div class="avi-img landscape"><img src="images/avicultura/anas-andium.png" alt="Anas andium"><div class="resto-tags"><span class="resto-tag">Migracion: residente</span></div></div>
+            <div class="resto-body">
+              <div class="resto-name"><i>Anas andium</i> (Sclater, PL &amp; Salvin, 1873)</div>
+              <div class="resto-desc"><i>Anas</i>: pato. Epíteto específico <i>andium</i>: de los Andes.</div>
+              <div class="resto-more avi-copy">
+                <p><strong>Identificación</strong></p>
+                <p>Es un pato de aproximadamente 43 cm. Cabeza y cuello grises con patrones punteados de negro; ojos cafés, pico azul grisáceo y patas grises. El pecho es gris claro con manchas negras y dorso gris a pardo. La cola, alas y coberteras superiores son de gris a marrón, que se oscurecen en las remeras primarias. En las remeras secundarias presenta un espejo terciopelo negro y verde, con borde naranja en la parte posterior y blanca en el anterior.</p>
+                <p><strong>Historia natural</strong></p>
+                <p>Es una especie casi endémica que se distribuye en los Andes colombianos, de Venezuela y Ecuador Es el pato más común en el lago y se le observa al borde del espejo de agua, principalmente en parejas y grupos de hasta 20 individuos, normalmente junto con el Pato Careto (Spatula discor) y la Focha Común (Fulica americana). Es monógamo con una época reproductiva entre octubre y marzo para Colombia, construyendo sus nidos ocultos en vegetación densa cercana al cuerpo de agua, presentando posturas de 5 a 13 huevos que son incubados de 24 a 35 días por la hembra (24). Se alimenta de invertebrados y vegetación acuática, así como semillas y frutos.</p>
+                <p>Fuente: Arias, Luis, et al. (2020). Guía de Aves del Lago de Tota. UPTC</p>
+                <p>Foto: Luis Fdo. Agudelo / Extraída de Guía de Aves del Lago de Tota</p>
+              </div>
+              <button class="btn-vermas" type="button">Ver más</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6 reveal bird-item" data-name="anas georgica gmelin pato islas georgias del sur residente">
+          <article class="resto-card">
+            <div class="avi-img"><img src="images/avicultura/anas-georgica.png" alt="Anas georgica"><div class="resto-tags"><span class="resto-tag">Migración: residente</span></div></div>
+            <div class="resto-body">
+              <div class="resto-name"><i>Anas georgica</i> (Gmelin, JF, 1789)</div>
+              <div class="resto-desc"><i>Anas</i>: pato. Epíteto específico geórgica: de las islas Georgias del sur.</div>
+              <div class="resto-more avi-copy">
+                <p><strong>Identificación</strong></p>
+                <p>Es un pato mediano de aproximadamente 55 cm. Cabeza marrón con patrón moteado, pico amarillo con el borde superior negro y un poco de azul en la punta, ojos cafés oscuro y patas verde oliva a grisáceo. Tiene el cuello blanquecino, pecho café, vientre blanco, parte lateral y dorso marrón con patrón escamado y alas oscuras. En vuelo se puede apreciar las plumas remeras secundarias de color negro con borde verde lustroso.</p>
+                <p><strong>Historia natural</strong></p>
+                <p>La subespecie A. g. niceforoi se distribuía en el altiplano cundiboyacense (incluyendo el Lago de Tota); sin embargo, se le considera extinta debido al deterioro del hábitat y la cacería (26–28). No hay datos de su ecología; sin embargo, existe información de otras subespecies como A. g. spinicauda, la cual se reproduce entre marzo-abril y octubre-noviembre, anidando entre la vegetación circundante a los cuerpos de agua, con nidadas de 3 a 12 huevos color crema, que incuba por 24 a 28 días (26–28). Se alimenta de semillas, raíces y partes vegetativas de plantas acuáticas, así como de crustáceos, moluscos e insectos (26–28).</p>
+                <p>Fuente: Arias, Luis, et al. (2020). Guía de Aves del Lago de Tota. UPTC</p>
+                <p>Foto: L. Alejandro Arias-Sosa/ Extraída de Guía de Aves del Lago de Tota</p>
+              </div>
+              <button class="btn-vermas" type="button">Ver más</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6 reveal bird-item" data-name="spatula discors linnaeus espátula cuchara discordante migratoria">
+          <article class="resto-card">
+            <div class="avi-img landscape"><img src="images/avicultura/spatula-discors.png" alt="Spatula discors"><div class="resto-tags"><span class="resto-tag">Migración: migratoria</span></div></div>
+            <div class="resto-body">
+              <div class="resto-name"><i>Spatula discors</i> (Linnaeus, 1766)</div>
+              <div class="resto-desc">Spatula_(sin. Anas): espátula o cuchara. Epíteto Discors: que tiene varianzas, discordante.</div>
+              <div class="resto-more avi-copy">
+                <p><strong>Identificación</strong></p>
+                <p>Es un pato mediano de 35 a 40 cm. Macho (fotografía superior): cabeza y cuello gris-azulado con una mancha blanca en forma de medialuna delante del ojo, coronilla oscura, pico negro, ojos cafés a rojizos y patas amarillas. El pecho y vientre pardos moteados de café, dorso oscuro y alas negruzcas. En vuelo se ven las plumas coberteras azules y remeras secundarias verdes. Hembra (fotografía inferior): cabeza parda, coronilla café, pico gris y cuerpo pardo con un patrón escamado café.</p>
+                <p><strong>Historia natural</strong></p>
+                <p>Es un ave migratoria común que se observa en el lago entre septiembre y mayo. Se le ve en las orillas del lago donde hay material vegetal flotante, en grupos grandes y en compañía de fochas (Fulica americana) y del Pato Paramuno (Anas andium). Se reproduce en Norteamérica a finales de abril o principios de mayo, construyendo sus nidos cerca al cuerpo de agua entre la vegetación espesa, con nidadas de 6 a 15 huevos color crema, que incuba por 19 a 28 días (28–31). En el lago no se han encontrado poblaciones residentes ni indicios de anidación. Se alimenta de semillas, raíces y partes vegetativas de plantas acuáticas, así como de invertebrados, especialmente moluscos (28,31).</p>
+                <p>Fuente: Arias, Luis, et al. (2020). Guía de Aves del Lago de Tota. UPTC</p>
+                <p>Foto: L. Alejandro Arias-Sosa/ Extraída de Guía de Aves del Lago de Tota.</p>
+              </div>
+              <button class="btn-vermas" type="button">Ver más</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6 reveal bird-item" data-name="spatula cyanoptera vieillot espátula cuchara alas azul oscuro residente">
+          <article class="resto-card">
+            <div class="avi-img"><img src="images/avicultura/spatula-cyanoptera.png" alt="Spatula cyanoptera"><div class="resto-tags"><span class="resto-tag">Migración: residente</span></div></div>
+            <div class="resto-body">
+              <div class="resto-name"><i>Spatula cyanoptera</i> (Vieillot, 1816)</div>
+              <div class="resto-desc">Spatula_(sin. Anas): espátula o cuchara. Epíteto específico cyanoptera: con alas azul oscuro.</div>
+              <div class="resto-more avi-copy">
+                <p><strong>Identificación</strong></p>
+                <p>Es un pato mediano de 37 a 47 cm. Macho: cabeza rojiza con la coronilla negra, pico negro, ojos naranjas a rojizos y patas amarillas a naranjas. Su pecho y vientre son rojizos a castaños con patrones moteados, el dorso y cola negros, y alas negras con borde castaño. En vuelo se ven las plumas coberteras azul pálido y remeras secundarias verdes. Hembra: plumaje más claro con tonos pardos.</p>
+                <p><strong>Historia natural</strong></p>
+                <p>La especie se encuentra extirpada del Lago de Tota por la fuerte presión antrópica. Se encontraba la subespecie S. c. borreroi, común en 1950 y ahora posiblemente extinta en todo el altiplano cundiboyacense (32,33). Dada la extinción de la subespecie no hay información ecológica precisa, aunque para las otras subespecies se ha reportado que construye nidos escondidos en depresiones cerca al agua con pastos, ramas y juncos secos, nidadas de 4 a 16 huevos blanco a crema pálido, que son incubados por la hembra de 21 a 25 días. Consume semillas, raíces y partes vegetativas de plantas acuáticas, al igual que invertebrados acuáticos.</p>
+                <p>Fuente: Arias, Luis, et al. (2020). Guía de Aves del Lago de Tota. UPTC</p>
+                <p>Foto: L. Alejandro Arias-Sosa/ Extraída de Guía de Aves del Lago de Tota.</p>
+              </div>
+              <button class="btn-vermas" type="button">Ver más</button>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="text-center"><a class="btn-volver-inicio" href="#hero"><i class="bi bi-arrow-left"></i>Volver al inicio</a></div>
+      <div class="gastro-empty" id="birdEmpty">No encontramos aves con ese nombre.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ GALERÍA ══════════════════ -->
+<section id="galeria">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="sec-eyebrow">Imágenes &amp; Paisajes</span>
+      <h2 class="sec-title light mt-2">Galería <span style="color:#64B5F6">Inmersiva</span></h2>
+    </div>
+    <div class="gal-grid reveal">
+      <div class="gal-item"><img class="gal-bg" src="images/lago/panoramica.jpg" alt="Panorámica del Lago de Tota"><div class="gal-ov"><span class="gal-lbl">Lago de Tota</span></div></div>
+      <div class="gal-item"><img class="gal-bg" src="images/lago/paramo-guane.jpg" alt="Páramo Guane y frailejones"><div class="gal-ov"><span class="gal-lbl">Frailejones</span></div></div>
+      <div class="gal-item"><img class="gal-bg" src="images/lago/lancha.jpg" alt="Lancha en el Lago de Tota"><div class="gal-ov"><span class="gal-lbl">Actividades Náuticas</span></div></div>
+      <div class="gal-item"><img class="gal-bg" src="images/lago/isla-sanpedro.jpg" alt="Isla San Pedro"><div class="gal-ov"><span class="gal-lbl">Paisajes del lago</span></div></div>
+      <div class="gal-item"><img class="gal-bg" src="images/lago/comunidad.jpg" alt="Comunidad de Aquitania"><div class="gal-ov"><span class="gal-lbl">Cultura Campesina</span></div></div>
+      <div class="gal-item"><img class="gal-bg" src="images/lago/monte-tabor.jpg" alt="Monte Tabor"><div class="gal-ov"><span class="gal-lbl">Senderismo</span></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="avi-lightbox" id="aviLightbox" role="dialog" aria-modal="true" aria-label="Vista ampliada del ave" aria-hidden="true">
+  <button class="avi-lightbox-close" type="button" aria-label="Cerrar imagen ampliada">&times;</button>
+  <img id="aviLightboxImage" src="" alt="">
+  <p class="avi-lightbox-caption" id="aviLightboxCaption"></p>
+</div>
+
+<!-- ══════════════════ OPINIONES ══════════════════ -->
+<section id="opiniones">
+  <div class="container">
+    <div class="row align-items-center mb-5">
+      <div class="col-lg-5 reveal-l">
+        <span class="sec-eyebrow">Testimonios</span>
+        <h2 class="sec-title mt-2">Lo que dicen<br>los viajeros</h2>
+        <div class="global-rating mt-4 d-flex align-items-center gap-3">
+          <div class="big">4.9</div>
+          <div>
+            <div class="stars-big">★★★★★</div>
+            <div style="font-size:.8rem;color:#999;font-family:'Outfit',sans-serif;margin-top:.2rem">Basado en 127 opiniones</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="row g-3">
+          <div class="col-md-6 reveal">
+            <div class="review-card">
+              <div class="d-flex align-items-center gap-2 mb-3">
+                <div class="review-avatar">MC</div>
+                <div><div class="review-name">María C.</div><div class="review-loc">Bogotá, Colombia</div></div>
+                <div class="review-stars ms-auto">★★★★★</div>
+              </div>
+              <p class="review-text">El Lago de Tota me dejó sin palabras. Las aguas azules, el silencio del páramo y la calidez de la gente de Aquitania son una combinación perfecta.</p>
+            </div>
+          </div>
+          <div class="col-md-6 reveal">
+            <div class="review-card">
+              <div class="d-flex align-items-center gap-2 mb-3">
+                <div class="review-avatar" style="background:linear-gradient(135deg,#14532D,#16A34A)">JP</div>
+                <div><div class="review-name">Juan P.</div><div class="review-loc">Medellín, Colombia</div></div>
+                <div class="review-stars ms-auto">★★★★★</div>
+              </div>
+              <p class="review-text">El recorrido náutico por la Isla San Pedro fue espectacular. Ver el amanecer desde el lago es una experiencia que no olvidaré jamás.</p>
+            </div>
+          </div>
+          <div class="col-md-6 reveal">
+            <div class="review-card">
+              <div class="d-flex align-items-center gap-2 mb-3">
+                <div class="review-avatar" style="background:linear-gradient(135deg,#78350F,#D97706)">AL</div>
+                <div><div class="review-name">Ana L.</div><div class="review-loc">Bucaramanga</div></div>
+                <div class="review-stars ms-auto">★★★★★</div>
+              </div>
+              <p class="review-text">La caminata al páramo Santa Bárbara fue exigente pero valió cada paso. Los frailejones y el silencio del páramo son únicos en el mundo.</p>
+            </div>
+          </div>
+          <div class="col-md-6 reveal">
+            <div class="review-card">
+              <div class="d-flex align-items-center gap-2 mb-3">
+                <div class="review-avatar" style="background:linear-gradient(135deg,#4C1D95,#7C3AED)">CR</div>
+                <div><div class="review-name">Carlos R.</div><div class="review-loc">Tunja, Boyacá</div></div>
+                <div class="review-stars ms-auto">★★★★★</div>
+              </div>
+              <p class="review-text">Aquitania es un tesoro boyacense. La trucha fresca del lago, la hospitalidad de su gente y los paisajes son simplemente incomparables.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form opinión -->
+    <div class="row justify-content-center reveal">
+      <div class="col-lg-6">
+        <div class="opinion-box">
+          <h5 style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.05em;color:var(--azul-prof);text-align:center;margin-bottom:1.5rem;">✍️ Comparte tu Experiencia</h5>
+          <div class="star-inp d-flex justify-content-center gap-2 mb-3" id="starInp">
+            <span data-v="1">★</span><span data-v="2">★</span><span data-v="3">★</span><span data-v="4">★</span><span data-v="5">★</span>
+          </div>
+          <div class="mb-3"><label class="form-label-dark">Nombre</label><input type="text" class="form-control form-control-light" id="opNombre" placeholder="Tu nombre"></div>
+          <div class="mb-3"><label class="form-label-dark">Comentario</label><textarea class="form-control form-control-light" id="opComentario" rows="3" placeholder="¿Cómo fue tu experiencia en Aquitania?"></textarea></div>
+          <button class="btn-send" onclick="enviarOpinion()">Publicar Opinión</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ CONTACTO ══════════════════ -->
+<section id="contacto">
+  <div class="container position-relative">
+    <div class="row g-5">
+      <div class="col-lg-5 contact-info reveal-l">
+        <span class="sec-eyebrow" style="color:#64B5F6;">Escríbenos</span>
+        <h2 class="mt-2 mb-3">Planea tu aventura en Aquitania</h2>
+        <p>¿Listo para vivir la magia del Lago de Tota? Nuestro equipo te ayudará a crear la experiencia perfecta en Aquitania, Boyacá.</p>
+        <div class="d-flex flex-column gap-3 mb-4">
+          <div class="c-row"><div class="c-icon">📍</div><span>Aquitania, Boyacá, Colombia</span></div>
+          <div class="c-row"><div class="c-icon">📧</div><span>info@aquiaventura.co</span></div>
+          <div class="c-row"><div class="c-icon">📱</div><span>+57 310 000 0000</span></div>
+          <div class="c-row"><div class="c-icon">🕐</div><span>Lun – Dom · 6am – 8pm</span></div>
+        </div>
+        <div class="d-flex gap-2">
+          <a href="#" class="soc-btn"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="soc-btn"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="soc-btn"><i class="bi bi-whatsapp"></i></a>
+          <a href="#" class="soc-btn"><i class="bi bi-youtube"></i></a>
+          <a href="#" class="soc-btn"><i class="bi bi-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-7 reveal-r">
+        <div class="contact-form-box">
+          <div class="row g-3">
+            <div class="col-md-6"><label class="form-label">Nombre completo</label><input type="text" class="form-control" id="cNombre" placeholder="Tu nombre"></div>
+            <div class="col-md-6"><label class="form-label">Correo electrónico</label><input type="email" class="form-control" id="cEmail" placeholder="tu@email.com"></div>
+            <div class="col-md-6"><label class="form-label">Teléfono</label><input type="tel" class="form-control" id="cTel" placeholder="+57 300 000 0000"></div>
+            <div class="col-md-6">
+              <label class="form-label">Experiencia de interés</label>
+              <select class="form-control" id="cExp" style="background:rgba(255,255,255,.1)!important;border:2px solid rgba(255,255,255,.18)!important;border-radius:12px!important;color:rgba(255,255,255,.7)!important;font-family:'Outfit',sans-serif;">
+                <option value="">Seleccionar...</option>
+                <option>Recorrido Náutico — Isla San Pedro</option>
+                <option>Senderismo Páramo Santa Bárbara</option>
+                <option>Buceo Lago de Tota</option>
+                <option>Avistamiento de Aves</option>
+                <option>Circuito de Lagunas</option>
+                <option>Caminata Monte Tabor</option>
+              </select>
+            </div>
+            <div class="col-12"><label class="form-label">Mensaje</label><textarea class="form-control" id="cMensaje" rows="4" placeholder="Cuéntanos sobre tu viaje ideal en Aquitania..."></textarea></div>
+            <div class="col-12"><button class="btn-send" onclick="enviarContacto()"><i class="bi bi-send me-2"></i>Enviar y Reservar</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-logo">AQUI<span>VENTURA</span></div>
+    <p class="footer-phrase mt-1 mb-4">"Descubre Aquitania, vive el Lago de Tota"</p>
+    <div class="d-flex justify-content-center gap-2 mb-4">
+      <a href="#" class="soc-btn"><i class="bi bi-instagram"></i></a>
+      <a href="#" class="soc-btn"><i class="bi bi-facebook"></i></a>
+      <a href="#" class="soc-btn"><i class="bi bi-whatsapp"></i></a>
+      <a href="#" class="soc-btn"><i class="bi bi-youtube"></i></a>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.08);max-width:400px;margin:.5rem auto 1.2rem;">
+    <p class="footer-copy">© 2025 AQUIAVENTURA · Todos los derechos reservados · Aquitania, Boyacá, Colombia 🇨🇴</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+/* NAV SCROLL */
+window.addEventListener('scroll',()=>{
+  var _nb=document.getElementById('mainNav');if(!document.body.classList.contains('pagina-interna'))_nb.classList.toggle('scrolled',window.scrollY>60);
+});
+
+/* REVEAL */
+const allReveal=document.querySelectorAll('.reveal,.reveal-l,.reveal-r');
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*90);ro.unobserve(e.target);}
+  });
+},{threshold:.1});
+allReveal.forEach(r=>ro.observe(r));
+
+/* COUNTERS */
+function animCount(id,target,suffix){
+  const el=document.getElementById(id);
+  if(!el)return;
+  let cur=0;const step=Math.ceil(target/60);
+  const t=setInterval(()=>{cur=Math.min(cur+step,target);el.textContent=cur.toLocaleString()+(suffix||'');if(cur>=target)clearInterval(t);},30);
+}
+const cntObs=new IntersectionObserver(e=>{
+  if(e[0].isIntersecting){
+    animCount('cnt1',200,'+');animCount('cnt2',8500,'+');animCount('cnt3',45,'+');animCount('cnt4',55,'km²');
+    cntObs.unobserve(e[0].target);
+  }
+},{threshold:.3});
+const natSec=document.getElementById('naturaleza');
+if(natSec)cntObs.observe(natSec);
+
+/* STARS */
+let selStar=0;
+const starEls=document.querySelectorAll('#starInp span');
+starEls.forEach(s=>{
+  s.addEventListener('mouseenter',()=>{const v=+s.dataset.v;starEls.forEach(x=>x.classList.toggle('on',+x.dataset.v<=v));});
+  s.addEventListener('click',()=>{selStar=+s.dataset.v;});
+});
+document.getElementById('starInp').addEventListener('mouseleave',()=>{starEls.forEach(x=>x.classList.toggle('on',+x.dataset.v<=selStar));});
+
+/* NOTIF */
+function showNotif(m){
+  const n=document.getElementById('notif');
+  n.textContent=m;n.classList.add('show');
+  setTimeout(()=>n.classList.remove('show'),3500);
+}
+
+function enviarOpinion(){
+  const n=document.getElementById('opNombre').value.trim();
+  const c=document.getElementById('opComentario').value.trim();
+  if(!n||!c){showNotif('⚠️ Completa todos los campos');return;}
+  showNotif('✅ ¡Gracias, '+n+'! Tu opinión fue publicada.');
+  document.getElementById('opNombre').value='';
+  document.getElementById('opComentario').value='';
+  selStar=0;starEls.forEach(s=>s.classList.remove('on'));
+}
+
+function enviarContacto(){
+  const n=document.getElementById('cNombre').value.trim();
+  const e=document.getElementById('cEmail').value.trim();
+  const m=document.getElementById('cMensaje').value.trim();
+  if(!n||!e||!m){showNotif('⚠️ Completa los campos requeridos');return;}
+  showNotif('✅ ¡Mensaje enviado! Te contactaremos pronto, '+n+'.');
+  ['cNombre','cEmail','cTel','cMensaje'].forEach(id=>document.getElementById(id).value='');
+}
+
+/* ── Gastronomía: buscador, ver más y volver arriba ── */
+document.querySelectorAll('.btn-vermas').forEach(function(b){
+  b.addEventListener('click',function(){
+    var m=b.parentElement.querySelector('.resto-more');
+    m.classList.toggle('open');
+    b.textContent=m.classList.contains('open')?'Ver menos':'Ver más';
+  });
+});
+var rs=document.getElementById('restoSearch');
+if(rs){rs.addEventListener('input',function(){
+  var q=rs.value.trim().toLowerCase(),n=0;
+  document.querySelectorAll('.resto-item').forEach(function(it){
+    var ok=it.dataset.name.indexOf(q)>-1;it.style.display=ok?'':'none';if(ok)n++;
+  });
+  document.getElementById('restoEmpty').style.display=n?'none':'block';
+});}
+/* Avicultura: ampliar fotografías */
+var aviBox=document.getElementById('aviLightbox');
+var aviLarge=document.getElementById('aviLightboxImage');
+var aviCaption=document.getElementById('aviLightboxCaption');
+var aviClose=aviBox?aviBox.querySelector('.avi-lightbox-close'):null;
+var aviLastFocus=null;
+function closeAviImage(){
+  if(!aviBox)return;
+  aviBox.classList.remove('open');aviBox.setAttribute('aria-hidden','true');
+  document.body.classList.remove('avi-lightbox-open');
+  if(aviLarge)aviLarge.src='';
+  if(aviLastFocus)aviLastFocus.focus();
+}
+document.querySelectorAll('#avicultura .avi-img img').forEach(function(img){
+  var frame=img.parentElement;
+  frame.setAttribute('role','button');frame.setAttribute('tabindex','0');
+  frame.setAttribute('aria-label','Ampliar imagen de '+img.alt);
+  function openAviImage(){
+    if(!aviBox||!aviLarge||!aviCaption)return;
+    aviLastFocus=frame;aviLarge.src=img.src;aviLarge.alt=img.alt;
+    aviCaption.textContent=img.alt;aviBox.classList.add('open');
+    aviBox.setAttribute('aria-hidden','false');document.body.classList.add('avi-lightbox-open');
+    if(aviClose)aviClose.focus();
+  }
+  frame.addEventListener('click',openAviImage);
+  frame.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openAviImage();}});
+});
+if(aviClose)aviClose.addEventListener('click',closeAviImage);
+if(aviBox)aviBox.addEventListener('click',function(e){if(e.target===aviBox)closeAviImage();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&aviBox&&aviBox.classList.contains('open'))closeAviImage();});
+
+var bs=document.getElementById('birdSearch');
+if(bs){bs.addEventListener('input',function(){
+  var q=bs.value.trim().toLowerCase(),n=0;
+  document.querySelectorAll('.bird-item').forEach(function(it){
+    var ok=it.dataset.name.indexOf(q)>-1;it.style.display=ok?'':'none';if(ok)n++;
+  });
+  document.getElementById('birdEmpty').style.display=n?'none':'block';
+});}
+var bt=document.getElementById('backTop');
+if(bt){window.addEventListener('scroll',function(){bt.classList.toggle('show',window.scrollY>600);});
+bt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});}
+
+/* ── Navegación por páginas (una sección = una página) ── */
+(function(){
+  var secs=Array.prototype.slice.call(document.querySelectorAll('body > section[id]'));
+  var HOME=['hero','historia','naturaleza','mapa','qr'];
+  function ir(hash){
+    var id=(hash||'').replace('#','');
+    var esHome=!id||id==='inicio'||id==='hero'||HOME.indexOf(id)>-1;
+    var visibles=esHome?HOME:[id];
+    if(!esHome && secs.filter(function(s){return s.id===id;}).length===0){visibles=HOME;esHome=true;}
+    secs.forEach(function(s){
+      var on=visibles.indexOf(s.id)>-1;
+      s.style.display=on?'':'none';
+      s.classList.toggle('activa',on);
+      if(on){s.classList.remove('page-in');void s.offsetWidth;s.classList.add('page-in');}
+    });
+    document.body.classList.toggle('pagina-interna',!esHome);
+    var nb=document.getElementById('mainNav');
+    if(nb) nb.classList.toggle('scrolled',!esHome);
+    document.querySelectorAll('.nav-link').forEach(function(a){
+      a.classList.toggle('active',!esHome&&a.getAttribute('href')==='#'+id);
+    });
+    document.querySelectorAll('.reveal,.reveal-l,.reveal-r,.reveal-up').forEach(function(r){r.classList.add('visible');});
+    window.scrollTo({top:0,behavior:'auto'});
+  }
+  window.addEventListener('hashchange',function(){ir(location.hash);});
+  ir(location.hash);
+  window.__irPagina=ir;
+})();
+
+/* ═══ REDISEÑO DINÁMICO: interacciones ═══ */
+(function(){
+  /* barra de progreso */
+  var bar=document.getElementById('scrollProgress');
+  function prog(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?(window.scrollY/h)*100:0)+'%';
+  }
+  window.addEventListener('scroll',prog,{passive:true});prog();
+
+  /* aura del cursor */
+  var aura=document.getElementById('auraCursor');
+  window.addEventListener('mousemove',function(e){
+    aura.style.transform='translate('+e.clientX+'px,'+e.clientY+'px) translate(-50%,-50%)';
+  },{passive:true});
+
+  /* scrollspy en el menú */
+  var secs=Array.prototype.slice.call(document.querySelectorAll('body > section[id]'));
+  var links=Array.prototype.slice.call(document.querySelectorAll('.navbar-nav .nav-link'));
+  function spy(){
+    if(document.body.classList.contains('pagina-interna'))return;
+    var y=window.scrollY+140,act=null;
+    secs.forEach(function(s){ if(s.offsetHeight>0 && s.offsetTop<=y) act=s.id; });
+    links.forEach(function(a){ a.classList.toggle('active',a.getAttribute('href')==='#'+act); });
+  }
+  window.addEventListener('scroll',spy,{passive:true});spy();
+
+  /* parallax suave del hero */
+  var hero=document.getElementById('hero');
+  if(hero){
+    var inner=hero.querySelector('.hero-inner');
+    window.addEventListener('scroll',function(){
+      var y=window.scrollY;
+      if(y<window.innerHeight&&inner){
+        inner.style.transform='translateY('+(y*0.22)+'px)';
+        inner.style.opacity=Math.max(0,1-y/(window.innerHeight*0.8));
+      }
+    },{passive:true});
+  }
+
+  /* tilt 3D en tarjetas */
+  if(window.matchMedia('(hover:hover)').matches){
+    document.querySelectorAll('.no-tilt').forEach(function(c){
+      c.classList.add('tilt');
+      c.addEventListener('mousemove',function(e){
+        var r=c.getBoundingClientRect();
+        var px=(e.clientX-r.left)/r.width-.5, py=(e.clientY-r.top)/r.height-.5;
+        c.style.transform='perspective(900px) rotateX('+(-py*6)+'deg) rotateY('+(px*7)+'deg) translateY(-8px)';
+      });
+      c.addEventListener('mouseleave',function(){ c.style.transform=''; });
+    });
+  }
+
+  /* contadores del hero */
+  var hs=document.querySelector('.hero-stats');
+  if(hs){
+    var done=false;
+    var obs=new IntersectionObserver(function(en){
+      if(!en[0].isIntersecting||done)return; done=true;
+      hs.querySelectorAll('.stat-num').forEach(function(el){
+        var raw=el.textContent.trim();
+        var num=parseFloat(raw.replace(/[^\d]/g,''));
+        if(!num)return;
+        var pre=raw.indexOf('+')===0?'+':'', suf=raw.slice(-1)==='+'?'+':'';
+        var dot=raw.indexOf('.')>-1, cur=0, step=Math.max(1,Math.ceil(num/50));
+        var t=setInterval(function(){
+          cur=Math.min(cur+step,num);
+          el.textContent=pre+(dot?cur.toLocaleString('es-CO'):cur)+suf;
+          if(cur>=num)clearInterval(t);
+        },26);
+      });
+    },{threshold:.4});
+    obs.observe(hs);
+  }
+
+  /* reveal escalonado extra para elementos nuevos */
+  var up=document.querySelectorAll('.reveal-up');
+  if(up.length){
+    var uo=new IntersectionObserver(function(en){
+      en.forEach(function(e,i){ if(e.isIntersecting){ setTimeout(function(){e.target.classList.add('visible');},i*80); uo.unobserve(e.target);} });
+    },{threshold:.12});
+    up.forEach(function(e){uo.observe(e);});
+  }
+})();
+
+</script>
+<button id="backTop" aria-label="Volver arriba"><i class="bi bi-arrow-up"></i></button>
+</body>
+</html>
