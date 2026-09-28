@@ -1702,8 +1702,17 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
 
 <div class="avi-lightbox" id="aviLightbox" role="dialog" aria-modal="true" aria-label="Vista ampliada del ave" aria-hidden="true">
   <button class="avi-lightbox-close" type="button" aria-label="Cerrar imagen ampliada">&times;</button>
-  <img id="aviLightboxImage" src="" alt="">
-  <p class="avi-lightbox-caption" id="aviLightboxCaption"></p>
+  <div class="avi-viewer">
+    <figure class="avi-viewer-media">
+      <img id="aviLightboxImage" src="" alt="">
+      <figcaption class="avi-lightbox-caption" id="aviLightboxCaption"></figcaption>
+    </figure>
+    <aside class="avi-viewer-info">
+      <div class="avi-viewer-name" id="aviViewerName"></div>
+      <div class="avi-viewer-desc" id="aviViewerDesc"></div>
+      <div class="avi-viewer-copy avi-copy" id="aviViewerCopy"></div>
+    </aside>
+  </div>
 </div>
 
 <!-- ══════════════════ OPINIONES ══════════════════ -->
@@ -1936,6 +1945,9 @@ if(rs){rs.addEventListener('input',function(){
 var aviBox=document.getElementById('aviLightbox');
 var aviLarge=document.getElementById('aviLightboxImage');
 var aviCaption=document.getElementById('aviLightboxCaption');
+var aviVName=document.getElementById('aviViewerName');
+var aviVDesc=document.getElementById('aviViewerDesc');
+var aviVCopy=document.getElementById('aviViewerCopy');
 var aviClose=aviBox?aviBox.querySelector('.avi-lightbox-close'):null;
 var aviLastFocus=null;
 function closeAviImage(){
@@ -1943,6 +1955,9 @@ function closeAviImage(){
   aviBox.classList.remove('open');aviBox.setAttribute('aria-hidden','true');
   document.body.classList.remove('avi-lightbox-open');
   if(aviLarge)aviLarge.src='';
+  if(aviVName)aviVName.innerHTML='';
+  if(aviVDesc)aviVDesc.innerHTML='';
+  if(aviVCopy)aviVCopy.innerHTML='';
   if(aviLastFocus)aviLastFocus.focus();
 }
 document.querySelectorAll('#avicultura .avi-img img').forEach(function(img){
@@ -1952,7 +1967,16 @@ document.querySelectorAll('#avicultura .avi-img img').forEach(function(img){
   function openAviImage(){
     if(!aviBox||!aviLarge||!aviCaption)return;
     aviLastFocus=frame;aviLarge.src=img.src;aviLarge.alt=img.alt;
-    aviCaption.textContent=img.alt;aviBox.classList.add('open');
+    aviCaption.textContent=img.alt;
+    var card=frame.closest('.resto-card');
+    if(card&&aviVName&&aviVDesc&&aviVCopy){
+      var nm=card.querySelector('.resto-name'),ds=card.querySelector('.resto-desc'),cp=card.querySelector('.resto-more');
+      if(nm)aviVName.innerHTML=nm.innerHTML;
+      if(ds)aviVDesc.innerHTML=ds.innerHTML;
+      if(cp)aviVCopy.innerHTML=cp.innerHTML;
+      var vb=aviVCopy.querySelector('.btn-vermas');if(vb)vb.remove();
+    }
+    aviBox.classList.add('open');
     aviBox.setAttribute('aria-hidden','false');document.body.classList.add('avi-lightbox-open');
     if(aviClose)aviClose.focus();
   }
