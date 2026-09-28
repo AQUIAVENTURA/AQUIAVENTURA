@@ -620,7 +620,6 @@ footer{background:#050D1A;padding:3.5rem 0;text-align:center;}
 .avi-viewer-copy p{margin-bottom:.75rem}
 .avi-viewer-copy p:last-child{margin-bottom:0}
 .avi-viewer-copy strong{color:#64B5F6}
-.avi-viewer-copy .btn-vermas{display:none}
 .avi-lightbox-close{position:absolute;top:18px;right:20px;width:46px;height:46px;border:1px solid rgba(255,255,255,.35);border-radius:50%;background:rgba(0,0,0,.35);color:#fff;font-size:1.8rem;line-height:1;display:grid;place-items:center;cursor:pointer;transition:.2s;z-index:2}
 .avi-lightbox-close:hover,.avi-lightbox-close:focus-visible{background:#fff;color:#0d3b5c;outline:none}
 .avi-lightbox-caption{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);margin:0;padding:.45rem .85rem;border-radius:999px;background:rgba(0,0,0,.58);color:#fff;font-size:.9rem;text-align:center;white-space:nowrap;max-width:92%}
@@ -1984,7 +1983,6 @@ document.querySelectorAll('#avicultura .avi-img img').forEach(function(img){
       if(nm)aviVName.innerHTML=nm.innerHTML;
       if(ds)aviVDesc.innerHTML=ds.innerHTML;
       if(cp)aviVCopy.innerHTML=cp.innerHTML;
-      var vb=aviVCopy.querySelector('.btn-vermas');if(vb)vb.remove();
     }
     aviBox.classList.add('open');
     aviBox.setAttribute('aria-hidden','false');document.body.classList.add('avi-lightbox-open');
