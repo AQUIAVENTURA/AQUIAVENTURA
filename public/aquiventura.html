@@ -815,7 +815,18 @@ h1,h2,h3,h4,h5,h6,.sec-title,.hero-title,.exp-card-title,.resto-name,.nat-card h
 }
 .vl-circle:hover{transform:translateY(-10px) scale(1.04);box-shadow:0 22px 44px rgba(0,0,0,.42);}
 .vl-circle:hover::before{background:rgba(18,112,140,.55);}
-@media (max-width:991px){.vl-circles{position:static;margin-top:2.5rem;gap:1rem;}.vl-circle{width:130px;height:130px;}.vl-circle span{font-size:.8rem;}}
+/* Mantiene el nombre del portal en una franja propia, por encima de los accesos. */
+@media (min-width:992px){
+  .hero-inner{transform:translateY(-6.5rem);}
+}
+@media (max-width:991px){
+  #hero{flex-direction:column;justify-content:center;padding:7rem 0 8rem;}
+  .hero-inner{width:100%;padding-top:0;text-align:center;}
+  .hero-eyebrow{justify-content:center;}
+  .vl-circles{position:static;margin-top:2.5rem;gap:1rem;}
+  .vl-circle{width:130px;height:130px;}
+  .vl-circle span{font-size:.8rem;}
+}
 
 .scroll-ind{color:rgba(255,255,255,.85);}
 .hero-stats{background:var(--terra)!important;backdrop-filter:none;border:none;}
