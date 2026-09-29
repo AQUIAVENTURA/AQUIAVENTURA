@@ -315,11 +315,13 @@ body{font-family:'Inter',sans-serif;background:var(--blanco);overflow-x:hidden;c
    GALERÍA
 ═══════════════════════════════════════ */
 #galeria{background:var(--azul-prof);padding:7rem 0;}
-.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:240px 240px;gap:12px;}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:240px 240px 240px;gap:12px;}
 .gal-item{border-radius:14px;overflow:hidden;position:relative;cursor:pointer;}
 .gal-item:nth-child(1){grid-column:1/3;grid-row:1/2;}
 .gal-item:nth-child(3){grid-column:1/2;grid-row:2/3;}
 .gal-item:nth-child(6){grid-column:3/5;grid-row:2/3;}
+.gal-item:nth-child(7){grid-column:1/3;grid-row:3/4;}
+.gal-item:nth-child(8){grid-column:3/5;grid-row:3/4;}
 .gal-bg{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;transition:transform .5s;}
 .gal-item:hover .gal-bg{transform:scale(1.08);}
 .gal-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,20,45,.85) 0%,transparent 55%);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:1.2rem;}
@@ -507,7 +509,7 @@ footer{background:#050D1A;padding:3.5rem 0;text-align:center;}
 
 @media(max-width:768px){
   .gal-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto;}
-  .gal-item:nth-child(1),.gal-item:nth-child(3),.gal-item:nth-child(6){grid-column:auto;grid-row:auto;}
+  .gal-item:nth-child(1),.gal-item:nth-child(3),.gal-item:nth-child(6),.gal-item:nth-child(7),.gal-item:nth-child(8){grid-column:auto;grid-row:auto;}
   #mainNav{background:rgba(10,37,64,.95)!important;}
 }
 
@@ -1561,6 +1563,18 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
           </div>
         </div>
       </div>
+      <div class="col-md-6 col-lg-6 reveal resto-item" data-name="brasas y leños restaurante comida típica asados trucha carnes leña">
+        <div class="resto-card">
+          <div class="resto-img logo" style="background-image:url('images/gastronomia/brasas-y-lenos.jpg')"><div class="resto-tags"><span class="resto-tag">Comida típica</span><span class="resto-tag">Asados</span></div></div>
+          <div class="resto-body">
+            <div class="resto-name">Brasas y Leños Restaurante</div>
+            <div class="resto-desc">Una experiencia que celebra la tradición culinaria de la región en un ambiente acogedor. Rinde homenaje a la cultura y el folclor local con una variada selección de platos típicos: sopas, amasijos, trucha arcoíris y carnes asadas en leña. Un espacio auténtico, ideal para familias y grandes grupos.</div>
+            <div class="resto-meta"><span><i class="bi bi-geo-alt"></i>Aquitania, Cra. 10 # 10 - 16</span><span><i class="bi bi-cash-coin"></i>$4.000 – $44.000 COP</span><span><i class="bi bi-telephone"></i>310 576 2025 · 315 310 9629</span></div>
+            <div class="resto-more"><ul><li><i class="bi bi-fire"></i>Especialidad: carnes asadas en leña y trucha arcoíris</li><li><i class="bi bi-egg-fried"></i>Platos típicos: sopas, amasijos y más</li><li><i class="bi bi-people"></i>Ideal para familias y grandes grupos</li><li><i class="bi bi-instagram"></i><a href="https://www.instagram.com/brasasylenosrestaurante" target="_blank" rel="noopener">@brasasylenosrestaurante</a></li><li><i class="bi bi-geo"></i><a href="https://g.page/r/CWTwBzcIB-BXEBE/review" target="_blank" rel="noopener">Ver en Google Maps</a></li></ul></div>
+            <button class="btn-vermas" type="button">Ver más</button>
+          </div>
+        </div>
+      </div>
       </div>
       <div class="text-center"><a class="btn-volver-inicio" href="#hero"><i class="bi bi-arrow-left"></i>Volver al inicio</a></div>
       <div class="gastro-empty" id="restoEmpty">No encontramos restaurantes con ese nombre.</div>
@@ -1716,6 +1730,8 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
       <div class="gal-item"><img class="gal-bg" src="images/lago/isla-sanpedro.jpg" alt="Isla San Pedro"><div class="gal-ov"><span class="gal-lbl">Paisajes del lago</span></div></div>
       <div class="gal-item"><img class="gal-bg" src="images/lago/comunidad.jpg" alt="Comunidad de Aquitania"><div class="gal-ov"><span class="gal-lbl">Cultura Campesina</span></div></div>
       <div class="gal-item"><img class="gal-bg" src="images/lago/monte-tabor.jpg" alt="Monte Tabor"><div class="gal-ov"><span class="gal-lbl">Senderismo</span></div></div>
+      <div class="gal-item"><img class="gal-bg" src="images/lago/santuario-cumbre.jpg" alt="Santuario de la Cumbre"><div class="gal-ov"><span class="gal-lbl">Santuario de la Cumbre</span></div></div>
+      <div class="gal-item"><img class="gal-bg" src="images/lago/santuario-peninsula.jpg" alt="Santuario de la Península"><div class="gal-ov"><span class="gal-lbl">Santuario de la Península</span></div></div>
     </div>
   </div>
 </section>
