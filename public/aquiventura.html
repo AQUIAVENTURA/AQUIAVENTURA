@@ -1856,13 +1856,16 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
       </div>
       <div class="col-lg-7 reveal-r">
         <div class="contact-form-box">
-          <div class="row g-3">
-            <div class="col-md-6"><label class="form-label">Nombre completo</label><input type="text" class="form-control" id="cNombre" placeholder="Tu nombre"></div>
-            <div class="col-md-6"><label class="form-label">Correo electrónico</label><input type="email" class="form-control" id="cEmail" placeholder="tu@email.com"></div>
-            <div class="col-md-6"><label class="form-label">Teléfono</label><input type="tel" class="form-control" id="cTel" placeholder="+57 300 000 0000"></div>
+          <form class="row g-3" id="contactForm" action="https://formsubmit.co/aquiaventura3@gmail.com" method="POST" target="hiddenSubmit" onsubmit="return enviarContacto()">
+            <input type="hidden" name="_subject" value="Nuevo mensaje desde Aquiaventura">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <div class="col-md-6"><label class="form-label">Nombre completo</label><input type="text" class="form-control" id="cNombre" name="Nombre" placeholder="Tu nombre"></div>
+            <div class="col-md-6"><label class="form-label">Correo electrónico</label><input type="email" class="form-control" id="cEmail" name="Correo" placeholder="tu@email.com"></div>
+            <div class="col-md-6"><label class="form-label">Teléfono</label><input type="tel" class="form-control" id="cTel" name="Teléfono" placeholder="+57 300 000 0000"></div>
             <div class="col-md-6">
               <label class="form-label">Experiencia de interés</label>
-              <select class="form-control" id="cExp">
+              <select class="form-control" id="cExp" name="Experiencia de interés">
                 <option value="">Seleccionar...</option>
                 <option>Recorrido Náutico — Isla San Pedro</option>
                 <option>Senderismo Páramo Santa Bárbara</option>
@@ -1872,9 +1875,10 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
                 <option>Caminata Monte Tabor</option>
               </select>
             </div>
-            <div class="col-12"><label class="form-label">Mensaje</label><textarea class="form-control" id="cMensaje" rows="4" placeholder="Cuéntanos sobre tu viaje ideal en Aquitania..."></textarea></div>
-            <div class="col-12"><button class="btn-send" onclick="enviarContacto()"><i class="bi bi-send me-2"></i>Enviar y Reservar</button></div>
-          </div>
+            <div class="col-12"><label class="form-label">Mensaje</label><textarea class="form-control" id="cMensaje" name="Mensaje" rows="4" placeholder="Cuéntanos sobre tu viaje ideal en Aquitania..."></textarea></div>
+            <div class="col-12"><button type="submit" class="btn-send" id="btnContacto"><i class="bi bi-send me-2"></i>Enviar y Reservar</button></div>
+          </form>
+          <iframe name="hiddenSubmit" style="display:none;" title="envio"></iframe>
         </div>
       </div>
     </div>
