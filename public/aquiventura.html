@@ -2062,6 +2062,13 @@ bt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'}
   window.addEventListener('hashchange',function(){ir(location.hash);});
   ir(location.hash);
   window.__irPagina=ir;
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[data-scroll-to]');
+    if(!a)return;
+    var t=document.getElementById(a.getAttribute('data-scroll-to'));
+    if(!t)return;
+    setTimeout(function(){t.scrollIntoView({behavior:'smooth'});},90);
+  });
 })();
 
 /* ═══ REDISEÑO DINÁMICO: interacciones ═══ */
