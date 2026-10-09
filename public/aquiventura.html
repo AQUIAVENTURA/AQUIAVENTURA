@@ -1762,15 +1762,15 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
         <span class="sec-eyebrow">Testimonios</span>
         <h2 class="sec-title mt-2">Lo que dicen<br>los viajeros</h2>
         <div class="global-rating mt-4 d-flex align-items-center gap-3">
-          <div class="big">4.9</div>
+          <div class="big" id="ratingBig">4.9</div>
           <div>
             <div class="stars-big">★★★★★</div>
-            <div style="font-size:.8rem;color:#999;font-family:'Outfit',sans-serif;margin-top:.2rem">Basado en 127 opiniones</div>
+            <div id="ratingCount" style="font-size:.8rem;color:#999;font-family:'Outfit',sans-serif;margin-top:.2rem">Basado en 127 opiniones</div>
           </div>
         </div>
       </div>
       <div class="col-lg-7">
-        <div class="row g-3">
+        <div class="row g-3" id="reviewsGrid">
           <div class="col-md-6 reveal">
             <div class="review-card">
               <div class="d-flex align-items-center gap-2 mb-3">
@@ -1902,6 +1902,7 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script>
 /* NAV SCROLL */
 window.addEventListener('scroll',()=>{
@@ -1949,14 +1950,54 @@ function showNotif(m){
   setTimeout(()=>n.classList.remove('show'),3500);
 }
 
-function enviarOpinion(){
+/* ── Opiniones conectadas a la base de datos (Lovable Cloud) ── */
+const sbClient=window.supabase.createClient('https://ifhfmpxeceotzyiqiujr.supabase.co','sb_publishable_l1M6hLtwq9li3I754ZyQAQ_g_yo1XK6');
+
+function crearCardOpinion(o){
+  const col=document.createElement('div');col.className='col-md-6 opinion-db';
+  const card=document.createElement('div');card.className='review-card';
+  const head=document.createElement('div');head.className='d-flex align-items-center gap-2 mb-3';
+  const av=document.createElement('div');av.className='review-avatar';
+  av.textContent=o.nombre.trim().split(/\s+/).map(w=>w[0]).join('').slice(0,2).toUpperCase();
+  const info=document.createElement('div');
+  const nm=document.createElement('div');nm.className='review-name';nm.textContent=o.nombre;
+  const loc=document.createElement('div');loc.className='review-loc';
+  loc.textContent=new Date(o.created_at).toLocaleDateString('es-CO',{year:'numeric',month:'short',day:'numeric'});
+  info.appendChild(nm);info.appendChild(loc);
+  const st=document.createElement('div');st.className='review-stars ms-auto';
+  st.textContent='★'.repeat(o.estrellas)+'☆'.repeat(5-o.estrellas);
+  head.appendChild(av);head.appendChild(info);head.appendChild(st);
+  const p=document.createElement('p');p.className='review-text';p.textContent=o.comentario;
+  card.appendChild(head);card.appendChild(p);col.appendChild(card);
+  return col;
+}
+
+async function cargarOpiniones(){
+  const {data,error}=await sbClient.from('opiniones').select('*').order('created_at',{ascending:false});
+  if(error){console.error('Error cargando opiniones:',error);return;}
+  const grid=document.getElementById('reviewsGrid');
+  grid.querySelectorAll('.opinion-db').forEach(el=>el.remove());
+  data.forEach(o=>grid.appendChild(crearCardOpinion(o)));
+  const total=4+data.length;
+  const suma=20+data.reduce((a,o)=>a+o.estrellas,0);
+  document.getElementById('ratingCount').textContent='Basado en '+total+' opiniones';
+  document.getElementById('ratingBig').textContent=(suma/total).toFixed(1);
+}
+cargarOpiniones();
+
+async function enviarOpinion(){
   const n=document.getElementById('opNombre').value.trim();
   const c=document.getElementById('opComentario').value.trim();
   if(!n||!c){showNotif('⚠️ Completa todos los campos');return;}
+  if(!selStar){showNotif('⚠️ Selecciona una calificación con las estrellas');return;}
+  const {data,error}=await sbClient.from('opiniones').insert({nombre:n,comentario:c,estrellas:selStar}).select().single();
+  if(error){console.error(error);showNotif('⚠️ No se pudo publicar. Intenta de nuevo.');return;}
+  document.getElementById('reviewsGrid').prepend(crearCardOpinion(data));
   showNotif('✅ ¡Gracias, '+n+'! Tu opinión fue publicada.');
   document.getElementById('opNombre').value='';
   document.getElementById('opComentario').value='';
   selStar=0;starEls.forEach(s=>s.classList.remove('on'));
+  cargarOpiniones();
 }
 
 function enviarContacto(){
