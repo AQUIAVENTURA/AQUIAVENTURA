@@ -1762,15 +1762,15 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
         <span class="sec-eyebrow">Testimonios</span>
         <h2 class="sec-title mt-2">Lo que dicen<br>los viajeros</h2>
         <div class="global-rating mt-4 d-flex align-items-center gap-3">
-          <div class="big">4.9</div>
+          <div class="big" id="ratingBig">4.9</div>
           <div>
             <div class="stars-big">★★★★★</div>
-            <div style="font-size:.8rem;color:#999;font-family:'Outfit',sans-serif;margin-top:.2rem">Basado en 127 opiniones</div>
+            <div id="ratingCount" style="font-size:.8rem;color:#999;font-family:'Outfit',sans-serif;margin-top:.2rem">Basado en 127 opiniones</div>
           </div>
         </div>
       </div>
       <div class="col-lg-7">
-        <div class="row g-3">
+        <div class="row g-3" id="reviewsGrid">
           <div class="col-md-6 reveal">
             <div class="review-card">
               <div class="d-flex align-items-center gap-2 mb-3">
