@@ -1954,7 +1954,7 @@ function showNotif(m){
 const sbClient=window.supabase.createClient('https://ifhfmpxeceotzyiqiujr.supabase.co','sb_publishable_l1M6hLtwq9li3I754ZyQAQ_g_yo1XK6');
 
 function crearCardOpinion(o){
-  const col=document.createElement('div');col.className='col-md-6';
+  const col=document.createElement('div');col.className='col-md-6 opinion-db';
   const card=document.createElement('div');card.className='review-card';
   const head=document.createElement('div');head.className='d-flex align-items-center gap-2 mb-3';
   const av=document.createElement('div');av.className='review-avatar';
@@ -1976,6 +1976,7 @@ async function cargarOpiniones(){
   const {data,error}=await sbClient.from('opiniones').select('*').order('created_at',{ascending:false});
   if(error){console.error('Error cargando opiniones:',error);return;}
   const grid=document.getElementById('reviewsGrid');
+  grid.querySelectorAll('.opinion-db').forEach(el=>el.remove());
   data.forEach(o=>grid.appendChild(crearCardOpinion(o)));
   const total=4+data.length;
   const suma=20+data.reduce((a,o)=>a+o.estrellas,0);
