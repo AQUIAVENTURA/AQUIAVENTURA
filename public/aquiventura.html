@@ -637,6 +637,11 @@ body.avi-lightbox-open{overflow:hidden}
 .stat-num{background:var(--grad-acento);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
 
 /* Títulos de sección animados */
+.bird-item[hidden]{display:none!important;}
+.bird-pagination{display:flex;justify-content:center;gap:.4rem;margin:2rem 0;}
+.bird-pagination button{border:0;background:transparent;color:var(--azul-cielo,#42A5F5);min-width:2rem;min-height:2.5rem;font:inherit;cursor:pointer;}
+.bird-pagination button[aria-current="page"]{color:var(--azul-profundo,#0A2540);font-weight:700;text-decoration:underline;text-underline-offset:.3rem;}
+.bird-pagination button:focus-visible{outline:2px solid currentColor;outline-offset:2px;}
 .sec-title{position:relative;}
 .sec-eyebrow{background:var(--grad-acento);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-weight:700;}
 
@@ -1575,15 +1580,7 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
             </div>
           </article>
         </div>
-      </div>
-      <div class="gastro-empty" id="birdEmpty">No encontramos aves con ese nombre.</div>
-      <div id="nuevasAves" class="mt-5 pt-4 border-top">
-        <div class="text-center mb-4 reveal">
-          <span class="sec-eyebrow">Aviturismo · Lago de Tota</span>
-          <h3 class="sec-title mt-2">Más aves del Lago de Tota</h3>
-        </div>
-        <div class="row g-4" id="newBirdGrid">
-          <div class="col-md-6 reveal bird-item" data-name="eriocnemis vestita colibrí colibri">
+          <div class="col-md-6 reveal bird-item" hidden data-name="eriocnemis vestita colibrí colibri">
             <article class="resto-card">
               <div class="avi-img landscape"><img src="/__l5e/assets-v1/ec6fbfef-ee43-4b7d-bc88-2a9b14563aef/eriocnemis-vestita.jpg" alt="Eriocnemis vestita" loading="lazy"></div>
               <div class="resto-body">
@@ -1598,7 +1595,7 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
               </div>
             </article>
           </div>
-          <div class="col-md-6 reveal bird-item" data-name="rallus semiplumbeus rálido ralido">
+          <div class="col-md-6 reveal bird-item" hidden data-name="rallus semiplumbeus rálido ralido">
             <article class="resto-card">
               <div class="avi-img"><img src="/__l5e/assets-v1/6274ee53-d83a-4bda-a58d-b06d7790dea2/rallus-semiplumbeus.jpg" alt="Rallus semiplumbeus" loading="lazy"></div>
               <div class="resto-body">
@@ -1613,8 +1610,9 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
               </div>
             </article>
           </div>
-        </div>
       </div>
+      <div class="gastro-empty" id="birdEmpty">No encontramos aves con ese nombre.</div>
+      <nav class="bird-pagination" id="birdPagination" aria-label="Páginas de aves"></nav>
       <div class="text-center"><a class="btn-volver-inicio" href="#hero"><i class="bi bi-arrow-left"></i>Volver al inicio</a></div>
     </div>
   </div>
@@ -1838,13 +1836,38 @@ if(aviBox)aviBox.addEventListener('click',function(e){if(e.target===aviBox)close
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&aviBox&&aviBox.classList.contains('open'))closeAviImage();});
 
 var bs=document.getElementById('birdSearch');
-if(bs){bs.addEventListener('input',function(){
-  var q=bs.value.trim().toLowerCase(),n=0;
-  document.querySelectorAll('.bird-item').forEach(function(it){
-    var ok=it.dataset.name.indexOf(q)>-1;it.style.display=ok?'':'none';if(ok)n++;
+var birdPage=1;
+function renderBirdPage(){
+  var q=bs?bs.value.trim().toLowerCase():'';
+  var items=Array.from(document.querySelectorAll('.bird-item'));
+  var matches=items.filter(function(it){return it.dataset.name.indexOf(q)>-1;});
+  var pages=Math.ceil(matches.length/6);
+  birdPage=Math.max(1,Math.min(birdPage,pages||1));
+  items.forEach(function(it){
+    var index=matches.indexOf(it);
+    it.hidden=index<0||index<(birdPage-1)*6||index>=birdPage*6;
   });
-  document.getElementById('birdEmpty').style.display=n?'none':'block';
-});}
+  document.getElementById('birdEmpty').style.display=matches.length?'none':'block';
+  var pagination=document.getElementById('birdPagination');
+  pagination.replaceChildren();
+  for(var page=1;page<=pages;page++){
+    var button=document.createElement('button');
+    button.type='button';button.textContent=page;button.dataset.page=page;
+    button.setAttribute('aria-label','Página '+page);
+    if(page===birdPage)button.setAttribute('aria-current','page');
+    pagination.appendChild(button);
+  }
+}
+document.getElementById('birdPagination').addEventListener('click',function(e){
+  var button=e.target.closest('button[data-page]');
+  if(!button)return;
+  birdPage=Number(button.dataset.page);renderBirdPage();
+  document.getElementById('aves').scrollIntoView({behavior:'smooth',block:'start'});
+  var current=document.querySelector('#birdPagination [aria-current="page"]');
+  if(current)current.focus({preventScroll:true});
+});
+if(bs)bs.addEventListener('input',function(){birdPage=1;renderBirdPage();});
+renderBirdPage();
 var bt=document.getElementById('backTop');
 if(bt){window.addEventListener('scroll',function(){bt.classList.toggle('show',window.scrollY>600);});
 bt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});}
