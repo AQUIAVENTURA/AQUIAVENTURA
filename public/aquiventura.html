@@ -336,30 +336,6 @@ body{font-family:'Inter',sans-serif;background:var(--blanco);overflow-x:hidden;c
 .gg6{background:linear-gradient(135deg,#4C0519,#BE123C,#FB7185);}
 .gg7{background:linear-gradient(135deg,#0E7490,#0284C7,#7DD3FC);}
 
-/* ═══════════════════════════════════════
-   OPINIONES
-═══════════════════════════════════════ */
-#opiniones{background:var(--beige);padding:7rem 0;}
-.review-card{
-  background:#fff;border-radius:20px;
-  border:1px solid rgba(10,37,64,.08);
-  padding:2rem;height:100%;
-  transition:transform .3s,box-shadow .3s;
-}
-.review-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(10,37,64,.1);}
-.review-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--azul-lago),var(--azul-cielo));display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Bebas Neue',sans-serif;font-size:1.2rem;flex-shrink:0;}
-.review-name{font-family:'Outfit',sans-serif;font-weight:600;font-size:.9rem;color:var(--azul-prof);}
-.review-loc{font-size:.75rem;color:#999;}
-.review-stars{color:#FDD835;font-size:.9rem;}
-.review-text{font-family:'Outfit',sans-serif;font-size:.9rem;line-height:1.7;color:#444;font-style:italic;}
-.review-text::before{content:'"';font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--azul-cielo);line-height:0;vertical-align:-.5rem;margin-right:.2rem;}
-
-/* rating global */
-.global-rating .big{font-family:'Bebas Neue',sans-serif;font-size:5rem;color:var(--azul-prof);line-height:1;}
-.global-rating .stars-big{font-size:1.5rem;color:#FDD835;}
-
-/* form opinión */
-.opinion-box{background:#fff;border-radius:24px;border:1px solid rgba(10,37,64,.08);padding:2.5rem;}
 
 /* ═══════════════════════════════════════
    MAPA PLACEHOLDER
@@ -407,46 +383,6 @@ body{font-family:'Inter',sans-serif;background:var(--blanco);overflow-x:hidden;c
   background:var(--terra)!important;
   color:#fff!important;
   transform:translateY(-2px);
-}
-/* ═══════════════════════════════════════
-   QR SECTION
-═══════════════════════════════════════ */
-#qr{background:var(--crema);padding:7rem 0;}
-.qr-box{
-  background:linear-gradient(135deg,var(--azul-prof),var(--azul-lago));
-  border-radius:28px;padding:3rem;color:#ffffff00;
-  position:relative;overflow:hidden;text-align:center;
-}
-.qr-box::before{content:"";position:absolute;top:-80px;left:-80px;width:250px;height:250px;border-radius:50%;background:rgba(255,255,255,.04);}
-.qr-visual{
-  width:180px;height:180px;margin:0 auto 1.5rem;
-  background:#fff;border-radius:16px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:5rem;position:relative;
-}
-.qr-inner{
-  position:absolute;inset:12px;
-  display:grid;grid-template-columns:repeat(7,1fr);grid-template-rows:repeat(7,1fr);
-  gap:2px;
-}
-.qr-c{border-radius:2px;background:var(--azul-prof);}
-.qr-box h3{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:.05em;margin-bottom:.6rem;}
-.qr-box p{font-family:'Outfit',sans-serif;font-size:.9rem;opacity:.8;line-height:1.65;max-width:420px;margin:0 auto 1.5rem;}
-.qr-box h3{
-  color:#000000!important;
-  font-family:'Playfair Display',serif!important;
-  font-size:2rem;
-  margin-bottom:.8rem;
-}
-
-.qr-box p{
-  color:#000000!important;
-  opacity:1!important;
-  font-family:'Lato',sans-serif!important;
-  font-size:.95rem;
-  line-height:1.7;
-  max-width:520px;
-  margin:0 auto 1.5rem;
 }
 /* ═══════════════════════════════════════
    CONTACTO
@@ -505,9 +441,6 @@ footer{background:#050D1A;padding:3.5rem 0;text-align:center;}
 .form-label-dark{font-family:'Outfit',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--azul-prof);}
 
 /* star input */
-.star-inp span{font-size:2rem;cursor:pointer;color:#DDD;transition:transform .15s;}
-.star-inp span.on{color:#FDD835;}
-.star-inp span:hover{transform:scale(1.2);}
 
 @media(max-width:768px){
   .gal-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto;}
@@ -841,7 +774,7 @@ h1,h2,h3,h4,h5,h6,.sec-title,.hero-title,.exp-card-title,.resto-name,.nat-card h
 
 /* ── SECCIONES editoriales ── */
 section{background:var(--crema);}
-#historia,#experiencias,#galeria,#opiniones,#mapa,#gastronomia,#avicultura{background:var(--crema);}
+#historia,#experiencias,#galeria,#mapa,#gastronomia,#avicultura{background:var(--crema);}
 .sec-eyebrow{
   font-family:'Lato',sans-serif!important;text-transform:uppercase;letter-spacing:.26em;font-size:.72rem;
   color:var(--terra)!important;-webkit-text-fill-color:var(--terra)!important;background:none!important;font-weight:700;
@@ -927,12 +860,10 @@ section{background:var(--crema);}
 .gal-ov{background:linear-gradient(180deg,transparent,rgba(46,42,38,.75))!important;}
 .gal-lbl{font-family:'Playfair Display',serif;}
 
-/* Opiniones y formularios */
-.review-card,.opinion-box,.contact-form-box,.contact-info,.qr-box,.resto-card,.mapa-frame{
+/* Formularios */
+.contact-form-box,.contact-info,.resto-card,.mapa-frame{
   border-radius:2px!important;border:1px solid var(--linea)!important;background:#fff!important;
 }
-.review-stars,.stars-big,.star-inp span.on{color:var(--terra)!important;}
-.review-avatar{background:var(--terra)!important;color:#fff!important;border-radius:50%!important;}
 .form-control,.form-select{border-radius:2px!important;border-color:var(--linea)!important;}
 .form-control:focus{border-color:var(--terra)!important;box-shadow:0 0 0 .15rem rgba(18,112,140,.15)!important;}
 .c-icon{background:var(--terra)!important;color:#fff!important;}
@@ -977,7 +908,7 @@ body.pagina-interna #mainNav{padding:.9rem 0;}
 body.pagina-interna section{min-height:calc(100vh - 120px);}
 section[id]{scroll-margin-top:110px;}
 body.pagina-interna #historia,body.pagina-interna #experiencias,body.pagina-interna #naturaleza,
-body.pagina-interna #galeria,body.pagina-interna #opiniones,body.pagina-interna #mapa,
+body.pagina-interna #galeria,body.pagina-interna #mapa,
 body.pagina-interna #contacto{padding-top:150px!important;}
 @keyframes pageIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
 section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
@@ -1788,14 +1719,6 @@ const cntObs=new IntersectionObserver(e=>{
 const natSec=document.getElementById('naturaleza');
 if(natSec)cntObs.observe(natSec);
 
-/* STARS */
-let selStar=0;
-const starEls=document.querySelectorAll('#starInp span');
-starEls.forEach(s=>{
-  s.addEventListener('mouseenter',()=>{const v=+s.dataset.v;starEls.forEach(x=>x.classList.toggle('on',+x.dataset.v<=v));});
-  s.addEventListener('click',()=>{selStar=+s.dataset.v;});
-});
-document.getElementById('starInp').addEventListener('mouseleave',()=>{starEls.forEach(x=>x.classList.toggle('on',+x.dataset.v<=selStar));});
 
 /* NOTIF */
 function showNotif(m){
@@ -1804,55 +1727,6 @@ function showNotif(m){
   setTimeout(()=>n.classList.remove('show'),3500);
 }
 
-/* ── Opiniones conectadas a la base de datos (Lovable Cloud) ── */
-const sbClient=window.supabase.createClient('https://ifhfmpxeceotzyiqiujr.supabase.co','sb_publishable_l1M6hLtwq9li3I754ZyQAQ_g_yo1XK6');
-
-function crearCardOpinion(o){
-  const col=document.createElement('div');col.className='col-md-6 opinion-db';
-  const card=document.createElement('div');card.className='review-card';
-  const head=document.createElement('div');head.className='d-flex align-items-center gap-2 mb-3';
-  const av=document.createElement('div');av.className='review-avatar';
-  av.textContent=o.nombre.trim().split(/\s+/).map(w=>w[0]).join('').slice(0,2).toUpperCase();
-  const info=document.createElement('div');
-  const nm=document.createElement('div');nm.className='review-name';nm.textContent=o.nombre;
-  const loc=document.createElement('div');loc.className='review-loc';
-  loc.textContent=new Date(o.created_at).toLocaleDateString('es-CO',{year:'numeric',month:'short',day:'numeric'});
-  info.appendChild(nm);info.appendChild(loc);
-  const st=document.createElement('div');st.className='review-stars ms-auto';
-  st.textContent='★'.repeat(o.estrellas)+'☆'.repeat(5-o.estrellas);
-  head.appendChild(av);head.appendChild(info);head.appendChild(st);
-  const p=document.createElement('p');p.className='review-text';p.textContent=o.comentario;
-  card.appendChild(head);card.appendChild(p);col.appendChild(card);
-  return col;
-}
-
-async function cargarOpiniones(){
-  const {data,error}=await sbClient.from('opiniones').select('*').order('created_at',{ascending:false});
-  if(error){console.error('Error cargando opiniones:',error);return;}
-  const grid=document.getElementById('reviewsGrid');
-  grid.querySelectorAll('.opinion-db').forEach(el=>el.remove());
-  data.forEach(o=>grid.appendChild(crearCardOpinion(o)));
-  const total=4+data.length;
-  const suma=20+data.reduce((a,o)=>a+o.estrellas,0);
-  document.getElementById('ratingCount').textContent='Basado en '+total+' opiniones';
-  document.getElementById('ratingBig').textContent=(suma/total).toFixed(1);
-}
-cargarOpiniones();
-
-async function enviarOpinion(){
-  const n=document.getElementById('opNombre').value.trim();
-  const c=document.getElementById('opComentario').value.trim();
-  if(!n||!c){showNotif('⚠️ Completa todos los campos');return;}
-  if(!selStar){showNotif('⚠️ Selecciona una calificación con las estrellas');return;}
-  const {data,error}=await sbClient.from('opiniones').insert({nombre:n,comentario:c,estrellas:selStar}).select().single();
-  if(error){console.error(error);showNotif('⚠️ No se pudo publicar. Intenta de nuevo.');return;}
-  document.getElementById('reviewsGrid').prepend(crearCardOpinion(data));
-  showNotif('✅ ¡Gracias, '+n+'! Tu opinión fue publicada.');
-  document.getElementById('opNombre').value='';
-  document.getElementById('opComentario').value='';
-  selStar=0;starEls.forEach(s=>s.classList.remove('on'));
-  cargarOpiniones();
-}
 
 function enviarContacto(){
   const n=document.getElementById('cNombre').value.trim();
