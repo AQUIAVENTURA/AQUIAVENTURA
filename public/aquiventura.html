@@ -336,30 +336,6 @@ body{font-family:'Inter',sans-serif;background:var(--blanco);overflow-x:hidden;c
 .gg6{background:linear-gradient(135deg,#4C0519,#BE123C,#FB7185);}
 .gg7{background:linear-gradient(135deg,#0E7490,#0284C7,#7DD3FC);}
 
-/* ═══════════════════════════════════════
-   OPINIONES
-═══════════════════════════════════════ */
-#opiniones{background:var(--beige);padding:7rem 0;}
-.review-card{
-  background:#fff;border-radius:20px;
-  border:1px solid rgba(10,37,64,.08);
-  padding:2rem;height:100%;
-  transition:transform .3s,box-shadow .3s;
-}
-.review-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(10,37,64,.1);}
-.review-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--azul-lago),var(--azul-cielo));display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Bebas Neue',sans-serif;font-size:1.2rem;flex-shrink:0;}
-.review-name{font-family:'Outfit',sans-serif;font-weight:600;font-size:.9rem;color:var(--azul-prof);}
-.review-loc{font-size:.75rem;color:#999;}
-.review-stars{color:#FDD835;font-size:.9rem;}
-.review-text{font-family:'Outfit',sans-serif;font-size:.9rem;line-height:1.7;color:#444;font-style:italic;}
-.review-text::before{content:'"';font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--azul-cielo);line-height:0;vertical-align:-.5rem;margin-right:.2rem;}
-
-/* rating global */
-.global-rating .big{font-family:'Bebas Neue',sans-serif;font-size:5rem;color:var(--azul-prof);line-height:1;}
-.global-rating .stars-big{font-size:1.5rem;color:#FDD835;}
-
-/* form opinión */
-.opinion-box{background:#fff;border-radius:24px;border:1px solid rgba(10,37,64,.08);padding:2.5rem;}
 
 /* ═══════════════════════════════════════
    MAPA PLACEHOLDER
@@ -407,46 +383,6 @@ body{font-family:'Inter',sans-serif;background:var(--blanco);overflow-x:hidden;c
   background:var(--terra)!important;
   color:#fff!important;
   transform:translateY(-2px);
-}
-/* ═══════════════════════════════════════
-   QR SECTION
-═══════════════════════════════════════ */
-#qr{background:var(--crema);padding:7rem 0;}
-.qr-box{
-  background:linear-gradient(135deg,var(--azul-prof),var(--azul-lago));
-  border-radius:28px;padding:3rem;color:#ffffff00;
-  position:relative;overflow:hidden;text-align:center;
-}
-.qr-box::before{content:"";position:absolute;top:-80px;left:-80px;width:250px;height:250px;border-radius:50%;background:rgba(255,255,255,.04);}
-.qr-visual{
-  width:180px;height:180px;margin:0 auto 1.5rem;
-  background:#fff;border-radius:16px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:5rem;position:relative;
-}
-.qr-inner{
-  position:absolute;inset:12px;
-  display:grid;grid-template-columns:repeat(7,1fr);grid-template-rows:repeat(7,1fr);
-  gap:2px;
-}
-.qr-c{border-radius:2px;background:var(--azul-prof);}
-.qr-box h3{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:.05em;margin-bottom:.6rem;}
-.qr-box p{font-family:'Outfit',sans-serif;font-size:.9rem;opacity:.8;line-height:1.65;max-width:420px;margin:0 auto 1.5rem;}
-.qr-box h3{
-  color:#000000!important;
-  font-family:'Playfair Display',serif!important;
-  font-size:2rem;
-  margin-bottom:.8rem;
-}
-
-.qr-box p{
-  color:#000000!important;
-  opacity:1!important;
-  font-family:'Lato',sans-serif!important;
-  font-size:.95rem;
-  line-height:1.7;
-  max-width:520px;
-  margin:0 auto 1.5rem;
 }
 /* ═══════════════════════════════════════
    CONTACTO
@@ -505,9 +441,6 @@ footer{background:#050D1A;padding:3.5rem 0;text-align:center;}
 .form-label-dark{font-family:'Outfit',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--azul-prof);}
 
 /* star input */
-.star-inp span{font-size:2rem;cursor:pointer;color:#DDD;transition:transform .15s;}
-.star-inp span.on{color:#FDD835;}
-.star-inp span:hover{transform:scale(1.2);}
 
 @media(max-width:768px){
   .gal-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto;}
@@ -841,7 +774,7 @@ h1,h2,h3,h4,h5,h6,.sec-title,.hero-title,.exp-card-title,.resto-name,.nat-card h
 
 /* ── SECCIONES editoriales ── */
 section{background:var(--crema);}
-#historia,#experiencias,#galeria,#opiniones,#mapa,#gastronomia,#avicultura{background:var(--crema);}
+#historia,#experiencias,#galeria,#mapa,#gastronomia,#avicultura{background:var(--crema);}
 .sec-eyebrow{
   font-family:'Lato',sans-serif!important;text-transform:uppercase;letter-spacing:.26em;font-size:.72rem;
   color:var(--terra)!important;-webkit-text-fill-color:var(--terra)!important;background:none!important;font-weight:700;
@@ -927,12 +860,10 @@ section{background:var(--crema);}
 .gal-ov{background:linear-gradient(180deg,transparent,rgba(46,42,38,.75))!important;}
 .gal-lbl{font-family:'Playfair Display',serif;}
 
-/* Opiniones y formularios */
-.review-card,.opinion-box,.contact-form-box,.contact-info,.qr-box,.resto-card,.mapa-frame{
+/* Formularios */
+.contact-form-box,.contact-info,.resto-card,.mapa-frame{
   border-radius:2px!important;border:1px solid var(--linea)!important;background:#fff!important;
 }
-.review-stars,.stars-big,.star-inp span.on{color:var(--terra)!important;}
-.review-avatar{background:var(--terra)!important;color:#fff!important;border-radius:50%!important;}
 .form-control,.form-select{border-radius:2px!important;border-color:var(--linea)!important;}
 .form-control:focus{border-color:var(--terra)!important;box-shadow:0 0 0 .15rem rgba(18,112,140,.15)!important;}
 .c-icon{background:var(--terra)!important;color:#fff!important;}
@@ -977,7 +908,7 @@ body.pagina-interna #mainNav{padding:.9rem 0;}
 body.pagina-interna section{min-height:calc(100vh - 120px);}
 section[id]{scroll-margin-top:110px;}
 body.pagina-interna #historia,body.pagina-interna #experiencias,body.pagina-interna #naturaleza,
-body.pagina-interna #galeria,body.pagina-interna #opiniones,body.pagina-interna #mapa,
+body.pagina-interna #galeria,body.pagina-interna #mapa,
 body.pagina-interna #contacto{padding-top:150px!important;}
 @keyframes pageIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
 section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
@@ -1014,7 +945,6 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
         <li><a class="nav-link" href="#avicultura">Aviturismo</a></li>
        
         <li><a class="nav-link" href="#galeria">Galería</a></li>
-        <li><a class="nav-link" href="#opiniones">Opiniones</a></li>
         <li class="ms-lg-3"><a class="btn-nav-reserve" href="#contacto">Contacto</a></li>
       </ul>
     </div>
@@ -1220,73 +1150,6 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
   </div>
 </section>
 
-<!-- ══════════════════ QR ══════════════════ -->
-<section id="qr" style="padding:5rem 0;">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-8">
-        <div class="qr-box reveal">
-          <div class="qr-visual">
-            <svg width="156" height="156" viewBox="0 0 156 156" xmlns="http://www.w3.org/2000/svg">
-              <!-- QR corners -->
-              <rect x="8" y="8" width="42" height="42" fill="none" stroke="#0A2540" stroke-width="6" rx="4"/>
-              <rect x="16" y="16" width="26" height="26" fill="#0A2540" rx="2"/>
-              <rect x="106" y="8" width="42" height="42" fill="none" stroke="#0A2540" stroke-width="6" rx="4"/>
-              <rect x="114" y="16" width="26" height="26" fill="#0A2540" rx="2"/>
-              <rect x="8" y="106" width="42" height="42" fill="none" stroke="#0A2540" stroke-width="6" rx="4"/>
-              <rect x="16" y="114" width="26" height="26" fill="#0A2540" rx="2"/>
-              <!-- QR dots pattern -->
-              <rect x="58" y="8" width="8" height="8" fill="#0A2540" rx="1"/>
-              <rect x="70" y="8" width="8" height="8" fill="#0A2540" rx="1"/>
-              <rect x="82" y="8" width="8" height="8" fill="#0A2540" rx="1"/>
-              <rect x="58" y="20" width="8" height="8" fill="#0A2540" rx="1"/>
-              <rect x="82" y="20" width="8" height="8" fill="#0A2540" rx="1"/>
-              <rect x="58" y="32" width="8" height="8" fill="#0A2540" rx="1"/>
-              <rect x="70" y="32" width="8" height="8" fill="#0A2540" rx="1"/>
-              <rect x="82" y="32" width="8" height="8" fill="#0A2540" rx="1"/>
-              <rect x="8" y="58" width="8" height="8" fill="#0A2540" rx="1"/>
-              <rect x="20" y="58" width="8" height="8" fill="#0A2540" rx="1"/>
-              <rect x="32" y="58" width="8" height="8" fill="#0A2540" rx="1"/>
-              <rect x="8" y="70" width="8" height="8" fill="#0A2540" rx="1"/>
-              <rect x="32" y="70" width="8" height="8" fill="#0A2540" rx="1"/>
-              <rect x="8" y="82" width="8" height="8" fill="#0A2540" rx="1"/>
-              <rect x="20" y="82" width="8" height="8" fill="#0A2540" rx="1"/>
-              <rect x="32" y="82" width="8" height="8" fill="#0A2540" rx="1"/>
-              <!-- center dots -->
-              <rect x="58" y="58" width="40" height="40" fill="#1565C0" rx="4" opacity=".9"/>
-              <rect x="66" y="66" width="24" height="24" fill="#fff" rx="2"/>
-              <rect x="72" y="72" width="12" height="12" fill="#0A2540" rx="1"/>
-              <!-- random dots -->
-              <rect x="106" y="58" width="8" height="8" fill="#0A2540" rx="1"/>
-              <rect x="118" y="58" width="8" height="8" fill="#0A2540" rx="1"/>
-              <rect x="130" y="58" width="8" height="8" fill="#0A2540" rx="1"/>
-              <rect x="142" y="58" width="8" height="8" fill="#0A2540" rx="1"/>
-              <rect x="106" y="70" width="8" height="8" fill="#0A2540" rx="1"/>
-              <rect x="130" y="70" width="8" height="8" fill="#0A2540" rx="1"/>
-              <rect x="118" y="82" width="8" height="8" fill="#0A2540" rx="1"/>
-              <rect x="142" y="82" width="8" height="8" fill="#0A2540" rx="1"/>
-              <rect x="58" y="106" width="8" height="8" fill="#0A2540" rx="1"/>
-              <rect x="70" y="106" width="8" height="8" fill="#0A2540" rx="1"/>
-              <rect x="82" y="106" width="8" height="8" fill="#0A2540" rx="1"/>
-              <rect x="106" y="106" width="8" height="8" fill="#0A2540" rx="1"/>
-              <rect x="58" y="118" width="8" height="8" fill="#0A2540" rx="1"/>
-              <rect x="82" y="118" width="8" height="8" fill="#0A2540" rx="1"/>
-              <rect x="118" y="118" width="8" height="8" fill="#0A2540" rx="1"/>
-              <rect x="130" y="118" width="8" height="8" fill="#0A2540" rx="1"/>
-              <rect x="58" y="130" width="8" height="8" fill="#0A2540" rx="1"/>
-              <rect x="70" y="130" width="8" height="8" fill="#0A2540" rx="1"/>
-              <rect x="106" y="130" width="8" height="8" fill="#0A2540" rx="1"/>
-              <rect x="142" y="130" width="8" height="8" fill="#0A2540" rx="1"/>
-            </svg>
-          </div>
-          <h3>Código QR AQUIAVENTURA</h3>
-          <p>Escanea este código QR con tu smartphone para acceder directamente a la plataforma AQUIAVENTURA y explorar todas las experiencias turísticas del Lago de Tota y Aquitania, Boyacá.</p>
-          <a href="#" class="btn-reservar" style="font-size:.85rem;padding:.6rem 1.6rem;">Escanear y Explorar</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ══════════════════ EXPERIENCIAS ══════════════════ -->
 <section id="experiencias">
@@ -1754,83 +1617,6 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
   </div>
 </div>
 
-<!-- ══════════════════ OPINIONES ══════════════════ -->
-<section id="opiniones">
-  <div class="container">
-    <div class="row align-items-center mb-5">
-      <div class="col-lg-5 reveal-l">
-        <span class="sec-eyebrow">Testimonios</span>
-        <h2 class="sec-title mt-2">Lo que dicen<br>los viajeros</h2>
-        <div class="global-rating mt-4 d-flex align-items-center gap-3">
-          <div class="big" id="ratingBig">4.9</div>
-          <div>
-            <div class="stars-big">★★★★★</div>
-            <div id="ratingCount" style="font-size:.8rem;color:#999;font-family:'Outfit',sans-serif;margin-top:.2rem">Basado en 127 opiniones</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-7">
-        <div class="row g-3" id="reviewsGrid">
-          <div class="col-md-6 reveal">
-            <div class="review-card">
-              <div class="d-flex align-items-center gap-2 mb-3">
-                <div class="review-avatar">MC</div>
-                <div><div class="review-name">María C.</div><div class="review-loc">Bogotá, Colombia</div></div>
-                <div class="review-stars ms-auto">★★★★★</div>
-              </div>
-              <p class="review-text">El Lago de Tota me dejó sin palabras. Las aguas azules, el silencio del páramo y la calidez de la gente de Aquitania son una combinación perfecta.</p>
-            </div>
-          </div>
-          <div class="col-md-6 reveal">
-            <div class="review-card">
-              <div class="d-flex align-items-center gap-2 mb-3">
-                <div class="review-avatar" style="background:linear-gradient(135deg,#14532D,#16A34A)">JP</div>
-                <div><div class="review-name">Juan P.</div><div class="review-loc">Medellín, Colombia</div></div>
-                <div class="review-stars ms-auto">★★★★★</div>
-              </div>
-              <p class="review-text">El recorrido náutico por la Isla San Pedro fue espectacular. Ver el amanecer desde el lago es una experiencia que no olvidaré jamás.</p>
-            </div>
-          </div>
-          <div class="col-md-6 reveal">
-            <div class="review-card">
-              <div class="d-flex align-items-center gap-2 mb-3">
-                <div class="review-avatar" style="background:linear-gradient(135deg,#78350F,#D97706)">AL</div>
-                <div><div class="review-name">Ana L.</div><div class="review-loc">Bucaramanga</div></div>
-                <div class="review-stars ms-auto">★★★★★</div>
-              </div>
-              <p class="review-text">La caminata al páramo Santa Bárbara fue exigente pero valió cada paso. Los frailejones y el silencio del páramo son únicos en el mundo.</p>
-            </div>
-          </div>
-          <div class="col-md-6 reveal">
-            <div class="review-card">
-              <div class="d-flex align-items-center gap-2 mb-3">
-                <div class="review-avatar" style="background:linear-gradient(135deg,#4C1D95,#7C3AED)">CR</div>
-                <div><div class="review-name">Carlos R.</div><div class="review-loc">Tunja, Boyacá</div></div>
-                <div class="review-stars ms-auto">★★★★★</div>
-              </div>
-              <p class="review-text">Aquitania es un tesoro boyacense. La trucha fresca del lago, la hospitalidad de su gente y los paisajes son simplemente incomparables.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Form opinión -->
-    <div class="row justify-content-center reveal">
-      <div class="col-lg-6">
-        <div class="opinion-box">
-          <h5 style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.05em;color:var(--azul-prof);text-align:center;margin-bottom:1.5rem;">✍️ Comparte tu Experiencia</h5>
-          <div class="star-inp d-flex justify-content-center gap-2 mb-3" id="starInp">
-            <span data-v="1">★</span><span data-v="2">★</span><span data-v="3">★</span><span data-v="4">★</span><span data-v="5">★</span>
-          </div>
-          <div class="mb-3"><label class="form-label-dark">Nombre</label><input type="text" class="form-control form-control-light" id="opNombre" placeholder="Tu nombre"></div>
-          <div class="mb-3"><label class="form-label-dark">Comentario</label><textarea class="form-control form-control-light" id="opComentario" rows="3" placeholder="¿Cómo fue tu experiencia en Aquitania?"></textarea></div>
-          <button class="btn-send" onclick="enviarOpinion()">Publicar Opinión</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ══════════════════ CONTACTO ══════════════════ -->
 <section id="contacto">
@@ -1902,7 +1688,6 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script>
 /* NAV SCROLL */
 window.addEventListener('scroll',()=>{
@@ -1934,14 +1719,6 @@ const cntObs=new IntersectionObserver(e=>{
 const natSec=document.getElementById('naturaleza');
 if(natSec)cntObs.observe(natSec);
 
-/* STARS */
-let selStar=0;
-const starEls=document.querySelectorAll('#starInp span');
-starEls.forEach(s=>{
-  s.addEventListener('mouseenter',()=>{const v=+s.dataset.v;starEls.forEach(x=>x.classList.toggle('on',+x.dataset.v<=v));});
-  s.addEventListener('click',()=>{selStar=+s.dataset.v;});
-});
-document.getElementById('starInp').addEventListener('mouseleave',()=>{starEls.forEach(x=>x.classList.toggle('on',+x.dataset.v<=selStar));});
 
 /* NOTIF */
 function showNotif(m){
@@ -1950,55 +1727,6 @@ function showNotif(m){
   setTimeout(()=>n.classList.remove('show'),3500);
 }
 
-/* ── Opiniones conectadas a la base de datos (Lovable Cloud) ── */
-const sbClient=window.supabase.createClient('https://ifhfmpxeceotzyiqiujr.supabase.co','sb_publishable_l1M6hLtwq9li3I754ZyQAQ_g_yo1XK6');
-
-function crearCardOpinion(o){
-  const col=document.createElement('div');col.className='col-md-6 opinion-db';
-  const card=document.createElement('div');card.className='review-card';
-  const head=document.createElement('div');head.className='d-flex align-items-center gap-2 mb-3';
-  const av=document.createElement('div');av.className='review-avatar';
-  av.textContent=o.nombre.trim().split(/\s+/).map(w=>w[0]).join('').slice(0,2).toUpperCase();
-  const info=document.createElement('div');
-  const nm=document.createElement('div');nm.className='review-name';nm.textContent=o.nombre;
-  const loc=document.createElement('div');loc.className='review-loc';
-  loc.textContent=new Date(o.created_at).toLocaleDateString('es-CO',{year:'numeric',month:'short',day:'numeric'});
-  info.appendChild(nm);info.appendChild(loc);
-  const st=document.createElement('div');st.className='review-stars ms-auto';
-  st.textContent='★'.repeat(o.estrellas)+'☆'.repeat(5-o.estrellas);
-  head.appendChild(av);head.appendChild(info);head.appendChild(st);
-  const p=document.createElement('p');p.className='review-text';p.textContent=o.comentario;
-  card.appendChild(head);card.appendChild(p);col.appendChild(card);
-  return col;
-}
-
-async function cargarOpiniones(){
-  const {data,error}=await sbClient.from('opiniones').select('*').order('created_at',{ascending:false});
-  if(error){console.error('Error cargando opiniones:',error);return;}
-  const grid=document.getElementById('reviewsGrid');
-  grid.querySelectorAll('.opinion-db').forEach(el=>el.remove());
-  data.forEach(o=>grid.appendChild(crearCardOpinion(o)));
-  const total=4+data.length;
-  const suma=20+data.reduce((a,o)=>a+o.estrellas,0);
-  document.getElementById('ratingCount').textContent='Basado en '+total+' opiniones';
-  document.getElementById('ratingBig').textContent=(suma/total).toFixed(1);
-}
-cargarOpiniones();
-
-async function enviarOpinion(){
-  const n=document.getElementById('opNombre').value.trim();
-  const c=document.getElementById('opComentario').value.trim();
-  if(!n||!c){showNotif('⚠️ Completa todos los campos');return;}
-  if(!selStar){showNotif('⚠️ Selecciona una calificación con las estrellas');return;}
-  const {data,error}=await sbClient.from('opiniones').insert({nombre:n,comentario:c,estrellas:selStar}).select().single();
-  if(error){console.error(error);showNotif('⚠️ No se pudo publicar. Intenta de nuevo.');return;}
-  document.getElementById('reviewsGrid').prepend(crearCardOpinion(data));
-  showNotif('✅ ¡Gracias, '+n+'! Tu opinión fue publicada.');
-  document.getElementById('opNombre').value='';
-  document.getElementById('opComentario').value='';
-  selStar=0;starEls.forEach(s=>s.classList.remove('on'));
-  cargarOpiniones();
-}
 
 function enviarContacto(){
   const n=document.getElementById('cNombre').value.trim();
@@ -2086,7 +1814,7 @@ bt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'}
 /* ── Navegación por páginas (una sección = una página) ── */
 (function(){
   var secs=Array.prototype.slice.call(document.querySelectorAll('body > section[id]'));
-  var HOME=['hero','historia','naturaleza','mapa','qr'];
+  var HOME=['hero','historia','naturaleza','mapa'];
   function ir(hash){
     var id=(hash||'').replace('#','');
     var esHome=!id||id==='inicio'||id==='hero'||HOME.indexOf(id)>-1;
