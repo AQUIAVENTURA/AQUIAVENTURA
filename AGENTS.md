@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep the authorized self-contained tourism site in `public/aquiventura.html`, displayed by the index iframe, to preserve its existing navigation and interactions.
+- Store newly supplied photos as Lovable Assets pointers and reference their returned URLs in the HTML to avoid adding binary media to the repository.
