@@ -2014,7 +2014,7 @@ function renderBirdPage(){
   var norm=function(s){return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[(),.]/g,' ').replace(/\s+/g,' ').trim();};
   var q=bs?norm(bs.value):'';
   var items=Array.from(document.querySelectorAll('.bird-item'));
-  var matches=items.filter(function(it){return it.dataset.name.indexOf(q)>-1;});
+  var matches=items.filter(function(it){return norm(it.dataset.name).indexOf(q)>-1;});
   var pages=Math.ceil(matches.length/6);
   birdPage=Math.max(1,Math.min(birdPage,pages||1));
   items.forEach(function(it){
