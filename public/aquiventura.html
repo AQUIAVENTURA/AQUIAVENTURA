@@ -1716,7 +1716,7 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
         </div>
 
         <!-- 15. Serpophaga cinerea -->
-        <div class="col-md-6 reveal bird-item" data-name="Serpophaga cinerea">
+        <div class="col-md-6 reveal bird-item" data-name="serpophaga cinerea tschudi 1844 atrapamoscas torrentero gris ceniza">
           <article class="resto-card">
             <div class="avi-img"><img src="images/avicultura/Serpophaga cinerea.jpeg" alt="Serpophaga cinerea"><div class="resto-tags"><span class="resto-tag">Migración: residente</span></div></div>
             <div class="resto-body">
@@ -1733,7 +1733,7 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
         </div>
 
         <!-- 16. Sayornis nigricans  -->
-        <div class="col-md-6 reveal bird-item" data-name="sayornis nigricans">
+        <div class="col-md-6 reveal bird-item" data-name="sayornis nigricans swainson 1827 atrapamoscas mosquero negro pibio pibío">
           <article class="resto-card">
             <div class="avi-img"><img src="images/avicultura/2.jpeg" alt="Sayornis nigricans"><div class="resto-tags"><span class="resto-tag">Migración: residente</span></div></div>
             <div class="resto-body">
@@ -2011,7 +2011,8 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&aviBox&&avi
 var bs=document.getElementById('birdSearch');
 var birdPage=1;
 function renderBirdPage(){
-  var q=bs?bs.value.trim().toLowerCase():'';
+  var norm=function(s){return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[(),.]/g,' ').replace(/\s+/g,' ').trim();};
+  var q=bs?norm(bs.value):'';
   var items=Array.from(document.querySelectorAll('.bird-item'));
   var matches=items.filter(function(it){return it.dataset.name.indexOf(q)>-1;});
   var pages=Math.ceil(matches.length/6);
