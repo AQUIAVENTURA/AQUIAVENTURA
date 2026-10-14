@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Guardar las diez fotos originales en public/images/hoteleria y conectarlas al sitio para incluirlas al descargar el proyecto.
+
 - [x] Agregar Hotelería con las diez fichas, el texto literal y las imágenes de HOTELES; verificar navegación, búsqueda y Ver más.
 
 - [x] Incorporar la página original enviada.
