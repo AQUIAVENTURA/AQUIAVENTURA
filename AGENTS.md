@@ -11,3 +11,4 @@
 
 - Keep the authorized self-contained tourism site in `public/aquiventura.html`, displayed by the index iframe, to preserve its existing navigation and interactions.
 - Store newly supplied photos as Lovable Assets pointers and reference their returned URLs in the HTML to avoid adding binary media to the repository.
+- Keep hotel listings in the self-contained site's section navigation and reuse Gastronomía card and disclosure styles so both directories behave consistently.

@@ -926,6 +926,14 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
 .exp-card-overlay{display:none!important;}
 .exp-card-body{position:relative!important;bottom:auto!important;left:auto!important;right:auto!important;flex:1 1 auto!important;display:flex!important;flex-direction:column!important;}
 .exp-card-body .btn-reservar{margin-top:auto!important;}
+/* Hotelería reutiliza las fichas y controles de Gastronomía. */
+#hoteleria{padding:110px 0 120px;background:var(--crema);}
+#hoteles{scroll-margin-top:110px;}
+.hotel-hero{background-image:url(/__l5e/assets-v1/7c44709e-10f5-4f10-ac64-58d4fb2af8cf/hotel-documento-6.png);}
+.hotel-photo{display:block;width:100%;aspect-ratio:4/3;object-fit:contain;background:var(--crema-2);}
+#hoteleria .resto-more li{overflow-wrap:anywhere;}
+#hoteleria .resto-desc p:last-child{margin-bottom:0;}
+@media(min-width:992px) and (max-width:1199px){#mainNav .container{padding-left:1rem;padding-right:1rem;}#mainNav .nav-link{padding-left:.55rem!important;padding-right:.55rem!important;}}
 </style>
 </head>
 <body>
@@ -947,6 +955,7 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
       
         <li><a class="nav-link" href="#experiencias">Experiencias</a></li>
         <li><a class="nav-link" href="#gastronomia">Gastronomía</a></li>
+        <li><a class="nav-link" href="#hoteleria">Hotelería</a></li>
         <li><a class="nav-link" href="#avicultura">Aviturismo</a></li>
        
         <li><a class="nav-link" href="#galeria">Galería</a></li>
@@ -1453,6 +1462,138 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
   </div>
 </section>
 
+<!-- ══════════════════ HOTELERÍA ══════════════════ -->
+<section id="hoteleria">
+  <div class="container">
+    <div class="gastro-hero hotel-hero reveal">
+      <div class="gastro-hero-in">
+        <h2>Hotelería</h2>
+        <a class="btn-gastro" href="#hoteleria" data-scroll-to="hoteles"><i class="bi bi-arrow-down-circle"></i>Explorar hoteles</a>
+      </div>
+    </div>
+    <div id="hoteles" class="mt-5 pt-4">
+      <div class="text-center mb-4 reveal"><h3 class="sec-title">Alojamientos</h3></div>
+      <div class="gastro-search mb-5 reveal">
+        <i class="bi bi-search"></i>
+        <input type="search" id="hotelSearch" placeholder="Buscar hotel por nombre..." aria-label="Buscar hotel">
+      </div>
+      <div class="row g-4" id="hotelGrid"><div class="col-md-6 col-lg-6 reveal hotel-item" data-name="HOTEL DONDE LUCHO">
+  <div class="resto-card">
+    <img class="hotel-photo" src="/__l5e/assets-v1/9fc19e6e-aa1a-4395-b025-e53ab3e2cf12/hotel-documento-1.png" alt="HOTEL DONDE LUCHO" loading="lazy">
+    <div class="resto-body">
+      <h3 class="resto-name">HOTEL DONDE LUCHO</h3>
+      <div class="resto-desc"><p>El Hotel Donde Lucho, se encuentra en el corazón del parque principal, proporcionando una ubicación ideal para disfrutar de todo lo que la ciudad tiene para ofrecer. Sus habitaciones son confortables y están equipadas con modernas comodidades que aseguran una estancia placentera. Desde el hotel, los huéspedes pueden explorar fácilmente las atracciones locales y sumergirse en la vibrante vida y cultura de la región. El hotel se compromete a brindar una experiencia única y acogedora, garantizando que cada visitante se sienta como en casa durante su estancia.</p></div>
+      <div class="resto-meta"><span>Ubicación: Calle 4 # 9 - 63 Parque Ecoturístico Aquitania</span><span>Teléfono: 320 357 0010 - 311 248 6837</span><span>Costo: $40.000 COP / 10 USD Por persona - $100.000 COP / 25 USD 3 Personas</span></div>
+      <div class="resto-more" id="hotel-details-1"><ul><li>Mínimo y máximo de participantes:20 Personas</li><li>Incluye: Wifi, baño privado, agua caliente, parqueadero.</li><li>No incluye: Servicios y/o productos no descritos, seguro hotelero</li></ul></div>
+      <button class="btn-vermas" type="button" aria-expanded="false" aria-controls="hotel-details-1">Ver más</button>
+    </div>
+  </div>
+</div><div class="col-md-6 col-lg-6 reveal hotel-item" data-name="HOTEL CIUDAD DE LAS AGUAS">
+  <div class="resto-card">
+    <img class="hotel-photo" src="/__l5e/assets-v1/e8106207-d63f-4e15-bef9-5b9b125e3e18/hotel-documento-2.png" alt="HOTEL CIUDAD DE LAS AGUAS" loading="lazy">
+    <div class="resto-body">
+      <h3 class="resto-name">HOTEL CIUDAD DE LAS AGUAS</h3>
+      <div class="resto-desc"><p>El Hotel Ciudad de las Aguas es un refugio ecológico situado en el municipio de Aquitania, Colombia. Este hotel ofrece una experiencia única que combina la armonía con la naturaleza y la excelencia en el servicio. Sus instalaciones han sido cuidadosamente diseñadas para respetar y preservar el entorno, abarcando desde las acogedoras habitaciones hasta los espacios comunes. El equipo del hotel está profundamente comprometido en convertir cada estancia en una experiencia inolvidable, asegurándose de que cada momento sea una celebración de la hospitalidad y una conexión genuina con la naturaleza. En el Hotel Ciudad de las Aguas, los visitantes encontrarán un santuario donde se prioriza el bienestar y la satisfacción de cada huésped.</p></div>
+      <div class="resto-meta"><span>Ubicación: Aquitania - Cra 7 # 7 – 43</span><span>Costo: $148.000 COP / 37 USD</span></div>
+      <div class="resto-more" id="hotel-details-2"><ul><li>Mínimo y máximo de participantes: 60 huéspedes</li><li>Incluye: Desayuno, parqueadero</li><li>No incluye: Servicios y/o productos no descritos, seguro hotelero</li><li>Link Maps: <a href="https://maps.app.goo.gl/CzCm7UaXhXYZSadr9" target="_blank" rel="noopener noreferrer">https://maps.app.goo.gl/CzCm7UaXhXYZSadr9</a></li><li>Redes: <a href="https://www.instagram.com/hotelciudaddelasaguas?igsh=MWV4YzNzOHAza3BlOA==" target="_blank" rel="noopener noreferrer">https://www.instagram.com/hotelciudaddelasaguas?igsh=MWV4YzNzOHAza3BlOA==</a></li></ul></div>
+      <button class="btn-vermas" type="button" aria-expanded="false" aria-controls="hotel-details-2">Ver más</button>
+    </div>
+  </div>
+</div><div class="col-md-6 col-lg-6 reveal hotel-item" data-name="HOTEL REFUGIO SANTA INES">
+  <div class="resto-card">
+    <img class="hotel-photo" src="/__l5e/assets-v1/bb3ad1ee-c394-46e2-8e81-957501fb5e16/hotel-documento-3.png" alt="HOTEL REFUGIO SANTA INES" loading="lazy">
+    <div class="resto-body">
+      <h3 class="resto-name">HOTEL REFUGIO SANTA INES</h3>
+      <div class="resto-desc"><p>El Hotel Refugio Santa Inés, es el lugar ideal para dar rienda suelta a los sentidos. Disfruta de la navegación, senderismo, observación de aves, o simplemente descansa en compañía de tu pareja, familia, o amigos; con el deleite de la gastronomía y servicio de lujo en nuestro Restaurante. Haremos de tu visita una experiencia extraordinaria y memorable para compartir y vivir nuevamente. Contamos con un salón para eventos empresariales y familiares, con todos los servicios para atender a tus invitados en conferencias, reuniones corporativas, bodas, y aniversarios.</p></div>
+      <div class="resto-meta"><span>Ubicación: Km 29 Vía Sogamoso – Aquitania (Sector La Peña)</span><span>Teléfono: 310 351 8762</span><span>Costo: $240.000 COP / 60 USD hasta $480.000 COP / 120 USD</span></div>
+      <div class="resto-more" id="hotel-details-3"><ul><li>Mínimo y máximo de participantes: Servicios y/o productos no descritos</li><li>Incluye: Desayuno, parqueadero, baño privado con agua caliente WiFi, habitaciones con vista al Lago en acomodación doble o triple , cabañas con chimenea para 4-6 personas, seguro hotelero</li><li>No incluye: Servicios y/o productos no descritos</li><li>Servicios Adicionales: Restaurante y Bar</li><li>Link Maps: <a href="https://maps.app.goo.gl/cvnm98mRh9WxYPkC9" target="_blank" rel="noopener noreferrer">https://maps.app.goo.gl/cvnm98mRh9WxYPkC9</a></li><li>Redes: <a href="https://www.instagram.com/hotelrefugiosantaines?igsh=MTVxeHNucGs2ZjNkdw==" target="_blank" rel="noopener noreferrer">https://www.instagram.com/hotelrefugiosantaines?igsh=MTVxeHNucGs2ZjNkdw==</a></li></ul></div>
+      <button class="btn-vermas" type="button" aria-expanded="false" aria-controls="hotel-details-3">Ver más</button>
+    </div>
+  </div>
+</div><div class="col-md-6 col-lg-6 reveal hotel-item" data-name="HOTEL OLAS DE CRISTAL">
+  <div class="resto-card">
+    <img class="hotel-photo" src="/__l5e/assets-v1/1c173d1e-df51-4be5-bb9b-95bca914682a/hotel-documento-4.png" alt="HOTEL OLAS DE CRISTAL" loading="lazy">
+    <div class="resto-body">
+      <h3 class="resto-name">HOTEL OLAS DE CRISTAL</h3>
+      <div class="resto-desc"><p>Somos un operador turístico con más de 5 años de experiencia en el sector, compro-metido con una estadía del huésped rodeada de calidez familiar y que a partir de su cercanía e interacción lo invita a disfrutar de la profunda belleza del Lago de Tota y sus escenarios naturales y culturales.</p><p>¡Ven y visitanos para vivir una estancia inolvidable en el cálido refugio de nuestra familia Aquitanense!</p></div>
+      <div class="resto-meta"><span>Ubicación: Carrera 6 N 8 - 04 - Aquitania</span><span>Teléfono: 313 283 9810</span></div>
+      <div class="resto-more" id="hotel-details-4"><ul><li>Mínimo y máximo de participantes: 1-30 huéspedes</li><li>Incluye: Baño privado, tv por cable, servicio WIFI, ducha caliente No incluye: Servicios y/o productos no descritos, seguro hotelero Costo: $60.000 COP / 15 USD Por persona</li><li>Servicios Adicionales: Servicio de parqueadero moto.</li><li>Link Maps: hhttps://maps.app.goo.gl/mPEK3a8LDHgAVgWW9</li><li>Redes: <a href="https://www.facebook.com/hotelolasdecristal/?locale=es_LA" target="_blank" rel="noopener noreferrer">https://www.facebook.com/hotelolasdecristal/?locale=es_LA</a></li></ul></div>
+      <button class="btn-vermas" type="button" aria-expanded="false" aria-controls="hotel-details-4">Ver más</button>
+    </div>
+  </div>
+</div><div class="col-md-6 col-lg-6 reveal hotel-item" data-name="HOTEL IRACA">
+  <div class="resto-card">
+    <img class="hotel-photo" src="/__l5e/assets-v1/4a57a8f0-2630-421d-9960-9f5cf49f05e8/hotel-documento-5.png" alt="HOTEL IRACA" loading="lazy">
+    <div class="resto-body">
+      <h3 class="resto-name">HOTEL IRACA</h3>
+      <div class="resto-desc"><p>Hotel Iraca está ubicado en el municipio de Aquitania, Boyacá, ofrecemos una experiencia acogedora y tranquila para nuestros visitantes. Rodeado de la belleza natural de la región, es el lugar ideal para desconectarse y disfrutar del aire fresco y la cultura local. Sus nuevas y cómodas instalaciones y la hospitalidad de su gente garantizan una estancia memorable.</p></div>
+      <div class="resto-meta"><span>Ubicación: Cra 10# 5-91 - Aquitania</span><span>Teléfono: 320 340 0821</span><span>Costo: $52.000 COP / 13 USD - Pareja: $100.000 COP / 25 USD</span></div>
+      <div class="resto-more" id="hotel-details-5"><ul><li>RNT: 248177</li><li>Mínimo y máximo de participantes: Mínimo 1 huésped máximo 10 huéspedes</li><li>Incluye: Servicio de parqueadero, ducha con agua caliente, televisión por cable, televisor</li><li>Smart TV y bebida caliente.</li><li>No incluye: Servicios y/o productos no descritos, seguro hotelero</li><li>Servicios Adicionales: Restaurante</li><li>Link Maps: <a href="https://maps.app.goo.gl/18MBUyqRikXP8W1p8" target="_blank" rel="noopener noreferrer">https://maps.app.goo.gl/18MBUyqRikXP8W1p8</a></li></ul></div>
+      <button class="btn-vermas" type="button" aria-expanded="false" aria-controls="hotel-details-5">Ver más</button>
+    </div>
+  </div>
+</div><div class="col-md-6 col-lg-6 reveal hotel-item" data-name="COSTA AZUL ECOLODGE S.A.S BIC">
+  <div class="resto-card">
+    <img class="hotel-photo" src="/__l5e/assets-v1/7c44709e-10f5-4f10-ac64-58d4fb2af8cf/hotel-documento-6.png" alt="COSTA AZUL ECOLODGE S.A.S BIC" loading="lazy">
+    <div class="resto-body">
+      <h3 class="resto-name">COSTA AZUL ECOLODGE S.A.S BIC</h3>
+      <div class="resto-desc"><p>Costa Azul Ecolodge S.A.S. es un destacado proyecto ecoturístico que cuenta con ocho exclusivos y acogedores ecolodges, los cuales ofrecen las vistas más impresionantes del Lago de Tota, el lago más grande de Colombia. Este lugar brinda experiencias únicas que combinan turismo ecológico y lujo, creando un ambiente donde la tradición es el ingrediente principal.</p><p>El equipo de Costa Azul Ecolodge trabaja con un profundo amor y respeto por la cultura, el medio ambiente y la sociedad, garantizando que cada visitante no solo disfrute de una estancia excepcional, sino que también se sumerja en la riqueza cultural y natural de la región. Aquí, cada detalle está pensado para proporcionar una experiencia memorable y sostenible.</p></div>
+      <div class="resto-meta"><span>Ubicación: Km 5 Vía Aquitania - Sogamoso</span><span>Teléfono: 316 577 0326</span><span>Costo: $400.000 COP / 100 USD - $708.000 COP / 177 USD</span></div>
+      <div class="resto-more" id="hotel-details-6"><ul><li>Mínimo y máximo de participantes: 1 huésped - 25 huéspedes</li><li>Incluye: Desayuno fogato, vino caliente, seguro hotelero</li><li>No incluye: Servicios y/o productos no descritos,</li><li>Servicios Adicionales: Restaurante</li><li>Link Maps:  <a href="https://maps.app.goo.gl/KgTQRNYZS6hfuf1S6" target="_blank" rel="noopener noreferrer">https://maps.app.goo.gl/KgTQRNYZS6hfuf1S6</a></li><li>Redes: <a href="https://www.instagram.com/costaazulecolodge/?hl=es" target="_blank" rel="noopener noreferrer">https://www.instagram.com/costaazulecolodge/?hl=es</a></li></ul></div>
+      <button class="btn-vermas" type="button" aria-expanded="false" aria-controls="hotel-details-6">Ver más</button>
+    </div>
+  </div>
+</div><div class="col-md-6 col-lg-6 reveal hotel-item" data-name="ALPEZ CHALET">
+  <div class="resto-card">
+    <img class="hotel-photo" src="/__l5e/assets-v1/087b1e09-328d-4528-bcd2-8b3c7cf37e0e/hotel-documento-7.png" alt="ALPEZ CHALET" loading="lazy">
+    <div class="resto-body">
+      <h3 class="resto-name">ALPEZ CHALET</h3>
+      <div class="resto-desc"><p>Este Chalet ofrece una espectacular vista al Lago de Tota, brindando amplios y cómodos espacios, así como zonas verdes diseñadas para la comodidad de sus visi-tantes. Sus instalaciones incluyen un jacuzzi, que permite a los huéspedes relajarse y disfrutar de la tranquilidad del entorno, mientras contemplan la belleza del lago. Sin duda, esta es una experiencia única para quienes eligen hospedarse en este chalet, donde la armonía con la naturaleza se combina con el confort y la serenidad.</p></div>
+      <div class="resto-meta"><span>Ubicación: Aquitania, Vereda de Daitó</span><span>Teléfono: 310 500 4647 – 322 856 4653</span><span>Costo: $600.000 COP / 150 USD</span></div>
+      <div class="resto-more" id="hotel-details-7"><ul><li>RNT: 94859</li><li>Mínimo y máximo de participantes: 1 huésped - 6 huéspedes</li><li>Incluye: Detalle de bienvenida,2 habitaciones con cama Queen (1.60m) una de las habitaciones con baño privado, 1 baño social, cocina completamente equipada, sala de estar cuenta con sofá cama, jacuzzi, TV juegos de mesa servicio de WiFi, fogata BBQ, parqueadero privado, servicio de Bici para pareja, canchas de mini tejo</li><li>No incluye: Servicios y/o productos no descritos, seguro hotelero</li><li>Link Maps: <a href="https://maps.app.goo.gl/4BqVG6ucKj1fHPgx9" target="_blank" rel="noopener noreferrer">https://maps.app.goo.gl/4BqVG6ucKj1fHPgx9</a></li><li>Redes: <a href="https://www.instagram.com/alpezchalet?igsh=ZGNoMHVuMHd6NjJz" target="_blank" rel="noopener noreferrer">https://www.instagram.com/alpezchalet?igsh=ZGNoMHVuMHd6NjJz</a></li></ul></div>
+      <button class="btn-vermas" type="button" aria-expanded="false" aria-controls="hotel-details-7">Ver más</button>
+    </div>
+  </div>
+</div><div class="col-md-6 col-lg-6 reveal hotel-item" data-name="HOSPEDAJE VILLA ISABEL">
+  <div class="resto-card">
+    <img class="hotel-photo" src="/__l5e/assets-v1/5493ab6e-b70b-4716-88fd-2105940f6c54/hotel-documento-8.png" alt="HOSPEDAJE VILLA ISABEL" loading="lazy">
+    <div class="resto-body">
+      <h3 class="resto-name">HOSPEDAJE VILLA ISABEL</h3>
+      <div class="resto-desc"><p>Hospedaje Villa Isabel es un alojamiento de ambiente rural que ofrece a sus clientes un servicio de alta calidad, enfocado en la tranquilidad, comodidad y precios asequibles. Su ubicación privilegiada, con acceso vial sencillo y vista frontal al lago, se encuentra cerca de Playa Blanca, lo que lo convierte en un destino ideal para quienes buscan disfrutar de la naturaleza. Comprometido con la sostenibilidad de los recursos naturales y el medio ambiente, el hospedaje tiene como objetivo fidelizar a sus clientes a través de un servicio honesto y cálido. En Hospedaje Villa Isabel, cada visitante encontrará un refugio acogedor donde se prioriza el bienestar y la satisfacción de quienes eligen hospedarse en este encantador lugar.</p></div>
+      <div class="resto-meta"><span>Ubicación: Vereda Suse Cuarto Zapatero - Aquitania</span><span>Teléfono: 350 517 7945</span><span>Costo: $56.000 COP / 14 USD por persona</span></div>
+      <div class="resto-more" id="hotel-details-8"><ul><li>RNT: 110055</li><li>Mínimo y máximo de participantes: 1 huésped - 27 huéspedes</li><li>Incluye: Parqueadero, Wi-Fi, TV, Zonas verdes, Zona BBQ, bebida de bienvenida, seguro hotelero</li><li>No incluye: Servicios y/o productos no descritos</li><li>Servicios Adicionales: Zona BBQ</li><li>Link Maps: <a href="https://maps.app.goo.gl/QHNoPtuwwKP7J3H49" target="_blank" rel="noopener noreferrer">https://maps.app.goo.gl/QHNoPtuwwKP7J3H49</a></li><li>Redes: <a href="https://www.instagram.com/hospedajevillaisabel?igsh=NTJyMGp4cXdkMTQ4" target="_blank" rel="noopener noreferrer">https://www.instagram.com/hospedajevillaisabel?igsh=NTJyMGp4cXdkMTQ4</a></li></ul></div>
+      <button class="btn-vermas" type="button" aria-expanded="false" aria-controls="hotel-details-8">Ver más</button>
+    </div>
+  </div>
+</div><div class="col-md-6 col-lg-6 reveal hotel-item" data-name="COSTA AZUL HOTEL">
+  <div class="resto-card">
+    <img class="hotel-photo" src="/__l5e/assets-v1/2581e1c5-5c74-4395-91d9-37e1d0672501/hotel-documento-9.png" alt="COSTA AZUL HOTEL" loading="lazy">
+    <div class="resto-body">
+      <h3 class="resto-name">COSTA AZUL HOTEL</h3>
+      <div class="resto-desc"><p>En Costa Azul Hotel, con una década de experiencia en la industria, se dedican a ofrecer una atención al cliente impecable, asegurando un descanso reparador en un entorno de total tranquilidad. Su privilegiada ubicación, a pocos pasos del parque principal, permite a los huéspedes disfrutar de lo mejor que la ciudad tiene para ofrecer.</p><p>Invitan a todos a vivir una experiencia única, donde cada detalle ha sido cuidadosamente diseñado para garantizar el bienestar de sus visitantes. En Costa Azul Hotel, la satisfacción del cliente es la máxima prioridad, convirtiendo cada estancia en un momento memorable.</p></div>
+      <div class="resto-meta"><span>Ubicación: Aquitania, Cra 8 # 7 - 53. Centro</span><span>Teléfono: 310 558 8681</span><span>Costo: $100.000 COP / 25 USD</span></div>
+      <div class="resto-more" id="hotel-details-9"><ul><li>RNT: 38440</li><li>Mínimo y máximo de participantes: 18 huéspedes</li><li>Incluye: Tinto y seguro hotelero</li><li>No incluye: Servicios y/o productos no descritos,</li><li>Link Maps: <a href="https://maps.app.goo.gl/fAhavRvfWhQxQqmQ7" target="_blank" rel="noopener noreferrer">https://maps.app.goo.gl/fAhavRvfWhQxQqmQ7</a></li><li>Redes: <a href="https://web.facebook.com/hospedajecostaazulaquitania" target="_blank" rel="noopener noreferrer">https://web.facebook.com/hospedajecostaazulaquitania</a></li></ul></div>
+      <button class="btn-vermas" type="button" aria-expanded="false" aria-controls="hotel-details-9">Ver más</button>
+    </div>
+  </div>
+</div><div class="col-md-6 col-lg-6 reveal hotel-item" data-name="HOTEL EL CAMINO REAL">
+  <div class="resto-card">
+    <img class="hotel-photo" src="/__l5e/assets-v1/62c300a5-388f-403f-9435-de2ce133268a/hotel-documento-10.png" alt="HOTEL EL CAMINO REAL" loading="lazy">
+    <div class="resto-body">
+      <h3 class="resto-name">HOTEL EL CAMINO REAL</h3>
+      <div class="resto-desc"><p>El alojamiento Hotel el Camino Real, ubicado junto al hermoso Lago de Tota, da la bienvenida a sus visitantes. En este lugar privilegiado, donde la naturaleza se des-pliega en paisajes diversos y serenos, se ofrece una experiencia única de descanso y conexión con el entorno. Los huéspedes pueden disfrutar de la serenidad del lago, explorar sus alrededores repletos de historia y tradición, y dejarse cautivar por el cálido espíritu de la gente boyacense, siempre dispuesta a hacer de su estan-cia una experiencia inolvidable. Este refugio ha sido diseñado para que cada detalle esté pensado para el confort y disfrute de cada visitante, asegurando que su tiempo aquí sea verdaderamente especial. ¡Bienvenidos a una experiencia que per-durará en su memoria!</p></div>
+      <div class="resto-meta"><span>Ubicación: Km 20 Vía Sogamoso Aquitania - Vía Crucero</span><span>Teléfono: 322 284 4674 - 312 478 1116</span></div>
+      <div class="resto-more" id="hotel-details-10"><ul><li>RNT: 46365728-7</li><li>Mínimo y máximo de participantes: 71 huéspedes en acomodación doble, triple, cuádruple</li><li>Incluye: Desayuno, canelazo de bienvenida, agua caliente parqueadero, wifi, habitaciones familiares bar, zonas verdes, zona de juegos.</li><li>No incluye: Servicios y/o productos no descritos, seguro hotelero Costo: $92.000 COP / 23 USD - $136.000 COP / 34 USD por huésped Link Maps: https://maps.app.goo.gl/mC3SP8YjroCQPzLG7</li><li>Redes: <a href="https://www.instagram.com/hotelcaminoreallagodetota?utm_sour-ce=qr&amp;igsh=MWk2dnNnZHRyNTk1Zg" target="_blank" rel="noopener noreferrer">https://www.instagram.com/hotelcaminoreallagodetota?utm_sour-ce=qr&amp;igsh=MWk2dnNnZHRyNTk1Zg</a></li></ul></div>
+      <button class="btn-vermas" type="button" aria-expanded="false" aria-controls="hotel-details-10">Ver más</button>
+    </div>
+  </div>
+</div></div>
+      <div class="gastro-empty" id="hotelEmpty" role="status">No encontramos hoteles con ese nombre.</div>
+      <div class="text-center"><a class="btn-volver-inicio" href="#hero"><i class="bi bi-arrow-left"></i>Volver al inicio</a></div>
+    </div>
+  </div>
+</section>
+
 <!-- ══════════════════ AVICULTURA ══════════════════ -->
 <section id="avicultura">
   <div class="container">
@@ -1953,6 +2094,7 @@ document.querySelectorAll('.btn-vermas').forEach(function(b){
     var m=b.parentElement.querySelector('.resto-more');
     m.classList.toggle('open');
     b.textContent=m.classList.contains('open')?'Ver menos':'Ver más';
+    b.setAttribute('aria-expanded',String(m.classList.contains('open')));
   });
 });
 var rs=document.getElementById('restoSearch');
@@ -1962,6 +2104,17 @@ if(rs){rs.addEventListener('input',function(){
     var ok=it.dataset.name.indexOf(q)>-1;it.style.display=ok?'':'none';if(ok)n++;
   });
   document.getElementById('restoEmpty').style.display=n?'none':'block';
+});}
+/* Hotelería: búsqueda independiente, sin distinguir mayúsculas ni tildes. */
+var hsInput=document.getElementById('hotelSearch');
+if(hsInput){hsInput.addEventListener('input',function(){
+  function normalizeHotel(value){return value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
+  var query=normalizeHotel(hsInput.value.trim()),count=0;
+  document.querySelectorAll('.hotel-item').forEach(function(item){
+    var match=normalizeHotel(item.dataset.name).indexOf(query)>-1;
+    item.style.display=match?'':'none';if(match)count++;
+  });
+  document.getElementById('hotelEmpty').style.display=count?'none':'block';
 });}
 /* Avicultura: ampliar fotografías */
 var aviBox=document.getElementById('aviLightbox');
