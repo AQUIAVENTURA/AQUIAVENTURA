@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Agregar las fotos de img a Galería, ajustar proporciones y comprobar ampliación sin información.
+- [x] Agregar las fotos de img a Galería, ajustar proporciones y comprobar ampliación sin información.
 
 - [x] Guardar las diez fotos originales en public/images/hoteleria y conectarlas al sitio para incluirlas al descargar el proyecto.
 
