@@ -315,14 +315,16 @@ body{font-family:'Inter',sans-serif;background:var(--blanco);overflow-x:hidden;c
    GALERÍA
 ═══════════════════════════════════════ */
 #galeria{background:var(--azul-prof);padding:7rem 0;}
-.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:240px 240px 240px;gap:12px;}
-.gal-item{border-radius:14px;overflow:hidden;position:relative;cursor:pointer;}
-.gal-item:nth-child(1){grid-column:1/3;grid-row:1/2;}
-.gal-item:nth-child(3){grid-column:1/2;grid-row:2/3;}
-.gal-item:nth-child(6){grid-column:3/5;grid-row:2/3;}
-.gal-item:nth-child(7){grid-column:1/3;grid-row:3/4;}
-.gal-item:nth-child(8){grid-column:3/5;grid-row:3/4;}
-.gal-bg{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;transition:transform .5s;}
+.gal-grid{columns:3;column-gap:16px;}
+.gal-item{display:block;width:100%;break-inside:avoid;margin-bottom:16px;border-radius:8px;overflow:hidden;position:relative;cursor:pointer;background:var(--azul-prof);}
+.gal-item:focus-visible{outline:3px solid var(--azul-cielo);outline-offset:4px;}
+.gal-bg{display:block;width:100%;height:auto;object-fit:contain;transition:transform .5s;}
+.gallery-lightbox{background:color-mix(in srgb,var(--azul-prof) 94%,transparent);}
+.gallery-lightbox img{display:block;width:auto;height:auto;max-width:100%;max-height:calc(100dvh - 110px);object-fit:contain;}
+.gallery-lightbox .avi-lightbox-close{background:var(--azul-prof);color:var(--blanco);border-color:var(--gris-t);}
+.gallery-lightbox .avi-lightbox-close:focus-visible{outline:3px solid var(--azul-cielo);outline-offset:3px;}
+@media(max-width:480px){.gal-grid{columns:1;}}
+@media(prefers-reduced-motion:reduce){.gal-item img{transition:none!important;}.gal-item:hover img{transform:none!important;}}
 .gal-item:hover .gal-bg{transform:scale(1.08);}
 .gal-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,20,45,.85) 0%,transparent 55%);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:1.2rem;}
 .gal-item:hover .gal-ov{opacity:1;}
@@ -443,7 +445,7 @@ footer{background:#050D1A;padding:3.5rem 0;text-align:center;}
 /* star input */
 
 @media(max-width:768px){
-  .gal-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto;}
+  .gal-grid{columns:2;}
   .gal-item:nth-child(1),.gal-item:nth-child(3),.gal-item:nth-child(6),.gal-item:nth-child(7),.gal-item:nth-child(8){grid-column:auto;grid-row:auto;}
   #mainNav{background:rgba(10,37,64,.95)!important;}
 }
@@ -1940,17 +1942,35 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
       <h2 class="sec-title light mt-2">Galería <span style="color:#64B5F6">Inmersiva</span></h2>
     </div>
     <div class="gal-grid reveal">
-      <div class="gal-item"><img class="gal-bg" src="images/lago/panoramica.jpg" alt="Panorámica del Lago de Tota"><div class="gal-ov"><span class="gal-lbl">Lago de Tota</span></div></div>
-      <div class="gal-item"><img class="gal-bg" src="images/lago/paramo-guane.jpg" alt="Páramo Guane y frailejones"><div class="gal-ov"><span class="gal-lbl">Frailejones</span></div></div>
-      <div class="gal-item"><img class="gal-bg" src="images/lago/lancha.jpg" alt="Lancha en el Lago de Tota"><div class="gal-ov"><span class="gal-lbl">Actividades Náuticas</span></div></div>
-      <div class="gal-item"><img class="gal-bg" src="images/lago/isla-sanpedro.jpg" alt="Isla San Pedro"><div class="gal-ov"><span class="gal-lbl">Paisajes del lago</span></div></div>
-      <div class="gal-item"><img class="gal-bg" src="images/lago/comunidad.jpg" alt="Comunidad de Aquitania"><div class="gal-ov"><span class="gal-lbl">Cultura Campesina</span></div></div>
-      <div class="gal-item"><img class="gal-bg" src="images/lago/monte-tabor.jpg" alt="Monte Tabor"><div class="gal-ov"><span class="gal-lbl">Senderismo</span></div></div>
-      <div class="gal-item"><img class="gal-bg" src="images/lago/santuario-cumbre.jpg" alt="Santuario de la Cumbre"><div class="gal-ov"><span class="gal-lbl">Santuario de la Cumbre</span></div></div>
-      <div class="gal-item"><img class="gal-bg" src="images/lago/santuario-peninsula.jpg" alt="Santuario de la Península"><div class="gal-ov"><span class="gal-lbl">Santuario de la Península</span></div></div>
+      <div class="gal-item"><img class="gal-bg" src="images/lago/panoramica.jpg" alt="Panorámica del Lago de Tota" width="1761" height="798" loading="lazy" decoding="async"><div class="gal-ov"><span class="gal-lbl">Lago de Tota</span></div></div>
+      <div class="gal-item"><img class="gal-bg" src="images/lago/paramo-guane.jpg" alt="Páramo Guane y frailejones" width="1376" height="1035" loading="lazy" decoding="async"><div class="gal-ov"><span class="gal-lbl">Frailejones</span></div></div>
+      <div class="gal-item"><img class="gal-bg" src="images/lago/lancha.jpg" alt="Lancha en el Lago de Tota" width="894" height="673" loading="lazy" decoding="async"><div class="gal-ov"><span class="gal-lbl">Actividades Náuticas</span></div></div>
+      <div class="gal-item"><img class="gal-bg" src="images/lago/isla-sanpedro.jpg" alt="Isla San Pedro" width="1789" height="833" loading="lazy" decoding="async"><div class="gal-ov"><span class="gal-lbl">Paisajes del lago</span></div></div>
+      <div class="gal-item"><img class="gal-bg" src="images/lago/comunidad.jpg" alt="Comunidad de Aquitania" width="999" height="749" loading="lazy" decoding="async"><div class="gal-ov"><span class="gal-lbl">Cultura Campesina</span></div></div>
+      <div class="gal-item"><img class="gal-bg" src="images/lago/monte-tabor.jpg" alt="Monte Tabor" width="1137" height="853" loading="lazy" decoding="async"><div class="gal-ov"><span class="gal-lbl">Senderismo</span></div></div>
+      <div class="gal-item"><img class="gal-bg" src="images/lago/santuario-cumbre.jpg" alt="Santuario de la Cumbre" width="450" height="338" loading="lazy" decoding="async"><div class="gal-ov"><span class="gal-lbl">Santuario de la Cumbre</span></div></div>
+      <div class="gal-item"><img class="gal-bg" src="images/lago/santuario-peninsula.jpg" alt="Santuario de la Península" width="659" height="439" loading="lazy" decoding="async"><div class="gal-ov"><span class="gal-lbl">Santuario de la Península</span></div></div>
+      <div class="gal-item"><img class="gal-bg" src="/__l5e/assets-v1/059948ce-3ff2-4b17-a306-83d96993262c/galeria-img-image1.jpg" alt="Atardecer en el Lago de Tota" width="1275" height="709" loading="lazy" decoding="async"></div>
+      <div class="gal-item"><img class="gal-bg" src="/__l5e/assets-v1/58775d7c-6c2e-43b0-a586-a1db7d327fcc/galeria-img-image2.jpg" alt="Montañas del Lago de Tota" width="683" height="688" loading="lazy" decoding="async"></div>
+      <div class="gal-item"><img class="gal-bg" src="/__l5e/assets-v1/4006a7f0-61fd-4220-b88c-7df3e5ec18a2/galeria-img-image3.jpg" alt="Islas del lago" width="744" height="496" loading="lazy" decoding="async"></div>
+      <div class="gal-item"><img class="gal-bg" src="/__l5e/assets-v1/8465cc86-558e-4800-bb5a-7b9f1eabdeb1/galeria-img-image4.jpg" alt="Frailejones" width="887" height="592" loading="lazy" decoding="async"></div>
+      <div class="gal-item"><img class="gal-bg" src="/__l5e/assets-v1/b2e4fa81-7bdc-4fc2-98cd-30d1d542e064/galeria-img-image5.jpeg" alt="Cerro de la Cumbre" width="1544" height="966" loading="lazy" decoding="async"></div>
+      <div class="gal-item"><img class="gal-bg" src="/__l5e/assets-v1/242049b9-3ed3-4a6d-9bf5-3f0c28fe353f/galeria-img-image6.jpeg" alt="Lago de Tota" width="1414" height="573" loading="lazy" decoding="async"></div>
+      <div class="gal-item"><img class="gal-bg" src="/__l5e/assets-v1/5460805d-5a34-43e2-b7b4-29dbc5bc7280/galeria-img-image7.jpeg" alt="Actividades en el lago" width="553" height="1011" loading="lazy" decoding="async"></div>
+      <div class="gal-item"><img class="gal-bg" src="/__l5e/assets-v1/815cf4a7-18ed-4377-ad95-12665325a14e/galeria-img-image8.jpeg" alt="Interior de la iglesia" width="889" height="533" loading="lazy" decoding="async"></div>
+      <div class="gal-item"><img class="gal-bg" src="/__l5e/assets-v1/1d72e230-7cb1-403d-9cf2-18049b08b1d8/galeria-img-image9.jpeg" alt="Altar de la iglesia" width="570" height="760" loading="lazy" decoding="async"></div>
+      <div class="gal-item"><img class="gal-bg" src="/__l5e/assets-v1/f09c9d6c-4ee3-4941-971d-154b22324a3e/galeria-img-image10.jpeg" alt="Iglesia de Aquitania" width="658" height="819" loading="lazy" decoding="async"></div>
+      <div class="gal-item"><img class="gal-bg" src="/__l5e/assets-v1/fcf166a8-d090-4333-a701-2f9842dcb18f/galeria-img-image11.jpeg" alt="Interior de la iglesia de Aquitania" width="545" height="683" loading="lazy" decoding="async"></div>
+      <div class="gal-item"><img class="gal-bg" src="/__l5e/assets-v1/b0c00cf4-63c9-4584-8c32-fac5c829e894/galeria-img-image12.png" alt="Monumento del cebollero" width="350" height="439" loading="lazy" decoding="async"></div>
+      <div class="gal-item"><img class="gal-bg" src="/__l5e/assets-v1/2c7d3ad9-8f3e-468f-870e-258737f60e9f/galeria-img-image13.jpeg" alt="Monumento de la trucha" width="460" height="739" loading="lazy" decoding="async"></div>
     </div>
   </div>
 </section>
+
+<div class="avi-lightbox gallery-lightbox" id="galleryLightbox" role="dialog" aria-modal="true" aria-label="Fotografía ampliada" aria-hidden="true">
+  <button class="avi-lightbox-close" type="button" aria-label="Cerrar fotografía ampliada">&times;</button>
+  <img id="galleryLightboxImage" alt="">
+</div>
 
 <div class="avi-lightbox" id="aviLightbox" role="dialog" aria-modal="true" aria-label="Vista ampliada del ave" aria-hidden="true">
   <button class="avi-lightbox-close" type="button" aria-label="Cerrar imagen ampliada">&times;</button>
@@ -2116,6 +2136,35 @@ if(hsInput){hsInput.addEventListener('input',function(){
   });
   document.getElementById('hotelEmpty').style.display=count?'none':'block';
 });}
+/* Galería: visor de fotografía sin información. */
+var galleryBox=document.getElementById('galleryLightbox');
+var galleryLarge=document.getElementById('galleryLightboxImage');
+var galleryClose=galleryBox.querySelector('.avi-lightbox-close');
+var galleryLastFocus=null;
+function closeGalleryImage(){
+  galleryBox.classList.remove('open');galleryBox.setAttribute('aria-hidden','true');
+  document.body.classList.remove('avi-lightbox-open');galleryLarge.removeAttribute('src');
+  if(galleryLastFocus)galleryLastFocus.focus();
+}
+document.querySelectorAll('#galeria .gal-item').forEach(function(frame){
+  var img=frame.querySelector('img');
+  frame.setAttribute('role','button');frame.setAttribute('tabindex','0');
+  frame.setAttribute('aria-label','Ampliar fotografía: '+img.alt);
+  function openGalleryImage(){
+    galleryLastFocus=frame;galleryLarge.src=img.src;galleryLarge.alt=img.alt;
+    galleryBox.classList.add('open');galleryBox.setAttribute('aria-hidden','false');
+    document.body.classList.add('avi-lightbox-open');galleryClose.focus();
+  }
+  frame.addEventListener('click',openGalleryImage);
+  frame.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openGalleryImage();}});
+});
+galleryClose.addEventListener('click',closeGalleryImage);
+galleryBox.addEventListener('click',function(e){if(e.target===galleryBox)closeGalleryImage();});
+galleryBox.addEventListener('keydown',function(e){
+  if(e.key==='Escape')closeGalleryImage();
+  if(e.key==='Tab'){e.preventDefault();galleryClose.focus();}
+});
+
 /* Avicultura: ampliar fotografías */
 var aviBox=document.getElementById('aviLightbox');
 var aviLarge=document.getElementById('aviLightboxImage');
