@@ -315,15 +315,14 @@ body{font-family:'Inter',sans-serif;background:var(--blanco);overflow-x:hidden;c
    GALERÍA
 ═══════════════════════════════════════ */
 #galeria{background:var(--azul-prof);padding:7rem 0;}
-.gal-grid{columns:3;column-gap:16px;}
-.gal-item{display:block;width:100%;break-inside:avoid;margin-bottom:16px;border-radius:8px;overflow:hidden;position:relative;cursor:pointer;background:var(--azul-prof);}
+.gal-row{display:flex;gap:16px;margin-bottom:16px;}
+.gal-item{display:block;position:relative;border-radius:8px;overflow:hidden;cursor:pointer;background:var(--azul-prof);}
 .gal-item:focus-visible{outline:3px solid var(--azul-cielo);outline-offset:4px;}
-.gal-bg{display:block;width:100%;height:auto;object-fit:contain;transition:transform .5s;}
+.gal-bg{display:block;width:100%;height:100%;object-fit:cover;transition:transform .5s;}
 .gallery-lightbox{background:color-mix(in srgb,var(--azul-prof) 94%,transparent);}
 .gallery-lightbox img{display:block;width:auto;height:auto;max-width:100%;max-height:calc(100dvh - 110px);object-fit:contain;}
 .gallery-lightbox .avi-lightbox-close{background:var(--azul-prof);color:var(--blanco);border-color:var(--gris-t);}
 .gallery-lightbox .avi-lightbox-close:focus-visible{outline:3px solid var(--azul-cielo);outline-offset:3px;}
-@media(max-width:480px){.gal-grid{columns:1;}}
 @media(prefers-reduced-motion:reduce){.gal-item img{transition:none!important;}.gal-item:hover img{transform:none!important;}}
 .gal-item:hover .gal-bg{transform:scale(1.08);}
 .gal-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,20,45,.85) 0%,transparent 55%);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:1.2rem;}
@@ -445,8 +444,6 @@ footer{background:#050D1A;padding:3.5rem 0;text-align:center;}
 /* star input */
 
 @media(max-width:768px){
-  .gal-grid{columns:2;}
-  .gal-item:nth-child(1),.gal-item:nth-child(3),.gal-item:nth-child(6),.gal-item:nth-child(7),.gal-item:nth-child(8){grid-column:auto;grid-row:auto;}
   #mainNav{background:rgba(10,37,64,.95)!important;}
 }
 
