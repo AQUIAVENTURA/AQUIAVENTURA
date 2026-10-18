@@ -481,7 +481,7 @@ footer{background:#050D1A;padding:3.5rem 0;text-align:center;}
 /* ══════ GASTRONOMÍA ══════ */
 #gastronomia{padding:110px 0 120px;background:linear-gradient(180deg,#fff 0%,#f4f8fb 100%);position:relative}
 .gastro-hero{position:relative;border-radius:26px;overflow:hidden;min-height:380px;display:flex;align-items:center;
-  background:url('images/gastronomia/r1.jpg') center/cover no-repeat;box-shadow:0 26px 60px rgba(10,40,70,.22)}
+  background:url('images/gastronomia/banner.jpeg') center/cover no-repeat;box-shadow:0 26px 60px rgba(10,40,70,.22)}
 .gastro-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,26,44,.86) 0%,rgba(6,26,44,.55) 55%,rgba(6,26,44,.18) 100%)}
 .gastro-hero-in{position:relative;z-index:2;padding:56px 44px;max-width:640px;color:#fff}
 .gastro-hero-in h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.6rem,6vw,4.2rem);line-height:1;letter-spacing:1px;margin:.4rem 0 1rem}
@@ -526,7 +526,7 @@ footer{background:#050D1A;padding:3.5rem 0;text-align:center;}
 @media(max-width:767px){.gastro-hero-in{padding:40px 24px}.gastro-hero{min-height:320px}}
 
 
-#gastronomia.activa{display:block;animation:gastroIn .5s ease}
+#gastronomia.activa{display:block;animation:gastronomia .5s ease}
 @keyframes gastroIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 .resto-img.logo{background-size:contain;background-repeat:no-repeat;background-color:#eef4f8;height:180px}
 .resto-img.logo::after{display:none}
@@ -928,7 +928,7 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
 /* Hotelería reutiliza las fichas y controles de Gastronomía. */
 #hoteleria{padding:110px 0 120px;background:var(--crema);}
 #hoteles{scroll-margin-top:110px;}
-.hotel-hero{background-image:url(images/hoteleria/hotel-documento-6.png);}
+.hotel-hero{background-image:url(images/hoteleria/banner.jpg);}
 .hotel-photo{display:block;width:100%;aspect-ratio:4/3;object-fit:contain;background:var(--crema-2);}
 #hoteleria .resto-more li{overflow-wrap:anywhere;}
 #hoteleria .resto-desc p:last-child{margin-bottom:0;}
@@ -1381,7 +1381,7 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
         <span class="sec-eyebrow" style="color:#8ED1FF">Gastronomía · Aquitania</span>
         <h2>Sabores de Aquitania</h2>
         <p>Descubre la riqueza gastronómica de Aquitania a través de restaurantes que combinan tradición, innovación y paisajes únicos. Cada establecimiento ofrece una experiencia diferente que refleja la identidad cultural y culinaria del municipio.</p>
-        <a class="btn-gastro" href="#restaurantes"><i class="bi bi-arrow-down-circle"></i>Explorar restaurantes</a>
+        <a class="btn-gastro" href="#gastronomia" data-scroll-to="hoteles"><i class="bi bi-arrow-down-circle"></i>Explorar restaurantes</a>
       </div>
     </div>
 
