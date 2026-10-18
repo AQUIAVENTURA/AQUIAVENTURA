@@ -2186,6 +2186,7 @@ if(galGrid){
       if(row.length>1&&h<=target){rows.push(row);row=[];sumAr=0;}
     }
     if(row.length)rows.push(row);
+    Array.prototype.slice.call(galGrid.querySelectorAll('.gal-row')).forEach(function(rd){rd.parentNode.removeChild(rd);});
     rows.forEach(function(r){
       var rowDiv=document.createElement('div');rowDiv.className='gal-row';
       var s=0;r.forEach(function(it){s+=galAspect(it);});
