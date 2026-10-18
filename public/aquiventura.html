@@ -2163,7 +2163,46 @@ galleryBox.addEventListener('keydown',function(e){
   if(e.key==='Escape')closeGalleryImage();
   if(e.key==='Tab'){e.preventDefault();galleryClose.focus();}
 });
-
+/* Galería: filas justificadas — sin espacios en blanco, proporción natural. */
+var galGrid=document.querySelector('.gal-grid');
+if(galGrid){
+  var galItems=Array.prototype.slice.call(galGrid.querySelectorAll('.gal-item'));
+  var galGap=16;
+  function galAspect(it){
+    var img=it.querySelector('img');
+    var w=parseFloat(img.getAttribute('width'))||img.naturalWidth||0;
+    var h=parseFloat(img.getAttribute('height'))||img.naturalHeight||0;
+    var ar=(w>0&&h>0)?w/h:1.5;
+    return (isFinite(ar)&&ar>0)?ar:1.5;
+  }
+  function layoutGallery(){
+    var W=galGrid.clientWidth;
+    if(!W)return;
+    var target=Math.max(150,Math.min(280,W/3.4));
+    var rows=[],row=[],sumAr=0;
+    for(var i=0;i<galItems.length;i++){
+      row.push(galItems[i]);sumAr+=galAspect(galItems[i]);
+      var h=(W-galGap*(row.length-1))/sumAr;
+      if(row.length>1&&h<=target){rows.push(row);row=[];sumAr=0;}
+    }
+    if(row.length)rows.push(row);
+    Array.prototype.slice.call(galGrid.querySelectorAll('.gal-row')).forEach(function(rd){rd.parentNode.removeChild(rd);});
+    rows.forEach(function(r){
+      var rowDiv=document.createElement('div');rowDiv.className='gal-row';
+      var s=0;r.forEach(function(it){s+=galAspect(it);});
+      var hh=(W-galGap*(r.length-1))/s;
+      r.forEach(function(it){
+        var wpx=galAspect(it)*hh;
+        it.style.width=wpx+'px';it.style.height=hh+'px';it.style.flex='0 0 '+wpx+'px';
+        rowDiv.appendChild(it);
+      });
+      galGrid.appendChild(rowDiv);
+    });
+  }
+  layoutGallery();
+  var galResizeT;
+  window.addEventListener('resize',function(){clearTimeout(galResizeT);galResizeT=setTimeout(layoutGallery,120);});
+}
 /* Avicultura: ampliar fotografías */
 var aviBox=document.getElementById('aviLightbox');
 var aviLarge=document.getElementById('aviLightboxImage');
