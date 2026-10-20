@@ -353,7 +353,6 @@ body{font-family:'Inter',sans-serif;background:var(--blanco);overflow-x:hidden;c
 .mapa-label h4{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.05em;margin-bottom:.5rem;}
 .mapa-label p{font-size:.85rem;color:rgba(255,255,255,.6);}
 .mapa-pins{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem;justify-content:center;}
-.mapa-pin
 .mapa-pin{
   background:rgba(184,235,221,.10);
   border:1px solid rgba(184,235,221,.30);
@@ -933,6 +932,18 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
 #hoteleria .resto-more li{overflow-wrap:anywhere;}
 #hoteleria .resto-desc p:last-child{margin-bottom:0;}
 @media(min-width:992px) and (max-width:1199px){#mainNav .container{padding-left:1rem;padding-right:1rem;}#mainNav .nav-link{padding-left:.55rem!important;padding-right:.55rem!important;}}
+
+/* ── Naturaleza: tarjetas con imagen a sangre ── */
+#naturaleza .nat-card{padding:0!important;display:flex;flex-direction:column;overflow:hidden;height:100%;transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s;}
+#naturaleza .nat-card:hover{transform:translateY(-6px);background:#fff!important;box-shadow:0 22px 44px -22px rgba(46,42,38,.38);}
+.nat-img{position:relative;aspect-ratio:4/3;overflow:hidden;flex:0 0 auto;background:var(--crema-2);}
+.nat-img img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .8s cubic-bezier(.2,.8,.2,1);}
+.nat-img::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 55%,rgba(18,48,46,.28));}
+#naturaleza .nat-card:hover .nat-img img{transform:scale(1.07);}
+.nat-body{padding:1.4rem 1.5rem 1.7rem;flex:1 1 auto;}
+.nat-body h5{font-size:1.2rem!important;margin-bottom:.6rem;}
+.nat-body p{margin:0;font-size:.9rem;line-height:1.7;}
+@media(max-width:575px){.nat-img{aspect-ratio:16/10;}}
 </style>
 </head>
 <body>
@@ -1083,32 +1094,40 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
     <!-- cards -->
     <div class="row g-4">
       <div class="col-md-6 col-lg-3 reveal">
-        <div class="nat-card">
-          <div class="nat-icon">🌿</div>
-          <h5>Frailejones</h5>
-          <p>Plantas milenarias del páramo, únicas en los Andes. Pueden vivir más de 100 años y son vitales para la captación de agua.</p>
-        </div>
+        <article class="nat-card">
+          <div class="nat-img"><img src="images/galeria/6.png" alt="Frailejones del páramo" loading="lazy"></div>
+          <div class="nat-body">
+            <h5>Frailejones</h5>
+            <p>Plantas milenarias del páramo, únicas en los Andes. Pueden vivir más de 100 años y son vitales para la captación de agua.</p>
+          </div>
+        </article>
       </div>
       <div class="col-md-6 col-lg-3 reveal">
-        <div class="nat-card">
-          <div class="nat-icon">🦆</div>
-          <h5>Pato Andino</h5>
-          <p>El pato colorado andino y otras especies acuáticas hacen del Lago de Tota un paraíso para el avistamiento de aves.</p>
-        </div>
+        <article class="nat-card">
+          <div class="nat-img"><img src="images/avicultura/pato%20andino.jpg" alt="Pato andino" loading="lazy"></div>
+          <div class="nat-body">
+            <h5>Pato Andino</h5>
+            <p>El pato colorado andino y otras especies acuáticas hacen del Lago de Tota un paraíso para el avistamiento de aves.</p>
+          </div>
+        </article>
       </div>
       <div class="col-md-6 col-lg-3 reveal">
-        <div class="nat-card">
-          <div class="nat-icon">💧</div>
-          <h5>Fuente de Vida</h5>
-          <p>El Lago de Tota abastece de agua a más de 500,000 personas en Boyacá. Su conservación es vital para las generaciones futuras.</p>
-        </div>
+        <article class="nat-card">
+          <div class="nat-img"><img src="images/galeria/5.png" alt="Islas del Lago de Tota" loading="lazy"></div>
+          <div class="nat-body">
+            <h5>Fuente de Vida</h5>
+            <p>El Lago de Tota abastece de agua a más de 500,000 personas en Boyacá. Su conservación es vital para las generaciones futuras.</p>
+          </div>
+        </article>
       </div>
       <div class="col-md-6 col-lg-3 reveal">
-        <div class="nat-card">
-          <div class="nat-icon">🏔️</div>
-          <h5>Páramo Vivo</h5>
-          <p>El páramo de Aquitania es una esponja natural que regula el clima regional y es hogar de cientos de especies únicas.</p>
-        </div>
+        <article class="nat-card">
+          <div class="nat-img"><img src="images/lago/paramo-santabarbara.jpg" alt="Páramo de Santa Bárbara" loading="lazy"></div>
+          <div class="nat-body">
+            <h5>Páramo Vivo</h5>
+            <p>El páramo de Aquitania es una esponja natural que regula el clima regional y es hogar de cientos de especies únicas.</p>
+          </div>
+        </article>
       </div>
     </div>
   </div>
@@ -1364,7 +1383,7 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
         <span class="sec-eyebrow" style="color:#8ED1FF">Gastronomía · Aquitania</span>
         <h2>Sabores de Aquitania</h2>
         <p>Descubre la riqueza gastronómica de Aquitania a través de restaurantes que combinan tradición, innovación y paisajes únicos. Cada establecimiento ofrece una experiencia diferente que refleja la identidad cultural y culinaria del municipio.</p>
-        <a class="btn-gastro" href="#gastronomia" data-scroll-to="hoteles"><i class="bi bi-arrow-down-circle"></i>Explorar restaurantes</a>
+         <a class="btn-gastro" href="#gastronomia" data-scroll-to="restaurantes"><i class="bi bi-arrow-down-circle"></i>Explorar restaurantes</a>
       </div>
     </div>
 
@@ -1921,7 +1940,6 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
       </div>
       <div class="gastro-empty" id="birdEmpty">No encontramos aves con ese nombre.</div>
       <nav class="bird-pagination" id="birdPagination" aria-label="Páginas de aves"></nav>
-      <div class="text-center"><a class="btn-volver-inicio" href="#hero"><i class="bi bi-arrow-left"></i>Volver al inicio</a></div>
     </div>
   </div>
 </section>
@@ -1946,13 +1964,13 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
       <div class="gal-item"><img class="gal-bg" src="images/galeria/4.png" alt="Montañas del Lago de Tota" width="683" height="688" loading="lazy" decoding="async"></div>
       <div class="gal-item"><img class="gal-bg" src="images/galeria/5.png" alt="Islas del lago" width="744" height="496" loading="lazy" decoding="async"></div>
       <div class="gal-item"><img class="gal-bg" src="images/galeria/6.png" alt="Frailejones" width="887" height="592" loading="lazy" decoding="async"></div>
-      <div class="gal-item"><img class="gal-bg" src="images/galeria/7.jpg" alt="Cerro de la Cumbre" width="1544" height="966" loading="lazy" decoding="async">
+      <div class="gal-item"><img class="gal-bg" src="images/galeria/7.jpg" alt="Cerro de la Cumbre" width="1544" height="966" loading="lazy" decoding="async"></div>
       <div class="gal-item"><img class="gal-bg" src="images/galeria/17.jpg" alt="Lago de Tota" width="1414" height="573" loading="lazy" decoding="async"></div>
       <div class="gal-item"><img class="gal-bg" src="images/galeria/8.jpg" alt="Actividades en el lago" width="553" height="1011" loading="lazy" decoding="async"></div>
       <div class="gal-item"><img class="gal-bg" src="images/galeria/11.jpeg" alt="Interior de la iglesia" width="889" height="533" loading="lazy" decoding="async"></div>
       <div class="gal-item"><img class="gal-bg" src="images/galeria/10.jpeg" alt="Altar de la iglesia" width="570" height="760" loading="lazy" decoding="async"></div>
       <div class="gal-item"><img class="gal-bg" src="images/galeria/13.jpeg" alt="Iglesia de Aquitania" width="658" height="819" loading="lazy" decoding="async"></div>
-      <div class="gal-item"><img class="gal-bg" src="images/galeria/12.jpeg" alt="Interior de la iglesia de Aquitania" width="545" height="683" loading="lazy" decoding="async">
+      <div class="gal-item"><img class="gal-bg" src="images/galeria/12.jpeg" alt="Interior de la iglesia de Aquitania" width="545" height="683" loading="lazy" decoding="async"></div>
       <div class="gal-item"><img class="gal-bg" src="images/galeria/9.png" alt="Monumento del cebollero" width="350" height="439" loading="lazy" decoding="async"></div>
       <div class="gal-item"><img class="gal-bg" src="images/galeria/14.jpeg" alt="Monumento de la trucha" width="460" height="739" loading="lazy" decoding="async"></div>
       <div class="gal-item"><img class="gal-bg" src="images/galeria/15.jpeg" alt="Paisaje de colinas del Lago de Tota" width="924" height="486" loading="lazy" decoding="async"></div>
