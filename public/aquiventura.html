@@ -86,7 +86,7 @@ body{font-family:'Inter',sans-serif;background:var(--blanco);overflow-x:hidden;c
 ═══════════════════════════════════════ */
 #hero{
   min-height:100vh;
-  background-image:url('images/lago/hero.jpg') !important;
+  background-image:url('images/lago/banner.png') !important;
   background-position:center center !important;
   background-size:cover !important;
   background-repeat:no-repeat !important;
@@ -95,7 +95,7 @@ body{font-family:'Inter',sans-serif;background:var(--blanco);overflow-x:hidden;c
   display:flex;
   align-items:center;
 }
-#hero{background:linear-gradient(rgba(10,37,64,.55),rgba(10,37,64,.72)),url('images/lago/hero.jpg') center/cover no-repeat fixed!important;}
+#hero{background:linear-gradient(rgba(10,37,64,.55),rgba(10,37,64,.72)),url('images/lago/banner.png') center/cover no-repeat fixed!important;}
 .hero-inner{position:relative;z-index:1;padding-top:5rem;}
 .hero-eyebrow{
   font-family:'Outfit',sans-serif;
@@ -351,12 +351,12 @@ body{font-family:'Inter',sans-serif;background:var(--blanco);overflow-x:hidden;c
 .mapa-label{text-align:center;color:#1c19a1be;font-family:'Outfit',sans-serif;}
 .mapa-label i{font-size:3rem;color:#64B5F6;margin-bottom:1rem;display:block;}
 .mapa-label h4{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.05em;margin-bottom:.5rem;}
-.mapa-label p{font-size:.85rem;color:rgba(255,255,255,.6);}
+.mapa-label p{font-size:.85rem;color:rgba(238, 234, 234, 0.6);}
 .mapa-pins{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem;justify-content:center;}
 .mapa-pin{
   background:rgba(184,235,221,.10);
   border:1px solid rgba(184,235,221,.30);
-  color:#E1EFEA;
+  color:#000000;
   border-radius:50px;
   font-family:'Lato',sans-serif;
   font-size:.75rem;
@@ -417,39 +417,11 @@ footer{background:#050D1A;padding:3.5rem 0;text-align:center;}
 .footer-phrase{font-family:'Outfit',sans-serif;font-style:italic;font-size:1rem;color:rgba(255,255,255,.4);margin-bottom:2rem;}
 .footer-copy{font-size:.75rem;color:rgba(255,255,255,.25);}
 
-/* ═══════════════════════════════════════
-   WHATSAPP FLOAT
-═══════════════════════════════════════ */
-.wa-float{
-  position:fixed;bottom:2rem;right:2rem;z-index:999;
-  width:56px;height:56px;border-radius:50%;
-  background:#25D366;color:#fff;
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.6rem;text-decoration:none;
-  box-shadow:0 4px 20px rgba(37,211,102,.4);
-  transition:transform .2s,box-shadow .2s;
-}
-.wa-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.5);color:#fff;}
-
-/* NOTIF */
-.notif{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(100px);background:var(--verde-c);color:#fff;padding:1rem 2rem;border-radius:14px;font-family:'Outfit',sans-serif;font-size:.9rem;font-weight:500;box-shadow:0 8px 30px rgba(0,0,0,.2);opacity:0;transition:all .4s;z-index:9999;}
-.notif.show{transform:translateX(-50%) translateY(0);opacity:1;}
-
-/* forms en secciones blancas */
-.form-control-light{background:var(--beige)!important;border:2px solid rgba(10,37,64,.12)!important;border-radius:12px!important;color:#2c2c2c!important;font-family:'Outfit',sans-serif;}
-.form-control-light:focus{border-color:var(--azul-lago)!important;box-shadow:none!important;}
-.form-label-dark{font-family:'Outfit',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--azul-prof);}
-
-/* star input */
-
-@media(max-width:768px){
-  #mainNav{background:rgba(10,37,64,.95)!important;}
-}
 
 /* ═══════════════════════════════════════
    REAL IMAGES — Lago de Tota
 ═══════════════════════════════════════ */
-#hero{background:linear-gradient(rgba(10,37,64,.55),rgba(10,37,64,.72)),url('images/lago/hero.jpg') center/cover no-repeat fixed!important;}
+#hero{background:linear-gradient(rgba(10,37,64,.55),rgba(10,37,64,.72)),url('images/lago/banner.png') center/cover no-repeat fixed!important;}
 .exp-card-bg{font-size:0!important;background-size:cover!important;background-position:center!important;}
 .bg-e1{background-image:url('/images/lago/isla-sanpedro.jpg')!important;}
 .bg-e2{background-image:url('/images/lago/paramo-santabarbara.jpg')!important;}
@@ -950,9 +922,6 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
 <div id="scrollProgress"></div>
 <div id="auraCursor"></div>
 
-<div class="notif" id="notif">¡Enviado!</div>
-<a href="https://wa.me/573100000000" class="wa-float" target="_blank"><i class="bi bi-whatsapp"></i></a>
-
 <!-- ══════════════════ NAVBAR ══════════════════ -->
 <nav id="mainNav" class="navbar navbar-expand-lg">
   <div class="container">
@@ -1139,7 +1108,7 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
     <div class="text-center mb-5 reveal">
       <span class="sec-eyebrow">Localización</span>
       <h2 class="sec-title light mt-2">Mapa <span style="color:#64B5F6">Interactivo</span></h2>
-      <p class="sec-lead mt-2" style="color:rgba(255,255,255,.6);max-width:480px;margin:0 auto">Explora los puntos turísticos del Lago de Tota y Aquitania.</p>
+      <p class="sec-lead mt-2" style="color:rgb(0, 0, 0);max-width:480px;margin:0 auto">Explora los puntos turísticos del Lago de Tota y Aquitania.</p>
     </div>
     <div class="mapa-frame reveal" style="position:relative;">
       <iframe
