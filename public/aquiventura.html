@@ -922,6 +922,17 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
 #hero .hero-inner{transform:none!important;padding-top:0;width:100%;flex:0 0 auto;}
 #hero .vl-circles{position:relative!important;left:auto;right:auto;bottom:auto!important;margin-top:2.5rem;flex:0 0 auto;}
 @media (max-width:991px){#hero{padding:7rem 0 9rem;}#hero .hero-inner{text-align:center;}#hero .vl-circles{margin-top:2rem;}}
+
+/* ── Notificación y estado del formulario ── */
+.notif{position:fixed;left:50%;bottom:28px;transform:translate(-50%,30px);z-index:3000;max-width:min(92vw,440px);
+  background:var(--tinta,#2E2A26);color:#fff;padding:.95rem 1.4rem;border-radius:2px;font-size:.95rem;line-height:1.4;
+  box-shadow:0 14px 40px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .35s,transform .35s;}
+.notif.show{opacity:1;transform:translate(-50%,0);}
+.notif.error{background:#a63a2b;}
+.form-status{display:none;margin-top:1rem;padding:1rem 1.2rem;border-radius:4px;font-size:.95rem;line-height:1.5;}
+.form-status.ok{display:block;background:#e6f4ee;color:#1d5f48;border:1px solid #9fd3bd;}
+.form-status.err{display:block;background:#fbeae7;color:#8a2d20;border:1px solid #e3a69c;}
+.btn-send[disabled]{opacity:.7;cursor:wait;transform:none;}
 </style>
 </head>
 <body>
@@ -1978,10 +1989,11 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
       </div>
       <div class="col-lg-7 reveal-r">
         <div class="contact-form-box">
-          <form class="row g-3" id="contactForm" action="https://formsubmit.co/aquiaventura3@gmail.com" method="POST" target="hiddenSubmit" onsubmit="return enviarContacto()">
+          <form class="row g-3" id="contactForm" action="https://formsubmit.co/aquiaventura3@gmail.com" method="POST" novalidate>
             <input type="hidden" name="_subject" value="Nuevo mensaje desde Aquiaventura">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_captcha" value="false">
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
             <div class="col-md-6"><label class="form-label">Nombre completo</label><input type="text" class="form-control" id="cNombre" name="Nombre" placeholder="Tu nombre"></div>
             <div class="col-md-6"><label class="form-label">Correo electrónico</label><input type="email" class="form-control" id="cEmail" name="Correo" placeholder="tu@email.com"></div>
             <div class="col-md-6"><label class="form-label">Teléfono</label><input type="tel" class="form-control" id="cTel" name="Teléfono" placeholder="+57 300 000 0000"></div>
@@ -1999,8 +2011,8 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
             </div>
             <div class="col-12"><label class="form-label">Mensaje</label><textarea class="form-control" id="cMensaje" name="Mensaje" rows="4" placeholder="Cuéntanos sobre tu viaje ideal en Aquitania..."></textarea></div>
             <div class="col-12"><button type="submit" class="btn-send" id="btnContacto"><i class="bi bi-send me-2"></i>Enviar y Reservar</button></div>
+            <div class="col-12"><div id="formStatus" class="form-status" role="status" aria-live="polite"></div></div>
           </form>
-          <iframe name="hiddenSubmit" style="display:none;" title="envio"></iframe>
         </div>
       </div>
     </div>
@@ -2051,22 +2063,41 @@ if(natSec)cntObs.observe(natSec);
 
 
 /* NOTIF */
-function showNotif(m){
+function showNotif(m,err){
   const n=document.getElementById('notif');
-  n.textContent=m;n.classList.add('show');
-  setTimeout(()=>n.classList.remove('show'),3500);
+  if(!n)return;
+  n.textContent=m;n.classList.toggle('error',!!err);n.classList.add('show');
+  clearTimeout(showNotif._t);showNotif._t=setTimeout(()=>n.classList.remove('show'),5000);
 }
 
-
-function enviarContacto(){
-  const n=document.getElementById('cNombre').value.trim();
-  const e=document.getElementById('cEmail').value.trim();
-  const m=document.getElementById('cMensaje').value.trim();
-  if(!n||!e||!m){showNotif('⚠️ Completa los campos requeridos');return false;}
-  showNotif('✅ ¡Mensaje enviado! Te contactaremos pronto, '+n+'.');
-  setTimeout(function(){document.getElementById('contactForm').reset();},300);
-  return true;
-}
+/* Formulario de contacto: envío real con confirmación visible */
+(function(){
+  var f=document.getElementById('contactForm');
+  if(!f)return;
+  var btn=document.getElementById('btnContacto');
+  var st=document.getElementById('formStatus');
+  var btnHTML=btn.innerHTML;
+  function status(t,cls){st.className='form-status '+cls;st.textContent=t;}
+  f.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    var n=f.cNombre.value.trim(),e=f.cEmail.value.trim(),m=f.cMensaje.value.trim();
+    if(!n||!e||!m){status('Completa tu nombre, correo y mensaje para poder enviar.','err');showNotif('⚠️ Completa los campos requeridos',true);return;}
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)){status('Escribe un correo electrónico válido.','err');showNotif('⚠️ Correo no válido',true);return;}
+    btn.disabled=true;btn.innerHTML='<i class="bi bi-hourglass-split me-2"></i>Enviando…';st.className='form-status';
+    fetch('https://formsubmit.co/ajax/aquiaventura3@gmail.com',{
+      method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)
+    }).then(function(r){return r.json().catch(function(){return {};}).then(function(d){
+      if(r.ok&&(d.success===true||d.success==='true')){
+        status('✅ ¡Mensaje enviado! Gracias, '+n+'. Te contactaremos pronto.','ok');
+        showNotif('✅ ¡Mensaje enviado! Te contactaremos pronto, '+n+'.');
+        f.reset();
+      }else{throw new Error(d.message||'fail');}
+    });}).catch(function(){
+      status('No pudimos enviar tu mensaje. Inténtalo de nuevo o escríbenos por WhatsApp.','err');
+      showNotif('❌ No se pudo enviar. Intenta de nuevo.',true);
+    }).then(function(){btn.disabled=false;btn.innerHTML=btnHTML;});
+  });
+})();
 
 /* ── Gastronomía: buscador, ver más y volver arriba ── */
 document.querySelectorAll('.btn-vermas').forEach(function(b){
@@ -2377,5 +2408,6 @@ bt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'}
 
 </script>
 <button id="backTop" aria-label="Volver arriba"><i class="bi bi-arrow-up"></i></button>
+<div class="notif" id="notif" role="status" aria-live="polite"></div>
 </body>
 </html>
