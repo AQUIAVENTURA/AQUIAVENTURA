@@ -916,6 +916,12 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
 .nat-body h5{font-size:1.2rem!important;margin-bottom:.6rem;}
 .nat-body p{margin:0;font-size:.9rem;line-height:1.7;}
 @media(max-width:575px){.nat-img{aspect-ratio:16/10;}}
+
+/* ── HERO: título y círculos en flujo normal (nunca se superponen) ── */
+#hero{flex-direction:column;justify-content:center;align-items:stretch;padding:7rem 0 10.5rem;}
+#hero .hero-inner{transform:none!important;padding-top:0;width:100%;flex:0 0 auto;}
+#hero .vl-circles{position:relative!important;left:auto;right:auto;bottom:auto!important;margin-top:2.5rem;flex:0 0 auto;}
+@media (max-width:991px){#hero{padding:7rem 0 9rem;}#hero .hero-inner{text-align:center;}#hero .vl-circles{margin-top:2rem;}}
 </style>
 </head>
 <body>
@@ -991,7 +997,7 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
       <div class="col-lg-5 reveal-l">
         <span class="sec-eyebrow">Raíces &amp; Legado</span>
         <h2 class="sec-title mt-2 mb-4">Historia de <br>Aquitania</h2>
-        <p class="sec-lead mb-4">Desde las orillas del Lago de Tota, los muiscas construyeron una civilización espiritual profunda. Cada ola del lago susurra siglos de historia, tradición y conexión con la tierra.</p>
+        <p class="sec-lead mb-4">Cada ola del lago de Tota susurra siglos de historia, tradición y conexión con la tierra.</p>
 
         <div class="hist-timeline">
           <div class="hist-item">
@@ -1008,29 +1014,29 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
           </div>
           <div class="hist-item">
             <div class="hist-year">Hoy</div>
-            <div class="hist-text"><h5>Destino Eco-Turístico</h5><p>Aquitania y el Lago de Tota se consolidan como uno de los destinos naturales más importantes de Colombia.</p></div>
+            <div class="hist-text"><h5>Destino Eco-Turístico</h5><p>Aquitania y el Lago de Tota se consolidan como uno de los destinos naturales más importantes de Boyacá.</p></div>
           </div>
         </div>
       </div>
       <div class="col-lg-7 reveal-r">
         <div class="hist-feature mb-4">
-          <div class="big-num">Tota</div>
+          <div class="big-num">Lago de Tota</div>
           
-          <p>El manantial natural de agua dulce más grande de Colombia y el segundo más alto de Sudamérica. A 32 km al sur de Sogamoso, con temperaturas de 10°C a 24°C, el Lago de Tota fusiona el azul intenso de sus aguas con el verde de las montañas. Sus profundidades albergan trucha arcoíris y pez capitán, mientras que en sus orillas habitan más de 100 especies de aves, entre ellas el pato pico de oro y el cucarachero de pantano.</p>
+          <p>El manantial natural de agua dulce más grande de Colombia y el segundo más alto de Sudamérica. A 32 km al sur de Sogamoso, con temperaturas de 0°C a 12°C, el Lago de Tota fusiona el azul intenso de sus aguas con el verde de las montañas. Sus profundidades albergan trucha arcoíris, mientras que en sus orillas habitan más de 100 especies de aves.</p>
         </div>
         <div class="row g-3">
           <div class="col-6">
             <div class="p-3 rounded-3" style="background:var(--beige);border:1px solid rgba(10,37,64,.08);">
               <div style="font-size:1.8rem;margin-bottom:.5rem;">🏔️</div>
               <h6 style="font-family:'Outfit',sans-serif;font-weight:700;color:var(--azul-prof);font-size:.9rem;">Páramo Andino</h6>
-              <p style="font-size:.82rem;color:#666;margin:0;line-height:1.6;">Ecosistema único en el mundo con frailejones milenarios y lagunas de alta montaña.</p>
+              <p style="font-size:.82rem;color:#666;margin:0;line-height:1.6;">Ecosistema único en el mundo con frailejones y lagunas de alta montaña.</p>
             </div>
           </div>
           <div class="col-6">
             <div class="p-3 rounded-3" style="background:var(--beige);border:1px solid rgba(10,37,64,.08);">
               <div style="font-size:1.8rem;margin-bottom:.5rem;">🐟</div>
               <h6 style="font-family:'Outfit',sans-serif;font-weight:700;color:var(--azul-prof);font-size:.9rem;">Trucha de Tota</h6>
-              <p style="font-size:.82rem;color:#666;margin:0;line-height:1.6;">Las aguas frías y cristalinas producen la trucha más apreciada de Colombia.</p>
+              <p style="font-size:.82rem;color:#666;margin:0;line-height:1.6;">Las aguas frías y cristalinas producen la trucha arcoíris más apreciada del municipio de Aquitania.</p>
             </div>
           </div>
           <div class="col-6">
@@ -1044,7 +1050,7 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
             <div class="p-3 rounded-3" style="background:var(--beige);border:1px solid rgba(10,37,64,.08);">
               <div style="font-size:1.8rem;margin-bottom:.5rem;">🌿</div>
               <h6 style="font-family:'Outfit',sans-serif;font-weight:700;color:var(--azul-prof);font-size:.9rem;">Flora Endémica</h6>
-              <p style="font-size:.82rem;color:#666;margin:0;line-height:1.6;">Frailejones, musgos y plantas medicinales en uno de los páramos más ricos del mundo.</p>
+              <p style="font-size:.82rem;color:#666;margin:0;line-height:1.6;">Frailejones, musgos y plantas medicinales en uno de los páramos más ricos de Boyacá.</p>
             </div>
           </div>
         </div>
@@ -1058,7 +1064,7 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
     <div class="text-center mb-5 reveal">
       <span class="sec-eyebrow" style="color:var(--verde-s);">Ecosistema &amp; Biodiversidad</span>
       <h2 class="sec-title light mt-2">Naturaleza y <span style="color:var(--verde-s)">Biodiversidad</span></h2>
-      <p class="sec-lead mx-auto mt-3" style="max-width:540px;color:rgba(255,255,255,.7);">El Lago de Tota y el páramo de Aquitania albergan uno de los ecosistemas más frágiles y biodiversos del planeta.</p>
+      <p class="sec-lead mx-auto mt-3" style="max-width:540px;color:rgba(255,255,255,.7);">El Lago de Tota y el páramo de Aquitania albergan uno de los ecosistemas más frágiles y biodiversos de Boyacá.</p>
     </div>
     <!-- cards -->
     <div class="row g-4">
@@ -1123,10 +1129,10 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
         <i class="bi bi-geo-alt-fill me-2"></i>Ver Aquitania en Google Maps
       </a>
       <div class="mapa-pins" style="margin-top:1.5rem;">
-        <span class="mapa-pin"><i class="bi bi-anchor"></i>Muelle Principal</span>
+        <span class="mapa-pin"><i class="bi bi-anchor"></i>Parque Principal</span>
         <span class="mapa-pin"><i class="bi bi-tree"></i>Isla San Pedro</span>
         <span class="mapa-pin"><i class="bi bi-mountain"></i>Monte Tabor</span>
-        <span class="mapa-pin"><i class="bi bi-water"></i>Playa Potrero</span>
+        <span class="mapa-pin"><i class="bi bi-water"></i>Playa Blanca</span>
         <span class="mapa-pin"><i class="bi bi-cloud-snow"></i>Páramo Santa Bárbara</span>
         <span class="mapa-pin"><i class="bi bi-droplet"></i>Laguna Los Patos</span>
       </div>
@@ -1378,7 +1384,7 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
       </div>
       <div class="col-md-6 col-lg-6 reveal resto-item" data-name="restaurante lucho comida típica">
         <div class="resto-card">
-          <div class="resto-img logo" style="background-image:url('images/gastronomia/r3.jpg')"><div class="resto-tags"><span class="resto-tag">Comida típica</span></div></div>
+          <div class="resto-img logo" style="background-image:url('images/gastronomia/r3.jpg')"><div class="resto-tags"><span class="resto-tag">Comida típica</span><span class="resto-tag">Trucha</span></div></div>
           <div class="resto-body">
             <div class="resto-name">Restaurante Lucho</div>
             <div class="resto-desc">Reconocido por más de cuatro décadas de trayectoria, ofrece platos tradicionales con especial énfasis en la Trucha Arco Iris preparada en diferentes estilos, además de un ambiente familiar y acogedor.</div>
@@ -1390,7 +1396,7 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
       </div>
       <div class="col-md-6 col-lg-6 reveal resto-item" data-name="barbacoa boyacense parrilla comida típica">
         <div class="resto-card">
-          <div class="resto-img logo" style="background-image:url('images/gastronomia/r4.jpg')"><div class="resto-tags"><span class="resto-tag">Parrilla</span><span class="resto-tag">Comida típica</span></div></div>
+          <div class="resto-img logo" style="background-image:url('images/gastronomia/r4.jpg')"><div class="resto-tags"><span class="resto-tag">Comida típica</span><span class="resto-tag">Parrilla</span></div></div>
           <div class="resto-body">
             <div class="resto-name">Barbacoa Boyacense</div>
             <div class="resto-desc">Especializado en carnes, pescados y platos típicos boyacenses. Su especialidad es la Parrillada Boyacense y ofrece una vista privilegiada hacia el Lago de Tota.</div>
@@ -1569,7 +1575,8 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
     <div class="avi-hero reveal">
       <div class="gastro-hero-in">
         <span class="sec-eyebrow" style="color:#8ED1FF">Aviturismo · Lago de Tota</span>
-        <h2>Primeras aves</h2>
+        <h2>Aves </h2>
+        <p>Te invitamos a descubrir la fascinante avifauna que habita en el Lago de Tota. Aunque en la región se registran alrededor de 200 especies de aves, aquí te presentamos una selección de las más emblemáticas. ¡Anímate a explorarlas y vive la experiencia!</p>
         <a class="btn-gastro" href="#avicultura" data-scroll-to="aves"><i class="bi bi-arrow-down-circle"></i>Explorar aves</a>
       </div>
     </div>
@@ -1908,14 +1915,14 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
       <h2 class="sec-title light mt-2">Galería <span style="color:#64B5F6">Inmersiva</span></h2>
     </div>
     <div class="gal-grid reveal">
-      <div class="gal-item"><img class="gal-bg" src="images/lago/tota.jpeg" alt="Panorámica del Lago de Tota" width="1761" height="798" loading="lazy" decoding="async"><div class="gal-ov"><span class="gal-lbl">Lago de Tota</span></div></div>
-      <div class="gal-item"><img class="gal-bg" src="images/lago/paramo-guane.jpg" alt="Páramo Guane y frailejones" width="1376" height="1035" loading="lazy" decoding="async"><div class="gal-ov"><span class="gal-lbl">Frailejones</span></div></div>
-      <div class="gal-item"><img class="gal-bg" src="images/lago/lancha.jpg" alt="Lancha en el Lago de Tota" width="894" height="673" loading="lazy" decoding="async"><div class="gal-ov"><span class="gal-lbl">Actividades Náuticas</span></div></div>
-      <div class="gal-item"><img class="gal-bg" src="images/lago/isla-sanpedro.jpg" alt="Isla San Pedro" width="1789" height="833" loading="lazy" decoding="async"><div class="gal-ov"><span class="gal-lbl">Paisajes del lago</span></div></div>
-      <div class="gal-item"><img class="gal-bg" src="images/lago/comunidad.jpg" alt="Comunidad de Aquitania" width="999" height="749" loading="lazy" decoding="async"><div class="gal-ov"><span class="gal-lbl">Cultura Campesina</span></div></div>
-      <div class="gal-item"><img class="gal-bg" src="images/lago/monte-tabor.jpg" alt="Monte Tabor" width="1137" height="853" loading="lazy" decoding="async"><div class="gal-ov"><span class="gal-lbl">Senderismo</span></div></div>
-      <div class="gal-item"><img class="gal-bg" src="images/lago/santuario-cumbre.jpg" alt="Santuario de la Cumbre" width="450" height="338" loading="lazy" decoding="async"><div class="gal-ov"><span class="gal-lbl">Santuario de la Cumbre</span></div></div>
-      <div class="gal-item"><img class="gal-bg" src="images/lago/santuario-peninsula.jpg" alt="Santuario de la Península" width="659" height="439" loading="lazy" decoding="async"><div class="gal-ov"><span class="gal-lbl">Santuario de la Península</span></div></div>
+      <div class="gal-item"><img class="gal-bg" src="images/lago/tota.jpeg" alt="Panorámica del Lago de Tota" width="1761" height="798" loading="lazy" decoding="async"></div>
+      <div class="gal-item"><img class="gal-bg" src="images/lago/paramo-guane.jpg" alt="Páramo Guane y frailejones" width="1376" height="1035" loading="lazy" decoding="async"></div>
+      <div class="gal-item"><img class="gal-bg" src="images/lago/lancha.jpg" alt="Lancha en el Lago de Tota" width="894" height="673" loading="lazy" decoding="async"></div>
+      <div class="gal-item"><img class="gal-bg" src="images/lago/isla-sanpedro.jpg" alt="Isla San Pedro" width="1789" height="833" loading="lazy" decoding="async"></div>
+      <div class="gal-item"><img class="gal-bg" src="images/lago/comunidad.jpg" alt="Comunidad de Aquitania" width="999" height="749" loading="lazy" decoding="async"></div>
+      <div class="gal-item"><img class="gal-bg" src="images/lago/monte-tabor.jpg" alt="Monte Tabor" width="1137" height="853" loading="lazy" decoding="async"></div>
+      <div class="gal-item"><img class="gal-bg" src="images/lago/santuario-cumbre.jpg" alt="Santuario de la Cumbre" width="450" height="338" loading="lazy" decoding="async"></div>
+      <div class="gal-item"><img class="gal-bg" src="images/lago/santuario-peninsula.jpg" alt="Santuario de la Península" width="659" height="439" loading="lazy" decoding="async"></div>
       <div class="gal-item"><img class="gal-bg" src="images/galeria/3.png" alt="Atardecer en el Lago de Tota" width="1275" height="709" loading="lazy" decoding="async"></div>
       <div class="gal-item"><img class="gal-bg" src="images/galeria/4.png" alt="Montañas del Lago de Tota" width="683" height="688" loading="lazy" decoding="async"></div>
       <div class="gal-item"><img class="gal-bg" src="images/galeria/5.png" alt="Islas del lago" width="744" height="496" loading="lazy" decoding="async"></div>
@@ -1967,7 +1974,6 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
         <div class="d-flex flex-column gap-3 mb-4">
           <div class="c-row"><div class="c-icon">📍</div><span>Aquitania, Boyacá, Colombia</span></div>
           <div class="c-row"><div class="c-icon">📧</div><span>aquiaventura3@gmail.com</span></div>
-          <div class="c-row"><div class="c-icon">🕐</div><span>Lun – Dom · 6am – 8pm</span></div>
         </div>
       </div>
       <div class="col-lg-7 reveal-r">
@@ -2140,12 +2146,19 @@ if(galGrid){
       var h=(W-galGap*(row.length-1))/sumAr;
       if(row.length>1&&h<=target){rows.push(row);row=[];sumAr=0;}
     }
-    if(row.length)rows.push(row);
+    if(row.length){
+      var sl=0;row.forEach(function(it){sl+=galAspect(it);});
+      var hl=(W-galGap*(row.length-1))/sl;
+      /* última fila incompleta: si quedaría gigante, se une a la fila anterior */
+      if(hl>target*1.25&&rows.length)rows[rows.length-1]=rows[rows.length-1].concat(row);
+      else rows.push(row);
+    }
     Array.prototype.slice.call(galGrid.querySelectorAll('.gal-row')).forEach(function(rd){rd.parentNode.removeChild(rd);});
     rows.forEach(function(r){
       var rowDiv=document.createElement('div');rowDiv.className='gal-row';
       var s=0;r.forEach(function(it){s+=galAspect(it);});
-      var hh=(W-galGap*(r.length-1))/s;
+      var hh=Math.min((W-galGap*(r.length-1))/s,target*1.25);
+      if(hh<(W-galGap*(r.length-1))/s)rowDiv.style.justifyContent='center';
       r.forEach(function(it){
         var wpx=galAspect(it)*hh;
         it.style.width=wpx+'px';it.style.height=hh+'px';it.style.flex='0 0 '+wpx+'px';
