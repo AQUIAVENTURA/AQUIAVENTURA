@@ -933,6 +933,9 @@ section.page-in{animation:pageIn .5s cubic-bezier(.2,.8,.2,1);}
 .form-status.ok{display:block;background:#e6f4ee;color:#1d5f48;border:1px solid #9fd3bd;}
 .form-status.err{display:block;background:#fbeae7;color:#8a2d20;border:1px solid #e3a69c;}
 .btn-send[disabled]{opacity:.7;cursor:wait;transform:none;}
+
+/* Galería: sin capas 3D que retrasen el pintado de las fotos */
+.gal-item{will-change:auto!important;transform-style:flat!important;}
 </style>
 </head>
 <body>
@@ -2406,6 +2409,21 @@ bt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'}
   }
 })();
 
+
+/* Galería: precargar fotos (con lazy en una sección oculta no cargan hasta interactuar) */
+(function(){
+  function precargarGaleria(){
+    document.querySelectorAll('#galeria .gal-bg').forEach(function(img){
+      img.loading='eager';img.decoding='async';
+      if(img.decode)img.decode().catch(function(){});
+    });
+  }
+  if(document.readyState==='complete')setTimeout(precargarGaleria,300);
+  else window.addEventListener('load',function(){
+    (window.requestIdleCallback||function(f){setTimeout(f,600);})(precargarGaleria);
+  });
+  window.addEventListener('hashchange',function(){if(location.hash==='#galeria')precargarGaleria();});
+})();
 </script>
 <button id="backTop" aria-label="Volver arriba"><i class="bi bi-arrow-up"></i></button>
 <div class="notif" id="notif" role="status" aria-live="polite"></div>
